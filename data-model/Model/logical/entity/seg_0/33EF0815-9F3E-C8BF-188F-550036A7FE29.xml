@@ -1,0 +1,75 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="33EF0815-9F3E-C8BF-188F-550036A7FE29" name="AYT_ROOM">
+<createdBy>user</createdBy>
+<createdTime>2025-03-28 20:45:10 UTC</createdTime>
+<ownerDesignName>Model</ownerDesignName>
+<engineerTo>
+<item key="E3F8EAA8-66CA-F54D-804E-AF7E2719E99E" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="ROOM_ID" id="5258136F-7830-3620-43F5-E5300709DF53">
+<createdBy>user</createdBy>
+<createdTime>2025-03-28 20:45:17 UTC</createdTime>
+<commentInRDBMS><![CDATA[Unique Identifier of the Room. The ID shows which floor the room is on]]></commentInRDBMS>
+<ownerDesignName>Model</ownerDesignName>
+<engineerTo>
+<item key="E3F8EAA8-66CA-F54D-804E-AF7E2719E99E" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>4</dataTypeSize>
+<ownDataTypeParameters>4,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="CAPACITY" id="55B29270-0A42-E60C-3BDB-D5FAF34E6441">
+<createdBy>user</createdBy>
+<createdTime>2025-03-28 20:52:20 UTC</createdTime>
+<commentInRDBMS><![CDATA[Capacity of the Room. Max Room capacity assumed to be 9]]></commentInRDBMS>
+<ownerDesignName>Model</ownerDesignName>
+<engineerTo>
+<item key="E3F8EAA8-66CA-F54D-804E-AF7E2719E99E" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>1</dataTypePrecision>
+<ownDataTypeParameters>,1,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="DESC" id="7156728D-9F9B-87E7-A4DA-57D707B513AC">
+<createdBy>user</createdBy>
+<createdTime>2025-03-28 20:57:46 UTC</createdTime>
+<commentInRDBMS><![CDATA[Brief Description of the room]]></commentInRDBMS>
+<ownerDesignName>Model</ownerDesignName>
+<engineerTo>
+<item key="E3F8EAA8-66CA-F54D-804E-AF7E2719E99E" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100</dataTypeSize>
+<ownDataTypeParameters>100,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="F46A56B2-AA60-DECF-471D-1E03CC8252D8" name="YAT_STUDY_ROOM PK">
+<createdBy>user</createdBy>
+<createdTime>2025-03-28 20:45:34 UTC</createdTime>
+<ownerDesignName>Model</ownerDesignName>
+<engineerTo>
+<item key="E3F8EAA8-66CA-F54D-804E-AF7E2719E99E" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>5258136F-7830-3620-43F5-E5300709DF53</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>
