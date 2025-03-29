@@ -1,7 +1,7 @@
 <?xml version = '1.0' encoding = 'UTF-8'?>
-<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="9ECF15CE-06BB-A616-33EB-123038C7852B" name="AYT_ID">
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="2CD9E77B-7DEE-5FD1-5804-99321EC816B4" name="AYT_PAY">
 <createdBy>user</createdBy>
-<createdTime>2025-03-28 20:40:58 UTC</createdTime>
+<createdTime>2025-03-29 14:13:17 UTC</createdTime>
 <ownerDesignName>Model</ownerDesignName>
 <engineerTo>
 <item key="E3F8EAA8-66CA-F54D-804E-AF7E2719E99E" value="true"/>
@@ -15,57 +15,60 @@
 <minVolumes>0</minVolumes>
 <normalForm>Third</normalForm>
 <attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
-<Attribute name="ID_TYPE" id="048A67A1-FDF8-9109-E623-70D7F2561ED0">
+<Attribute name="PAY_ID" id="F0914C52-C774-D35A-87E7-59BBA8161D8F">
 <createdBy>user</createdBy>
-<createdTime>2025-03-28 20:41:07 UTC</createdTime>
-<commentInRDBMS><![CDATA[Unique Identifier for the Identification Types]]></commentInRDBMS>
+<createdTime>2025-03-29 14:13:24 UTC</createdTime>
+<commentInRDBMS><![CDATA[Unique Identifier for Payment]]></commentInRDBMS>
 <ownerDesignName>Model</ownerDesignName>
 <engineerTo>
 <item key="E3F8EAA8-66CA-F54D-804E-AF7E2719E99E" value="true"/>
 </engineerTo>
-<use>0</use>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<ownDataTypeParameters>,10,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="DATE" id="63518810-C682-345F-C5E1-85A8BD2E4E7C">
+<createdBy>user</createdBy>
+<createdTime>2025-03-29 14:13:44 UTC</createdTime>
+<commentInRDBMS><![CDATA[The date of the payment]]></commentInRDBMS>
+<ownerDesignName>Model</ownerDesignName>
+<engineerTo>
+<item key="E3F8EAA8-66CA-F54D-804E-AF7E2719E99E" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="ID_NAME" id="4C24E819-7467-D323-F02C-4842748F763F">
+<Attribute name="AMOUNT" id="E9E90064-CCBE-8CA5-AEDA-EB3F3454AC76">
 <createdBy>user</createdBy>
-<createdTime>2025-03-28 20:41:18 UTC</createdTime>
-<commentInRDBMS><![CDATA[Name of the Identification Types]]></commentInRDBMS>
+<createdTime>2025-03-29 14:13:57 UTC</createdTime>
+<commentInRDBMS><![CDATA[Amount Paid]]></commentInRDBMS>
 <ownerDesignName>Model</ownerDesignName>
 <engineerTo>
 <item key="E3F8EAA8-66CA-F54D-804E-AF7E2719E99E" value="true"/>
 </engineerTo>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
-<logicalDatatype>LOGDT024</logicalDatatype>
-<dataTypeSize>30</dataTypeSize>
-<ownDataTypeParameters>30,,</ownDataTypeParameters>
-</Attribute>
-<Attribute name="DESC" id="73B63DB4-0684-8016-16A2-FC0CDB7C0068">
-<createdBy>user</createdBy>
-<createdTime>2025-03-28 20:41:58 UTC</createdTime>
-<commentInRDBMS><![CDATA[Description of the Identification Type]]></commentInRDBMS>
-<ownerDesignName>Model</ownerDesignName>
-<engineerTo>
-<item key="E3F8EAA8-66CA-F54D-804E-AF7E2719E99E" value="true"/>
-</engineerTo>
-<useDomainConstraints>false</useDomainConstraints>
-<use>1</use>
-<logicalDatatype>LOGDT024</logicalDatatype>
-<dataTypeSize>200</dataTypeSize>
-<ownDataTypeParameters>200,,</ownDataTypeParameters>
+<logicalDatatype>LOGDT043</logicalDatatype>
+<dataTypePrecision>6</dataTypePrecision>
+<dataTypeScale>2</dataTypeScale>
+<ownDataTypeParameters>,6,2</ownDataTypeParameters>
 </Attribute>
 </attributes>
 <identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
-<identifier id="89DA50D1-2290-7255-E6C8-2BCFD2BD24A7" name="YAT_ID PK">
+<identifier id="C5927819-199D-BD56-2B77-5D997279FB5E" name="AYT_PAYMENT PK">
 <createdBy>user</createdBy>
-<createdTime>2025-03-28 20:41:10 UTC</createdTime>
+<createdTime>2025-03-29 14:13:35 UTC</createdTime>
 <ownerDesignName>Model</ownerDesignName>
 <engineerTo>
 <item key="E3F8EAA8-66CA-F54D-804E-AF7E2719E99E" value="true"/>
 </engineerTo>
 <pk>true</pk>
 <usedAttributes>
-<attributeRef>048A67A1-FDF8-9109-E623-70D7F2561ED0</attributeRef>
+<attributeRef>F0914C52-C774-D35A-87E7-59BBA8161D8F</attributeRef>
 </usedAttributes>
 </identifier>
 </identifiers>

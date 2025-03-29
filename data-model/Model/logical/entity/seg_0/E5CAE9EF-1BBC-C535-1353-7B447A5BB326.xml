@@ -1,0 +1,105 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="E5CAE9EF-1BBC-C535-1353-7B447A5BB326" name="AYT_INVOICE">
+<createdBy>user</createdBy>
+<createdTime>2025-03-29 14:00:27 UTC</createdTime>
+<ownerDesignName>Model</ownerDesignName>
+<engineerTo>
+<item key="E3F8EAA8-66CA-F54D-804E-AF7E2719E99E" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="INVOICE_ID" id="815E8A6E-8604-B161-F9DC-B418FB68F67C">
+<createdBy>user</createdBy>
+<createdTime>2025-03-29 14:00:35 UTC</createdTime>
+<commentInRDBMS><![CDATA[Unique Identifer of the Invoice]]></commentInRDBMS>
+<ownerDesignName>Model</ownerDesignName>
+<engineerTo>
+<item key="E3F8EAA8-66CA-F54D-804E-AF7E2719E99E" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>8</dataTypePrecision>
+<ownDataTypeParameters>,8,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="INVOICE_DATE" id="8EDAFDE8-8E09-548E-962E-53E381127AD7">
+<createdBy>user</createdBy>
+<createdTime>2025-03-29 14:04:25 UTC</createdTime>
+<commentInRDBMS><![CDATA[Date the Invoice was generated]]></commentInRDBMS>
+<ownerDesignName>Model</ownerDesignName>
+<engineerTo>
+<item key="E3F8EAA8-66CA-F54D-804E-AF7E2719E99E" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="TOTAL_AMOUNT" id="A3A5C191-FB64-DFC9-E159-13BBB4EE41E0">
+<createdBy>user</createdBy>
+<createdTime>2025-03-29 14:04:43 UTC</createdTime>
+<commentInRDBMS><![CDATA[Total Due Amount for the invoice]]></commentInRDBMS>
+<ownerDesignName>Model</ownerDesignName>
+<engineerTo>
+<item key="E3F8EAA8-66CA-F54D-804E-AF7E2719E99E" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT043</logicalDatatype>
+<dataTypePrecision>6</dataTypePrecision>
+<dataTypeScale>2</dataTypeScale>
+<ownDataTypeParameters>,6,2</ownDataTypeParameters>
+</Attribute>
+<Attribute name="RENTAL_ID" id="C3F5E6B8-3931-A3E7-8E0A-554BA7A43DC1">
+<createdBy>user</createdBy>
+<createdTime>2025-03-29 16:02:15 UTC</createdTime>
+<generatorID>B937A007-65C4-AE42-FA3A-49CDC492221C</generatorID>
+<ownerDesignName>Model</ownerDesignName>
+<engineerTo>
+<item key="E3F8EAA8-66CA-F54D-804E-AF7E2719E99E" value="true"/>
+</engineerTo>
+<referedAttribute>BFD67C74-8B08-AEF1-8D08-D3D30ACDC966</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="PAY_ID" id="039AB90E-AFC5-289E-C87F-D0434B63471E">
+<createdBy>user</createdBy>
+<createdTime>2025-03-29 16:02:33 UTC</createdTime>
+<generatorID>596843C7-33F0-4C47-3F44-F37C52A51F56</generatorID>
+<ownerDesignName>Model</ownerDesignName>
+<engineerTo>
+<item key="E3F8EAA8-66CA-F54D-804E-AF7E2719E99E" value="true"/>
+</engineerTo>
+<referedAttribute>F0914C52-C774-D35A-87E7-59BBA8161D8F</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="C5EA3540-270B-0FBF-CB3C-9141C4363A69" name="AYT_INVOICE PK">
+<createdBy>user</createdBy>
+<createdTime>2025-03-29 14:00:46 UTC</createdTime>
+<ownerDesignName>Model</ownerDesignName>
+<engineerTo>
+<item key="E3F8EAA8-66CA-F54D-804E-AF7E2719E99E" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>815E8A6E-8604-B161-F9DC-B418FB68F67C</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

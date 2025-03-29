@@ -1,0 +1,90 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="E088D7E6-62E2-6FB6-4066-C4C6EE4BAAEC" name="AYT_TYPE_PAY">
+<createdBy>user</createdBy>
+<createdTime>2025-03-29 16:09:51 UTC</createdTime>
+<generatorID>8316953F-FD42-2F9F-0EB3-A111C0058674</generatorID>
+<ownerDesignName>Model</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="INST_NUM" id="E78391CE-3F66-7400-A9F9-F256CAF05BF1">
+<createdBy>user</createdBy>
+<createdTime>2025-03-29 16:09:51 UTC</createdTime>
+<commentInRDBMS><![CDATA[Instrumentation Number]]></commentInRDBMS>
+<generatorID>2459FD95-0889-AB55-ECF5-D68E51554126</generatorID>
+<ownerDesignName>Model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<ownDataTypeParameters>,10,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="AYT_PAY_PAY_ID" id="1AE7FD66-6EFC-7B19-38B2-DA49E4E4267F">
+<createdBy>user</createdBy>
+<createdTime>2025-03-29 16:09:51 UTC</createdTime>
+<generatorID>F3D9713A-4204-2835-DE7A-4913E5B24754</generatorID>
+<ownerDesignName>Model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="BFDE5D42-75D6-F55C-73A2-3748A9546F1D" referredColumn="068A6706-E5F5-44C9-B527-F825590726A6"/>
+</associations>
+</Column>
+<Column name="AYT_PAY_TYPE_TYPE_ID" id="5CE28246-1F3F-E1FB-D8E3-6C3BD9C89794">
+<createdBy>user</createdBy>
+<createdTime>2025-03-29 16:09:51 UTC</createdTime>
+<generatorID>C41149E0-5F27-C413-5B15-21F2494417A9</generatorID>
+<ownerDesignName>Model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>1</dataTypePrecision>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="ABC47DA0-1546-AFC4-C539-E87A39959418" referredColumn="F04991A0-371C-552E-8166-6D32CC2C1623"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="73028B0B-86A0-96CC-1995-C6C6E87C6168" name="AYT_TYPE_PAY_PK">
+<createdBy>user</createdBy>
+<createdTime>2025-03-29 16:09:51 UTC</createdTime>
+<generatorID>E5D82963-F149-834B-3414-A60131BDD53B</generatorID>
+<ownerDesignName>Model</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+</ind_PK_UK>
+<ind_PK_UK id="BFB5021E-C935-30CD-3489-46F46C516F36" name="AYT_TYPE_PAY_AYT_PAY_FK">
+<createdBy>user</createdBy>
+<createdTime>2025-03-29 16:09:51 UTC</createdTime>
+<generatorID>4673AAF6-2912-C95A-71C3-DD95D4499909</generatorID>
+<ownerDesignName>Model</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="1AE7FD66-6EFC-7B19-38B2-DA49E4E4267F"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="350DFB6B-FB12-1C25-B693-E424A765B71B" name="AYT_TYPE_PAY_AYT_PAY_TYPE_FK">
+<createdBy>user</createdBy>
+<createdTime>2025-03-29 16:09:51 UTC</createdTime>
+<generatorID>AEDEE423-3381-E937-1813-A2E12C12FE21</generatorID>
+<ownerDesignName>Model</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="5CE28246-1F3F-E1FB-D8E3-6C3BD9C89794"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

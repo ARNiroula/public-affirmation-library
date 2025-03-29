@@ -1,0 +1,130 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="530B0E2B-7EDA-9910-92E5-ACA11AC55DF3" name="AYT_RENTAL">
+<createdBy>user</createdBy>
+<createdTime>2025-03-29 13:56:00 UTC</createdTime>
+<ownerDesignName>Model</ownerDesignName>
+<engineerTo>
+<item key="E3F8EAA8-66CA-F54D-804E-AF7E2719E99E" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="RENTAL_ID" id="BFD67C74-8B08-AEF1-8D08-D3D30ACDC966">
+<createdBy>user</createdBy>
+<createdTime>2025-03-29 13:56:06 UTC</createdTime>
+<commentInRDBMS><![CDATA[Unique Identifier for Rental]]></commentInRDBMS>
+<ownerDesignName>Model</ownerDesignName>
+<engineerTo>
+<item key="E3F8EAA8-66CA-F54D-804E-AF7E2719E99E" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<ownDataTypeParameters>,10,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="BORROW_DATE" id="90D0F958-9FD0-298C-E5EA-5623249AD6D9">
+<createdBy>user</createdBy>
+<createdTime>2025-03-29 13:56:33 UTC</createdTime>
+<commentInRDBMS><![CDATA[Borrow Date of the Book Rental]]></commentInRDBMS>
+<ownerDesignName>Model</ownerDesignName>
+<engineerTo>
+<item key="E3F8EAA8-66CA-F54D-804E-AF7E2719E99E" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="EXPECTED_DATE" id="DDD407D1-75C3-C4FE-539B-A729E426C2E2">
+<createdBy>user</createdBy>
+<createdTime>2025-03-29 13:59:12 UTC</createdTime>
+<commentInRDBMS><![CDATA[Expected date the book is to be returned]]></commentInRDBMS>
+<ownerDesignName>Model</ownerDesignName>
+<engineerTo>
+<item key="E3F8EAA8-66CA-F54D-804E-AF7E2719E99E" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="ACTUAL_DATE" id="C9F6B3FC-5492-6B2D-2272-CFD2B26087B9">
+<createdBy>user</createdBy>
+<createdTime>2025-03-29 13:59:54 UTC</createdTime>
+<commentInRDBMS><![CDATA[Actual Date when the book was returned]]></commentInRDBMS>
+<ownerDesignName>Model</ownerDesignName>
+<engineerTo>
+<item key="E3F8EAA8-66CA-F54D-804E-AF7E2719E99E" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="CUST_ID" id="2757D018-464A-8C5F-5476-EE5F4A31D07A">
+<createdBy>user</createdBy>
+<createdTime>2025-03-29 15:57:08 UTC</createdTime>
+<generatorID>DFFCCB95-0709-E851-79CC-432095E6330C</generatorID>
+<ownerDesignName>Model</ownerDesignName>
+<engineerTo>
+<item key="E3F8EAA8-66CA-F54D-804E-AF7E2719E99E" value="true"/>
+</engineerTo>
+<referedAttribute>A8F5DA44-3777-5C75-AF0E-7DF75C524138</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="COPY_ID" id="8209DF33-1035-0D91-A3D6-DF1D88693B8A">
+<createdBy>user</createdBy>
+<createdTime>2025-03-29 16:00:02 UTC</createdTime>
+<generatorID>B1799FC8-7AD0-754A-37E0-D0837E054ADA</generatorID>
+<ownerDesignName>Model</ownerDesignName>
+<engineerTo>
+<item key="E3F8EAA8-66CA-F54D-804E-AF7E2719E99E" value="true"/>
+</engineerTo>
+<referedAttribute>F76B542F-A80A-CD53-FAF6-85B7C5547C1E</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>8</dataTypePrecision>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="INVOICE_ID" id="93047C79-69A4-F8EA-1540-0228C0C4F431">
+<createdBy>user</createdBy>
+<createdTime>2025-03-29 16:02:21 UTC</createdTime>
+<generatorID>B937A007-65C4-AE42-FA3A-49CDC492221C</generatorID>
+<ownerDesignName>Model</ownerDesignName>
+<engineerTo>
+<item key="E3F8EAA8-66CA-F54D-804E-AF7E2719E99E" value="true"/>
+</engineerTo>
+<referedAttribute>815E8A6E-8604-B161-F9DC-B418FB68F67C</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>8</dataTypePrecision>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="D1B9AE43-CF0E-27BB-15B3-EE76C7D619B2" name="AYT_RENTAL PK">
+<createdBy>user</createdBy>
+<createdTime>2025-03-29 13:56:17 UTC</createdTime>
+<ownerDesignName>Model</ownerDesignName>
+<engineerTo>
+<item key="E3F8EAA8-66CA-F54D-804E-AF7E2719E99E" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>BFD67C74-8B08-AEF1-8D08-D3D30ACDC966</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

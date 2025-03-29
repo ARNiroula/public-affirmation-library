@@ -1,7 +1,7 @@
 <?xml version = '1.0' encoding = 'UTF-8'?>
-<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="9ECF15CE-06BB-A616-33EB-123038C7852B" name="AYT_ID">
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="8316953F-FD42-2F9F-0EB3-A111C0058674" name="AYT_TYPE_PAY">
 <createdBy>user</createdBy>
-<createdTime>2025-03-28 20:40:58 UTC</createdTime>
+<createdTime>2025-03-29 14:33:43 UTC</createdTime>
 <ownerDesignName>Model</ownerDesignName>
 <engineerTo>
 <item key="E3F8EAA8-66CA-F54D-804E-AF7E2719E99E" value="true"/>
@@ -15,58 +15,60 @@
 <minVolumes>0</minVolumes>
 <normalForm>Third</normalForm>
 <attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
-<Attribute name="ID_TYPE" id="048A67A1-FDF8-9109-E623-70D7F2561ED0">
+<Attribute name="INST_NUM" id="2459FD95-0889-AB55-ECF5-D68E51554126">
 <createdBy>user</createdBy>
-<createdTime>2025-03-28 20:41:07 UTC</createdTime>
-<commentInRDBMS><![CDATA[Unique Identifier for the Identification Types]]></commentInRDBMS>
+<createdTime>2025-03-29 14:33:56 UTC</createdTime>
+<commentInRDBMS><![CDATA[Instrumentation Number]]></commentInRDBMS>
 <ownerDesignName>Model</ownerDesignName>
 <engineerTo>
 <item key="E3F8EAA8-66CA-F54D-804E-AF7E2719E99E" value="true"/>
 </engineerTo>
-<use>0</use>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<ownDataTypeParameters>,10,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="PAY_ID" id="F3D9713A-4204-2835-DE7A-4913E5B24754">
+<createdBy>user</createdBy>
+<createdTime>2025-03-29 16:03:15 UTC</createdTime>
+<generatorID>4673AAF6-2912-C95A-71C3-DD95D4499909</generatorID>
+<ownerDesignName>Model</ownerDesignName>
+<engineerTo>
+<item key="E3F8EAA8-66CA-F54D-804E-AF7E2719E99E" value="true"/>
+</engineerTo>
+<referedAttribute>F0914C52-C774-D35A-87E7-59BBA8161D8F</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="ID_NAME" id="4C24E819-7467-D323-F02C-4842748F763F">
+<Attribute name="TYPE_ID" id="C41149E0-5F27-C413-5B15-21F2494417A9">
 <createdBy>user</createdBy>
-<createdTime>2025-03-28 20:41:18 UTC</createdTime>
-<commentInRDBMS><![CDATA[Name of the Identification Types]]></commentInRDBMS>
+<createdTime>2025-03-29 16:03:40 UTC</createdTime>
+<generatorID>AEDEE423-3381-E937-1813-A2E12C12FE21</generatorID>
 <ownerDesignName>Model</ownerDesignName>
 <engineerTo>
 <item key="E3F8EAA8-66CA-F54D-804E-AF7E2719E99E" value="true"/>
 </engineerTo>
+<referedAttribute>7734C8B4-5F06-0156-D2EE-AD1E0C2ABAFC</referedAttribute>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
-<logicalDatatype>LOGDT024</logicalDatatype>
-<dataTypeSize>30</dataTypeSize>
-<ownDataTypeParameters>30,,</ownDataTypeParameters>
-</Attribute>
-<Attribute name="DESC" id="73B63DB4-0684-8016-16A2-FC0CDB7C0068">
-<createdBy>user</createdBy>
-<createdTime>2025-03-28 20:41:58 UTC</createdTime>
-<commentInRDBMS><![CDATA[Description of the Identification Type]]></commentInRDBMS>
-<ownerDesignName>Model</ownerDesignName>
-<engineerTo>
-<item key="E3F8EAA8-66CA-F54D-804E-AF7E2719E99E" value="true"/>
-</engineerTo>
-<useDomainConstraints>false</useDomainConstraints>
-<use>1</use>
-<logicalDatatype>LOGDT024</logicalDatatype>
-<dataTypeSize>200</dataTypeSize>
-<ownDataTypeParameters>200,,</ownDataTypeParameters>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>1</dataTypePrecision>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
 </attributes>
 <identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
-<identifier id="89DA50D1-2290-7255-E6C8-2BCFD2BD24A7" name="YAT_ID PK">
+<identifier id="E5D82963-F149-834B-3414-A60131BDD53B" name="AYT_TYPE_PAY PK">
 <createdBy>user</createdBy>
-<createdTime>2025-03-28 20:41:10 UTC</createdTime>
+<createdTime>2025-03-29 16:02:48 UTC</createdTime>
 <ownerDesignName>Model</ownerDesignName>
 <engineerTo>
 <item key="E3F8EAA8-66CA-F54D-804E-AF7E2719E99E" value="true"/>
 </engineerTo>
 <pk>true</pk>
-<usedAttributes>
-<attributeRef>048A67A1-FDF8-9109-E623-70D7F2561ED0</attributeRef>
-</usedAttributes>
 </identifier>
 </identifiers>
 </Entity>

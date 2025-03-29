@@ -1,7 +1,7 @@
 <?xml version = '1.0' encoding = 'UTF-8'?>
-<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="D6BCFA8F-F7F3-44FA-2781-B7D2F3BDC7AF" name="AYT_CUST">
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="ACEE90E1-E607-0869-D867-34947E108192" name="AYT_BOOK">
 <createdBy>user</createdBy>
-<createdTime>2025-03-28 19:38:27 UTC</createdTime>
+<createdTime>2025-03-28 21:11:09 UTC</createdTime>
 <ownerDesignName>Model</ownerDesignName>
 <engineerTo>
 <item key="E3F8EAA8-66CA-F54D-804E-AF7E2719E99E" value="true"/>
@@ -15,87 +15,87 @@
 <minVolumes>0</minVolumes>
 <normalForm>Third</normalForm>
 <attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
-<Attribute name="CUST_ID" id="A8F5DA44-3777-5C75-AF0E-7DF75C524138">
+<Attribute name="BOOK_ID" id="EC8FB9F6-240C-715D-29C4-290E097C20C3">
 <createdBy>user</createdBy>
-<createdTime>2025-03-28 19:45:07 UTC</createdTime>
-<commentInRDBMS><![CDATA[Unique Identifier of Customer]]></commentInRDBMS>
+<createdTime>2025-03-28 21:11:15 UTC</createdTime>
+<commentInRDBMS><![CDATA[Unique Identifier of the book]]></commentInRDBMS>
 <ownerDesignName>Model</ownerDesignName>
 <engineerTo>
 <item key="E3F8EAA8-66CA-F54D-804E-AF7E2719E99E" value="true"/>
 </engineerTo>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
-<logicalDatatype>LOGDT011</logicalDatatype>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>7</dataTypePrecision>
+<ownDataTypeParameters>,7,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="ISBN" id="0955EAB9-9E3C-01F8-A7C8-EB58B23A434A">
+<createdBy>user</createdBy>
+<createdTime>2025-03-28 21:12:28 UTC</createdTime>
+<commentInRDBMS><![CDATA[ISBN Number of the Book]]></commentInRDBMS>
+<ownerDesignName>Model</ownerDesignName>
+<engineerTo>
+<item key="E3F8EAA8-66CA-F54D-804E-AF7E2719E99E" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>13</dataTypeSize>
+<ownDataTypeParameters>13,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="NAME" id="44BE05C8-DAAC-BFF4-E739-ECC6E40B546D">
+<createdBy>user</createdBy>
+<createdTime>2025-03-28 21:13:12 UTC</createdTime>
+<commentInRDBMS><![CDATA[Name of the Book]]></commentInRDBMS>
+<ownerDesignName>Model</ownerDesignName>
+<engineerTo>
+<item key="E3F8EAA8-66CA-F54D-804E-AF7E2719E99E" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>200</dataTypeSize>
+<ownDataTypeParameters>200,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="TOPIC" id="46EEF104-23CB-334B-8096-F0960B34063C">
+<createdBy>user</createdBy>
+<createdTime>2025-03-28 21:13:42 UTC</createdTime>
+<commentInRDBMS><![CDATA[Topic the book falls under]]></commentInRDBMS>
+<ownerDesignName>Model</ownerDesignName>
+<engineerTo>
+<item key="E3F8EAA8-66CA-F54D-804E-AF7E2719E99E" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50</dataTypeSize>
+<ownDataTypeParameters>50,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="PUB_DATE" id="A655D8BA-0AB3-9BCC-1106-A04FB52A8547">
+<createdBy>user</createdBy>
+<createdTime>2025-03-28 21:14:05 UTC</createdTime>
+<commentInRDBMS><![CDATA[Date the Book was published]]></commentInRDBMS>
+<ownerDesignName>Model</ownerDesignName>
+<engineerTo>
+<item key="E3F8EAA8-66CA-F54D-804E-AF7E2719E99E" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
-</Attribute>
-<Attribute name="FNAME" id="D1782947-EF9B-8B3F-BD72-C37F1BDD8BE2">
-<createdBy>user</createdBy>
-<createdTime>2025-03-28 20:26:39 UTC</createdTime>
-<commentInRDBMS><![CDATA[First Name of the Customer]]></commentInRDBMS>
-<ownerDesignName>Model</ownerDesignName>
-<engineerTo>
-<item key="E3F8EAA8-66CA-F54D-804E-AF7E2719E99E" value="true"/>
-</engineerTo>
-<useDomainConstraints>false</useDomainConstraints>
-<use>1</use>
-<logicalDatatype>LOGDT024</logicalDatatype>
-<dataTypeSize>30</dataTypeSize>
-<ownDataTypeParameters>30,,</ownDataTypeParameters>
-</Attribute>
-<Attribute name="LNAME" id="061B8874-9311-1171-9165-9FB1A92091B4">
-<createdBy>user</createdBy>
-<createdTime>2025-03-28 20:26:43 UTC</createdTime>
-<commentInRDBMS><![CDATA[Last Name of the Customer]]></commentInRDBMS>
-<ownerDesignName>Model</ownerDesignName>
-<engineerTo>
-<item key="E3F8EAA8-66CA-F54D-804E-AF7E2719E99E" value="true"/>
-</engineerTo>
-<useDomainConstraints>false</useDomainConstraints>
-<use>1</use>
-<logicalDatatype>LOGDT024</logicalDatatype>
-<dataTypeSize>30</dataTypeSize>
-<ownDataTypeParameters>30,,</ownDataTypeParameters>
-</Attribute>
-<Attribute name="PHONE" id="65D8B038-2C5F-A041-2EFE-8F9B81E3E38B">
-<createdBy>user</createdBy>
-<createdTime>2025-03-28 20:26:46 UTC</createdTime>
-<commentInRDBMS><![CDATA[Phone Number of the Customer]]></commentInRDBMS>
-<ownerDesignName>Model</ownerDesignName>
-<engineerTo>
-<item key="E3F8EAA8-66CA-F54D-804E-AF7E2719E99E" value="true"/>
-</engineerTo>
-<useDomainConstraints>false</useDomainConstraints>
-<use>1</use>
-<logicalDatatype>LOGDT024</logicalDatatype>
-<dataTypeSize>10</dataTypeSize>
-<ownDataTypeParameters>10,,</ownDataTypeParameters>
-</Attribute>
-<Attribute name="EMAIL" id="E99B9C26-15F2-FEB3-18E7-D2A74A565E46">
-<createdBy>user</createdBy>
-<createdTime>2025-03-28 21:10:36 UTC</createdTime>
-<commentInRDBMS><![CDATA[Email of the customer]]></commentInRDBMS>
-<ownerDesignName>Model</ownerDesignName>
-<engineerTo>
-<item key="E3F8EAA8-66CA-F54D-804E-AF7E2719E99E" value="true"/>
-</engineerTo>
-<useDomainConstraints>false</useDomainConstraints>
-<use>1</use>
-<logicalDatatype>LOGDT024</logicalDatatype>
-<dataTypeSize>254</dataTypeSize>
-<ownDataTypeParameters>254,,</ownDataTypeParameters>
 </Attribute>
 </attributes>
 <identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
-<identifier id="430FFE3A-B44B-931E-7512-5749665D7833" name="YAT PK">
+<identifier id="E0A05826-0600-11F8-9082-C664F0307DB7" name="AYT_BOOK PK">
 <createdBy>user</createdBy>
-<createdTime>2025-03-28 20:26:56 UTC</createdTime>
+<createdTime>2025-03-28 21:11:35 UTC</createdTime>
 <ownerDesignName>Model</ownerDesignName>
 <engineerTo>
 <item key="E3F8EAA8-66CA-F54D-804E-AF7E2719E99E" value="true"/>
 </engineerTo>
 <pk>true</pk>
 <usedAttributes>
-<attributeRef>A8F5DA44-3777-5C75-AF0E-7DF75C524138</attributeRef>
+<attributeRef>EC8FB9F6-240C-715D-29C4-290E097C20C3</attributeRef>
 </usedAttributes>
 </identifier>
 </identifiers>

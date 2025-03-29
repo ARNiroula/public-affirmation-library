@@ -1,7 +1,7 @@
 <?xml version = '1.0' encoding = 'UTF-8'?>
-<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="D6BCFA8F-F7F3-44FA-2781-B7D2F3BDC7AF" name="AYT_CUST">
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="00ED0CCC-6D12-DDC5-C6E5-2C346FF4F645" name="AYT_SPONSOR">
 <createdBy>user</createdBy>
-<createdTime>2025-03-28 19:38:27 UTC</createdTime>
+<createdTime>2025-03-29 15:42:03 UTC</createdTime>
 <ownerDesignName>Model</ownerDesignName>
 <engineerTo>
 <item key="E3F8EAA8-66CA-F54D-804E-AF7E2719E99E" value="true"/>
@@ -15,65 +15,53 @@
 <minVolumes>0</minVolumes>
 <normalForm>Third</normalForm>
 <attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
-<Attribute name="CUST_ID" id="A8F5DA44-3777-5C75-AF0E-7DF75C524138">
+<Attribute name="SPONSOR_ID" id="8CAFEBD5-F9A3-A1F7-DF5D-0718FBC18F21">
 <createdBy>user</createdBy>
-<createdTime>2025-03-28 19:45:07 UTC</createdTime>
-<commentInRDBMS><![CDATA[Unique Identifier of Customer]]></commentInRDBMS>
+<createdTime>2025-03-29 15:42:15 UTC</createdTime>
+<commentInRDBMS><![CDATA[Unique Identifier of Sponsor]]></commentInRDBMS>
 <ownerDesignName>Model</ownerDesignName>
 <engineerTo>
 <item key="E3F8EAA8-66CA-F54D-804E-AF7E2719E99E" value="true"/>
 </engineerTo>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
-<logicalDatatype>LOGDT011</logicalDatatype>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>5</dataTypePrecision>
+<ownDataTypeParameters>,5,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="FNAME" id="D1782947-EF9B-8B3F-BD72-C37F1BDD8BE2">
+<Attribute name="FNAME" id="1A530AD0-F78C-85E9-2692-998788082A95">
 <createdBy>user</createdBy>
-<createdTime>2025-03-28 20:26:39 UTC</createdTime>
-<commentInRDBMS><![CDATA[First Name of the Customer]]></commentInRDBMS>
+<createdTime>2025-03-29 15:42:43 UTC</createdTime>
+<commentInRDBMS><![CDATA[First Name of the Sponsor. If the sponsor is an organization, full name of the organization]]></commentInRDBMS>
 <ownerDesignName>Model</ownerDesignName>
 <engineerTo>
 <item key="E3F8EAA8-66CA-F54D-804E-AF7E2719E99E" value="true"/>
 </engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100</dataTypeSize>
+<ownDataTypeParameters>100,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="LNAME" id="63FAF065-B00E-3AEA-B98B-00349A29104D">
+<createdBy>user</createdBy>
+<createdTime>2025-03-29 15:43:11 UTC</createdTime>
+<commentInRDBMS><![CDATA[Last name of the sponsor. Empty if sponsor is an organization]]></commentInRDBMS>
+<ownerDesignName>Model</ownerDesignName>
+<engineerTo>
+<item key="E3F8EAA8-66CA-F54D-804E-AF7E2719E99E" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>LOGDT024</logicalDatatype>
 <dataTypeSize>30</dataTypeSize>
 <ownDataTypeParameters>30,,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="LNAME" id="061B8874-9311-1171-9165-9FB1A92091B4">
+<Attribute name="EMAIL" id="724B0A5C-A30C-5333-61C4-D37820CA07E7">
 <createdBy>user</createdBy>
-<createdTime>2025-03-28 20:26:43 UTC</createdTime>
-<commentInRDBMS><![CDATA[Last Name of the Customer]]></commentInRDBMS>
-<ownerDesignName>Model</ownerDesignName>
-<engineerTo>
-<item key="E3F8EAA8-66CA-F54D-804E-AF7E2719E99E" value="true"/>
-</engineerTo>
-<useDomainConstraints>false</useDomainConstraints>
-<use>1</use>
-<logicalDatatype>LOGDT024</logicalDatatype>
-<dataTypeSize>30</dataTypeSize>
-<ownDataTypeParameters>30,,</ownDataTypeParameters>
-</Attribute>
-<Attribute name="PHONE" id="65D8B038-2C5F-A041-2EFE-8F9B81E3E38B">
-<createdBy>user</createdBy>
-<createdTime>2025-03-28 20:26:46 UTC</createdTime>
-<commentInRDBMS><![CDATA[Phone Number of the Customer]]></commentInRDBMS>
-<ownerDesignName>Model</ownerDesignName>
-<engineerTo>
-<item key="E3F8EAA8-66CA-F54D-804E-AF7E2719E99E" value="true"/>
-</engineerTo>
-<useDomainConstraints>false</useDomainConstraints>
-<use>1</use>
-<logicalDatatype>LOGDT024</logicalDatatype>
-<dataTypeSize>10</dataTypeSize>
-<ownDataTypeParameters>10,,</ownDataTypeParameters>
-</Attribute>
-<Attribute name="EMAIL" id="E99B9C26-15F2-FEB3-18E7-D2A74A565E46">
-<createdBy>user</createdBy>
-<createdTime>2025-03-28 21:10:36 UTC</createdTime>
-<commentInRDBMS><![CDATA[Email of the customer]]></commentInRDBMS>
+<createdTime>2025-03-29 15:43:38 UTC</createdTime>
+<commentInRDBMS><![CDATA[Email of the sponsor]]></commentInRDBMS>
 <ownerDesignName>Model</ownerDesignName>
 <engineerTo>
 <item key="E3F8EAA8-66CA-F54D-804E-AF7E2719E99E" value="true"/>
@@ -86,16 +74,16 @@
 </Attribute>
 </attributes>
 <identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
-<identifier id="430FFE3A-B44B-931E-7512-5749665D7833" name="YAT PK">
+<identifier id="314AB0D0-16BE-695F-F12E-550CA7283ED3" name="AYT_SPONSOR PK">
 <createdBy>user</createdBy>
-<createdTime>2025-03-28 20:26:56 UTC</createdTime>
+<createdTime>2025-03-29 15:42:29 UTC</createdTime>
 <ownerDesignName>Model</ownerDesignName>
 <engineerTo>
 <item key="E3F8EAA8-66CA-F54D-804E-AF7E2719E99E" value="true"/>
 </engineerTo>
 <pk>true</pk>
 <usedAttributes>
-<attributeRef>A8F5DA44-3777-5C75-AF0E-7DF75C524138</attributeRef>
+<attributeRef>8CAFEBD5-F9A3-A1F7-DF5D-0718FBC18F21</attributeRef>
 </usedAttributes>
 </identifier>
 </identifiers>

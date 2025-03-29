@@ -1,0 +1,17 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="CA4777F9-970A-E345-24AF-011FC724DD8E" containerWithKeyObject="3CB59B99-B759-8576-D458-AAA53E066A2F" localFKIndex="7F956CEA-3AD2-1C4C-2A8D-A500B9E1DA67" name="AYT_RENTAL_AYT_BOOK_COPY_FK">
+<createdBy>user</createdBy>
+<createdTime>2025-03-29 16:09:51 UTC</createdTime>
+<generatorID>B1799FC8-7AD0-754A-37E0-D0837E054ADA</generatorID>
+<ownerDesignName>Model</ownerDesignName>
+<referredTableLongName>AYT_BOOK_COPY</referredTableLongName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>94559F30-1E3B-791C-57DD-8A369A844D41</referredTableID>
+<keyObject>31536E45-BC52-0D41-E3CF-A850D525E2F1</keyObject>
+<referredKeyID>31536E45-BC52-0D41-E3CF-A850D525E2F1</referredKeyID>
+<mandatory>true</mandatory>
+<refColNames>COPY_ID</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

@@ -1,0 +1,64 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="73C7DB52-CD0D-4DDC-54B2-F2F4A12D43B3" name="AYT_SPONSOR_SEMINAR">
+<createdBy>user</createdBy>
+<createdTime>2025-03-29 15:44:58 UTC</createdTime>
+<ownerDesignName>Model</ownerDesignName>
+<engineerTo>
+<item key="E3F8EAA8-66CA-F54D-804E-AF7E2719E99E" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="AMOUNT" id="3BA9E395-228F-7CA1-5F80-F29FA64C7CF7">
+<createdBy>user</createdBy>
+<createdTime>2025-03-29 15:45:18 UTC</createdTime>
+<commentInRDBMS><![CDATA[Amount Given by the sponsor for the seminar]]></commentInRDBMS>
+<ownerDesignName>Model</ownerDesignName>
+<engineerTo>
+<item key="E3F8EAA8-66CA-F54D-804E-AF7E2719E99E" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT043</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<dataTypeScale>2</dataTypeScale>
+<ownDataTypeParameters>,10,2</ownDataTypeParameters>
+</Attribute>
+<Attribute name="EVENT_ID" id="D1030942-6814-0F70-8F72-11E9D4367B81">
+<createdBy>user</createdBy>
+<createdTime>2025-03-29 16:06:47 UTC</createdTime>
+<generatorID>218746F1-A25F-17C5-0CDB-F30F56FFA76B</generatorID>
+<ownerDesignName>Model</ownerDesignName>
+<engineerTo>
+<item key="E3F8EAA8-66CA-F54D-804E-AF7E2719E99E" value="true"/>
+</engineerTo>
+<referedAttribute>EAB15C10-F104-D42E-E1C2-222631DD2265</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="SPONSOR_ID" id="0816F37C-191F-A700-9BF4-3F57ADBED082">
+<createdBy>user</createdBy>
+<createdTime>2025-03-29 16:07:05 UTC</createdTime>
+<generatorID>53C0D0BF-CBF2-D11F-D9C8-2F7A9481E351</generatorID>
+<ownerDesignName>Model</ownerDesignName>
+<engineerTo>
+<item key="E3F8EAA8-66CA-F54D-804E-AF7E2719E99E" value="true"/>
+</engineerTo>
+<referedAttribute>8CAFEBD5-F9A3-A1F7-DF5D-0718FBC18F21</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>5</dataTypePrecision>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+</Entity>
