@@ -1,0 +1,130 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="89334D4E-6EB7-D44B-0CF5-C3BD6EAF7DD2" name="AYT_INVOICE">
+<createdBy>arnir</createdBy>
+<createdTime>2025-03-29 18:58:51 UTC</createdTime>
+<generatorID>E5CAE9EF-1BBC-C535-1353-7B447A5BB326</generatorID>
+<ownerDesignName>Model</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="INVOICE_ID" id="3A2D57B7-7089-DEFF-0D71-1089DC2BC386">
+<createdBy>arnir</createdBy>
+<createdTime>2025-03-29 18:58:51 UTC</createdTime>
+<commentInRDBMS><![CDATA[Unique Identifer of the Invoice]]></commentInRDBMS>
+<generatorID>815E8A6E-8604-B161-F9DC-B418FB68F67C</generatorID>
+<ownerDesignName>Model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>8</dataTypePrecision>
+<ownDataTypeParameters>,8,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="INVOICE_DATE" id="BD812B05-9FB2-C833-3A11-7266A6C0ECD4">
+<createdBy>arnir</createdBy>
+<createdTime>2025-03-29 18:58:51 UTC</createdTime>
+<commentInRDBMS><![CDATA[Date the Invoice was generated]]></commentInRDBMS>
+<generatorID>8EDAFDE8-8E09-548E-962E-53E381127AD7</generatorID>
+<ownerDesignName>Model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="TOTAL_AMOUNT" id="681C870A-82E1-956E-0749-EB4D47059249">
+<createdBy>arnir</createdBy>
+<createdTime>2025-03-29 18:58:51 UTC</createdTime>
+<commentInRDBMS><![CDATA[Total Due Amount for the invoice]]></commentInRDBMS>
+<generatorID>A3A5C191-FB64-DFC9-E159-13BBB4EE41E0</generatorID>
+<ownerDesignName>Model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT043</logicalDatatype>
+<dataTypePrecision>6</dataTypePrecision>
+<dataTypeScale>2</dataTypeScale>
+<ownDataTypeParameters>,6,2</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="RENTAL_ID" id="465244FD-D838-ACA5-0272-AA69EAC129CF">
+<createdBy>arnir</createdBy>
+<createdTime>2025-03-29 18:58:51 UTC</createdTime>
+<generatorID>C3F5E6B8-3931-A3E7-8E0A-554BA7A43DC1</generatorID>
+<ownerDesignName>Model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="0F889C1B-D5E9-9D30-AE94-25FB523A3B7D" referredColumn="5366FFED-160E-44E8-81C3-92B944355CA0"/>
+</associations>
+</Column>
+<Column name="PAY_ID" id="7D471D62-3C9A-10FC-18C4-213AEE7911D8">
+<createdBy>arnir</createdBy>
+<createdTime>2025-03-29 18:58:51 UTC</createdTime>
+<generatorID>039AB90E-AFC5-289E-C87F-D0434B63471E</generatorID>
+<ownerDesignName>Model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="5D861D42-4F40-E514-C526-9BB7A32333D7" referredColumn="8105225F-3E46-DFD5-87CF-D992AED1BF85"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="31DE1C95-7458-328B-BBD3-0E0992C7D8E8" name="AYT_INVOICE_PK">
+<createdBy>arnir</createdBy>
+<createdTime>2025-03-29 18:58:51 UTC</createdTime>
+<generatorID>C5EA3540-270B-0FBF-CB3C-9141C4363A69</generatorID>
+<ownerDesignName>Model</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="3A2D57B7-7089-DEFF-0D71-1089DC2BC386"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="37074926-CCF0-C1F0-D5A0-D95590AE7F98" name="AYT_INVOICE__IDX">
+<createdBy>arnir</createdBy>
+<createdTime>2025-03-29 18:58:51 UTC</createdTime>
+<ownerDesignName>Model</ownerDesignName>
+<indexState>Unique Plain Index</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<relationGeneratorID>B937A007-65C4-AE42-FA3A-49CDC492221C</relationGeneratorID>
+<indexColumnUsage>
+<colUsage columnID="465244FD-D838-ACA5-0272-AA69EAC129CF"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="F2E07D83-EDF8-0753-1A2F-24865878AF88" name="AYT_INVOICE_AYT_PAY_FK">
+<createdBy>arnir</createdBy>
+<createdTime>2025-03-29 18:58:51 UTC</createdTime>
+<generatorID>596843C7-33F0-4C47-3F44-F37C52A51F56</generatorID>
+<ownerDesignName>Model</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="7D471D62-3C9A-10FC-18C4-213AEE7911D8"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="C96F7049-C654-86E9-FFD0-C4D04198BBBA" name="AYT_INVOICE_AYT_RENTAL_FK">
+<createdBy>arnir</createdBy>
+<createdTime>2025-03-29 18:58:51 UTC</createdTime>
+<generatorID>B937A007-65C4-AE42-FA3A-49CDC492221C</generatorID>
+<ownerDesignName>Model</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="465244FD-D838-ACA5-0272-AA69EAC129CF"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

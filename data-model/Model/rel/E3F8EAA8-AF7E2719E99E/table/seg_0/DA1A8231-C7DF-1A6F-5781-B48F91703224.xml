@@ -1,0 +1,80 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="DA1A8231-C7DF-1A6F-5781-B48F91703224" name="AYT_BOOK_AUTHOR">
+<createdBy>arnir</createdBy>
+<createdTime>2025-03-29 18:58:51 UTC</createdTime>
+<generatorID>D598C708-CD33-CA33-E7F7-51D016457094</generatorID>
+<ownerDesignName>Model</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="AUTH_ID" id="DDB5824E-553D-44FF-F758-B7726E64A298">
+<createdBy>arnir</createdBy>
+<createdTime>2025-03-29 18:58:51 UTC</createdTime>
+<generatorID>36225EF3-93A7-15FA-0B6C-EC257CCDE99C</generatorID>
+<ownerDesignName>Model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>5</dataTypePrecision>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="9AAD0FA8-0F6D-466B-C725-5C22FAF6F10B" referredColumn="934CF2D4-AA12-4CBC-EC23-66EF6D1718F4"/>
+</associations>
+</Column>
+<Column name="BOOK_ID" id="0ACE1ABF-8979-9591-4C0B-3640E0B5BA9A">
+<createdBy>arnir</createdBy>
+<createdTime>2025-03-29 18:58:51 UTC</createdTime>
+<generatorID>D7D7B300-87D7-07E9-9E6B-986506358AB2</generatorID>
+<ownerDesignName>Model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>7</dataTypePrecision>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="C106AE93-30C1-011F-FD44-5D6041877084" referredColumn="964C54AE-80D3-8F03-84FF-A2710A110BF8"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="56781489-58C8-77A2-0F68-36823E8968F8" name="AYT_BOOK_AUTHOR_PK">
+<createdBy>arnir</createdBy>
+<createdTime>2025-03-29 19:13:53 UTC</createdTime>
+<ownerDesignName>Model</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="0ACE1ABF-8979-9591-4C0B-3640E0B5BA9A"/>
+<colUsage columnID="DDB5824E-553D-44FF-F758-B7726E64A298"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="191CAD3D-D810-2BDE-54B4-536A923DE12E" name="AYT_BOOK_AUTHOR_AYT_BOOK_FK">
+<createdBy>arnir</createdBy>
+<createdTime>2025-03-29 18:58:51 UTC</createdTime>
+<generatorID>430914D3-2B42-98F6-E36F-400E60B44F2F</generatorID>
+<ownerDesignName>Model</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="0ACE1ABF-8979-9591-4C0B-3640E0B5BA9A"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="817841AC-2703-65E6-D10C-A067809F18E4" name="AYT_BOOK_AUTHOR_AYT_AUTHOR_FK">
+<createdBy>arnir</createdBy>
+<createdTime>2025-03-29 18:58:51 UTC</createdTime>
+<generatorID>B8494ABB-A7A2-D715-442F-8D0EB016C931</generatorID>
+<ownerDesignName>Model</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="DDB5824E-553D-44FF-F758-B7726E64A298"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

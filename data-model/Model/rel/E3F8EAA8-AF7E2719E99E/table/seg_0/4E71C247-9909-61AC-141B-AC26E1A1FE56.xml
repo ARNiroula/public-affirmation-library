@@ -1,0 +1,108 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="4E71C247-9909-61AC-141B-AC26E1A1FE56" name="AYT_EVENT">
+<createdBy>arnir</createdBy>
+<createdTime>2025-03-29 18:58:51 UTC</createdTime>
+<generatorID>E3028CAA-2FD8-558A-3F8C-501FCB72B9F8</generatorID>
+<ownerDesignName>Model</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="EVENT_ID" id="376EBC38-85CD-2B86-9B93-3CB6BC91E95A">
+<createdBy>arnir</createdBy>
+<createdTime>2025-03-29 18:58:51 UTC</createdTime>
+<commentInRDBMS><![CDATA[Unique Identifier of the Event]]></commentInRDBMS>
+<generatorID>EAB15C10-F104-D42E-E1C2-222631DD2265</generatorID>
+<ownerDesignName>Model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<ownDataTypeParameters>,10,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="EVENT_NAME" id="3340CF4D-28C9-B18F-485F-F64578E93251">
+<createdBy>arnir</createdBy>
+<createdTime>2025-03-29 18:58:51 UTC</createdTime>
+<commentInRDBMS><![CDATA[Name of the event]]></commentInRDBMS>
+<generatorID>C7BAF0E6-9DA0-CB4F-0078-7F0E44AF0018</generatorID>
+<ownerDesignName>Model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100</dataTypeSize>
+<ownDataTypeParameters>100,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="START_DATE_TIME" id="4451A21D-3AB0-5A9D-CB5D-EE0AD438CF7E">
+<createdBy>arnir</createdBy>
+<createdTime>2025-03-29 18:58:51 UTC</createdTime>
+<commentInRDBMS><![CDATA[Start Date Time of the Event]]></commentInRDBMS>
+<generatorID>16907ECA-094E-9A9D-20B1-5E6B12C40731</generatorID>
+<ownerDesignName>Model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT008</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="END_DATE_TIME" id="970EA85E-BF31-8AA0-B934-CFD23450B75B">
+<createdBy>arnir</createdBy>
+<createdTime>2025-03-29 18:58:51 UTC</createdTime>
+<commentInRDBMS><![CDATA[End Date time of the event]]></commentInRDBMS>
+<generatorID>EFFA7A36-6F72-8045-5CDE-232536FE812F</generatorID>
+<ownerDesignName>Model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT008</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="EVENT_TOPIC" id="9321ECF6-46C1-A5C1-3F84-85771BF10B32">
+<createdBy>arnir</createdBy>
+<createdTime>2025-03-29 18:58:51 UTC</createdTime>
+<commentInRDBMS><![CDATA[Topic of the Event]]></commentInRDBMS>
+<generatorID>866F106E-7282-A1E6-42AC-E98901F4F611</generatorID>
+<ownerDesignName>Model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>30</dataTypeSize>
+<ownDataTypeParameters>30,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="EVENT_TYPE" id="47BC4B0E-7FDF-4205-B068-33E21E13B9CD">
+<createdBy>arnir</createdBy>
+<createdTime>2025-03-29 18:58:51 UTC</createdTime>
+<commentInRDBMS><![CDATA[General Discriminator of the event]]></commentInRDBMS>
+<generatorID>8C9D7E28-55A1-E9AB-7A01-60A4AE6ED894</generatorID>
+<ownerDesignName>Model</ownerDesignName>
+<constraintName>CH_INH_AYT_EVENT</constraintName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>1</dataTypeSize>
+<listOfValues>
+<valueDef value="E" description="entity AYT_EXHIBITION"/>
+<valueDef value="S" description="entity AYT_SEMINAR"/>
+</listOfValues>
+<ownDataTypeParameters>1,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<isDiscriminatorColumn>true</isDiscriminatorColumn>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="13AFEB2D-018B-0553-166B-499B24DA9D44" name="AYT_EVENT_PK">
+<createdBy>arnir</createdBy>
+<createdTime>2025-03-29 18:58:51 UTC</createdTime>
+<generatorID>BABCF470-8095-2D82-D361-92168E5B8E5C</generatorID>
+<ownerDesignName>Model</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="376EBC38-85CD-2B86-9B93-3CB6BC91E95A"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

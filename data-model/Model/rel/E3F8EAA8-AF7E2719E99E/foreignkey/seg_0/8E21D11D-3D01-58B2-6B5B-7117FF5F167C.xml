@@ -1,0 +1,17 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="8E21D11D-3D01-58B2-6B5B-7117FF5F167C" containerWithKeyObject="5B774815-F510-D985-D658-DE5D836CE7D2" localFKIndex="5FF0DDC4-751A-E002-B5FA-5EABB01AB7EE" name="AYT_TYPE_PAY_AYT_PAY_TYPE_FK">
+<createdBy>arnir</createdBy>
+<createdTime>2025-03-29 18:58:51 UTC</createdTime>
+<generatorID>AEDEE423-3381-E937-1813-A2E12C12FE21</generatorID>
+<ownerDesignName>Model</ownerDesignName>
+<referredTableLongName>AYT_PAY_TYPE</referredTableLongName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>9FABF0B4-2A9E-7FAE-C43E-2A4F364ABE10</referredTableID>
+<keyObject>92044F52-5C05-7FDD-8B59-9DDDBA4509D9</keyObject>
+<referredKeyID>92044F52-5C05-7FDD-8B59-9DDDBA4509D9</referredKeyID>
+<mandatory>true</mandatory>
+<refColNames>TYPE_ID</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

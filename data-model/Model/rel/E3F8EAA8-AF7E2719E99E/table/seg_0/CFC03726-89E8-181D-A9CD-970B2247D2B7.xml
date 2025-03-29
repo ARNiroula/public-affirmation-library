@@ -1,0 +1,80 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="CFC03726-89E8-181D-A9CD-970B2247D2B7" name="AYT_SEMINAR">
+<createdBy>arnir</createdBy>
+<createdTime>2025-03-29 18:58:51 UTC</createdTime>
+<generatorID>40A91971-8E47-E393-E5BA-4CBBB7752140</generatorID>
+<ownerDesignName>Model</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="EVENT_ID" id="02ADE7AD-F6CA-8548-8DC7-37F1273DD7D2">
+<createdBy>arnir</createdBy>
+<createdTime>2025-03-29 18:58:51 UTC</createdTime>
+<commentInRDBMS><![CDATA[Unique Identifier of the Event]]></commentInRDBMS>
+<generatorID>EAB15C10-F104-D42E-E1C2-222631DD2265</generatorID>
+<ownerDesignName>Model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="3274942E-EB7A-0EC3-92BD-27C88CD09C66" referredColumn="376EBC38-85CD-2B86-9B93-3CB6BC91E95A"/>
+</associations>
+</Column>
+<Column name="KEYNOTE_SPEAKER" id="9A28A02F-D24A-8077-DE0D-4A11B1DF0547">
+<createdBy>arnir</createdBy>
+<createdTime>2025-03-29 18:58:51 UTC</createdTime>
+<commentInRDBMS><![CDATA[Name of the Keynote Speaker]]></commentInRDBMS>
+<generatorID>6D50AD6F-F43B-F3C5-9E3F-3442989675BB</generatorID>
+<ownerDesignName>Model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100</dataTypeSize>
+<ownDataTypeParameters>100,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="SEMINAR_TYPE" id="1ABEAAC3-84AB-AD1F-65B0-38410F8C1AD0">
+<createdBy>arnir</createdBy>
+<createdTime>2025-03-29 18:58:51 UTC</createdTime>
+<commentInRDBMS><![CDATA[What Type of Seminar is being hosted]]></commentInRDBMS>
+<generatorID>E12ABD7D-FECB-C853-F598-3667319CC1A1</generatorID>
+<ownerDesignName>Model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20</dataTypeSize>
+<ownDataTypeParameters>20,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="E61E1C52-B579-87F0-E471-7A4EB75AFCCD" name="AYT_SEMINAR_PK">
+<createdBy>arnir</createdBy>
+<createdTime>2025-03-29 18:58:51 UTC</createdTime>
+<generatorID>BABCF470-8095-2D82-D361-92168E5B8E5C</generatorID>
+<ownerDesignName>Model</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="02ADE7AD-F6CA-8548-8DC7-37F1273DD7D2"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="A33B5706-75E1-1898-DA5F-1E8EE851FC97" name="AYT_SEMINAR_AYT_EVENT_FK">
+<createdBy>arnir</createdBy>
+<createdTime>2025-03-29 18:58:51 UTC</createdTime>
+<generatorID>6670986F-4AA7-37EF-BCAB-D3EFBFD1DFFC</generatorID>
+<ownerDesignName>Model</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="02ADE7AD-F6CA-8548-8DC7-37F1273DD7D2"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>
