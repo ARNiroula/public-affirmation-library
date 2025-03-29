@@ -73,7 +73,7 @@
 <dataTypeSize>30</dataTypeSize>
 <ownDataTypeParameters>30,,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="MAILING_ADDR" id="DB61A2C4-D55B-2912-43DF-FEB5692EAF2F">
+<Attribute name="ADDR_ST" id="DB61A2C4-D55B-2912-43DF-FEB5692EAF2F">
 <createdBy>user</createdBy>
 <createdTime>2025-03-28 21:09:49 UTC</createdTime>
 <commentInRDBMS><![CDATA[Mailing Address of the Author]]></commentInRDBMS>
@@ -81,11 +81,57 @@
 <engineerTo>
 <item key="E3F8EAA8-66CA-F54D-804E-AF7E2719E99E" value="true"/>
 </engineerTo>
+<nullsAllowed>true</nullsAllowed>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>LOGDT024</logicalDatatype>
-<dataTypeSize>200</dataTypeSize>
-<ownDataTypeParameters>200,,</ownDataTypeParameters>
+<dataTypeSize>100</dataTypeSize>
+<ownDataTypeParameters>100,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="ADDR_CITY" id="B05B5028-AC0B-850F-FE17-73964D6016FB">
+<createdBy>arnir</createdBy>
+<createdTime>2025-03-29 18:18:21 UTC</createdTime>
+<commentInRDBMS><![CDATA[Mailing City of the author]]></commentInRDBMS>
+<ownerDesignName>Model</ownerDesignName>
+<engineerTo>
+<item key="E3F8EAA8-66CA-F54D-804E-AF7E2719E99E" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100</dataTypeSize>
+<ownDataTypeParameters>100,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="ADDR_STATE" id="C4AC0F28-C7C7-53FE-72AF-4C2E71D52F74">
+<createdBy>arnir</createdBy>
+<createdTime>2025-03-29 18:19:50 UTC</createdTime>
+<commentInRDBMS><![CDATA[Mailing State of the author]]></commentInRDBMS>
+<ownerDesignName>Model</ownerDesignName>
+<engineerTo>
+<item key="E3F8EAA8-66CA-F54D-804E-AF7E2719E99E" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100</dataTypeSize>
+<ownDataTypeParameters>100,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="ADDR_CTRY" id="0B2B91D1-02D1-F025-1FED-041CFF039F36">
+<createdBy>arnir</createdBy>
+<createdTime>2025-03-29 18:20:13 UTC</createdTime>
+<commentInRDBMS><![CDATA[Mailing Country of the Author]]></commentInRDBMS>
+<ownerDesignName>Model</ownerDesignName>
+<engineerTo>
+<item key="E3F8EAA8-66CA-F54D-804E-AF7E2719E99E" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100</dataTypeSize>
+<ownDataTypeParameters>100,,</ownDataTypeParameters>
 </Attribute>
 <Attribute name="EMAIL" id="715A24A6-3698-229F-0C6B-AFB34ECA2420">
 <createdBy>user</createdBy>
@@ -95,6 +141,7 @@
 <engineerTo>
 <item key="E3F8EAA8-66CA-F54D-804E-AF7E2719E99E" value="true"/>
 </engineerTo>
+<nullsAllowed>true</nullsAllowed>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>LOGDT024</logicalDatatype>

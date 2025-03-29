@@ -29,17 +29,17 @@
 <dataTypePrecision>10</dataTypePrecision>
 <ownDataTypeParameters>,10,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="DATE" id="63518810-C682-345F-C5E1-85A8BD2E4E7C">
+<Attribute name="DATE_TIME" id="63518810-C682-345F-C5E1-85A8BD2E4E7C">
 <createdBy>user</createdBy>
 <createdTime>2025-03-29 14:13:44 UTC</createdTime>
-<commentInRDBMS><![CDATA[The date of the payment]]></commentInRDBMS>
+<commentInRDBMS><![CDATA[The datetime of the payment]]></commentInRDBMS>
 <ownerDesignName>Model</ownerDesignName>
 <engineerTo>
 <item key="E3F8EAA8-66CA-F54D-804E-AF7E2719E99E" value="true"/>
 </engineerTo>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
-<logicalDatatype>LOGDT007</logicalDatatype>
+<logicalDatatype>LOGDT008</logicalDatatype>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
 <Attribute name="AMOUNT" id="E9E90064-CCBE-8CA5-AEDA-EB3F3454AC76">

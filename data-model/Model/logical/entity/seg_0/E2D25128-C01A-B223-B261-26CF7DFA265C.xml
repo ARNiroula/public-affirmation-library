@@ -29,20 +29,6 @@
 <dataTypePrecision>8</dataTypePrecision>
 <ownDataTypeParameters>,8,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="STATUS" id="BE5C19C8-5B6D-9F7F-081B-28D1B61C6FB2">
-<createdBy>user</createdBy>
-<createdTime>2025-03-29 13:52:36 UTC</createdTime>
-<commentInRDBMS><![CDATA[Is the copy of the book loaned or not]]></commentInRDBMS>
-<ownerDesignName>Model</ownerDesignName>
-<engineerTo>
-<item key="E3F8EAA8-66CA-F54D-804E-AF7E2719E99E" value="true"/>
-</engineerTo>
-<useDomainConstraints>false</useDomainConstraints>
-<use>1</use>
-<logicalDatatype>LOGDT024</logicalDatatype>
-<dataTypeSize>1</dataTypeSize>
-<ownDataTypeParameters>1,,</ownDataTypeParameters>
-</Attribute>
 <Attribute name="BOOK_ID" id="14604151-2A64-CF79-D60C-6498AAC9D6C7">
 <createdBy>user</createdBy>
 <createdTime>2025-03-29 15:58:10 UTC</createdTime>
@@ -56,7 +42,7 @@
 <use>1</use>
 <logicalDatatype>LOGDT019</logicalDatatype>
 <dataTypePrecision>7</dataTypePrecision>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
+<ownDataTypeParameters>,7,</ownDataTypeParameters>
 </Attribute>
 </attributes>
 <identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
