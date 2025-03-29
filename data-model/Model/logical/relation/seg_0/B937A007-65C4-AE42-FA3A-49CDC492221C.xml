@@ -1,0 +1,20 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="FK_RENTAL_INVOICE" directorySegmentName="seg_0" id="B937A007-65C4-AE42-FA3A-49CDC492221C">
+<createdBy>user</createdBy>
+<createdTime>2025-03-29 16:02:15 UTC</createdTime>
+<ownerDesignName>Model</ownerDesignName>
+<engineerTo>
+<item key="E3F8EAA8-66CA-F54D-804E-AF7E2719E99E" value="true"/>
+</engineerTo>
+<sourcePk>D1B9AE43-CF0E-27BB-15B3-EE76C7D619B2</sourcePk>
+<targetPk>C5EA3540-270B-0FBF-CB3C-9141C4363A69</targetPk>
+<identifying>false</identifying>
+<optionalSource>false</optionalSource>
+<optionalTarget>false</optionalTarget>
+<sourceCardinality>1</sourceCardinality>
+<sourceEntity>530B0E2B-7EDA-9910-92E5-ACA11AC55DF3</sourceEntity>
+<targetCardinalityString>1</targetCardinalityString>
+<targetEntity>E5CAE9EF-1BBC-C535-1353-7B447A5BB326</targetEntity>
+<transferable>true</transferable>
+<deleteRule>NO ACTION</deleteRule>
+</Relation>

@@ -1,0 +1,19 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="FK_CUST_EXHIBITION_1" directorySegmentName="seg_0" id="2ACFD707-723B-AA6F-6A35-272D3DB9902B">
+<createdBy>user</createdBy>
+<createdTime>2025-03-29 16:08:12 UTC</createdTime>
+<ownerDesignName>Model</ownerDesignName>
+<engineerTo>
+<item key="E3F8EAA8-66CA-F54D-804E-AF7E2719E99E" value="true"/>
+</engineerTo>
+<sourcePk>BABCF470-8095-2D82-D361-92168E5B8E5C</sourcePk>
+<identifying>false</identifying>
+<optionalSource>false</optionalSource>
+<optionalTarget>false</optionalTarget>
+<sourceCardinality>1</sourceCardinality>
+<sourceEntity>ABCE8FB7-D5BF-4E1E-C9C4-A38E98A800F0</sourceEntity>
+<targetCardinalityString>*</targetCardinalityString>
+<targetEntity>7CE5A293-8122-EA78-4379-22EA5D9D7116</targetEntity>
+<transferable>true</transferable>
+<deleteRule>NO ACTION</deleteRule>
+</Relation>

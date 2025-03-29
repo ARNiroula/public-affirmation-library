@@ -1,7 +1,7 @@
 <?xml version = '1.0' encoding = 'UTF-8'?>
-<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="D6BCFA8F-F7F3-44FA-2781-B7D2F3BDC7AF" name="AYT_CUST">
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="349648E8-3338-65EC-2761-2FB7F8FCA452" name="AYT_AUTHOR">
 <createdBy>user</createdBy>
-<createdTime>2025-03-28 19:38:27 UTC</createdTime>
+<createdTime>2025-03-28 21:06:36 UTC</createdTime>
 <ownerDesignName>Model</ownerDesignName>
 <engineerTo>
 <item key="E3F8EAA8-66CA-F54D-804E-AF7E2719E99E" value="true"/>
@@ -15,37 +15,24 @@
 <minVolumes>0</minVolumes>
 <normalForm>Third</normalForm>
 <attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
-<Attribute name="CUST_ID" id="A8F5DA44-3777-5C75-AF0E-7DF75C524138">
+<Attribute name="AUTH_ID" id="019B72CA-0899-0EE8-7F54-BDC0D8838772">
 <createdBy>user</createdBy>
-<createdTime>2025-03-28 19:45:07 UTC</createdTime>
-<commentInRDBMS><![CDATA[Unique Identifier of Customer]]></commentInRDBMS>
+<createdTime>2025-03-28 21:06:47 UTC</createdTime>
+<commentInRDBMS><![CDATA[Unique Identifier for the Author]]></commentInRDBMS>
 <ownerDesignName>Model</ownerDesignName>
 <engineerTo>
 <item key="E3F8EAA8-66CA-F54D-804E-AF7E2719E99E" value="true"/>
 </engineerTo>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
-<logicalDatatype>LOGDT011</logicalDatatype>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>5</dataTypePrecision>
+<ownDataTypeParameters>,5,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="FNAME" id="D1782947-EF9B-8B3F-BD72-C37F1BDD8BE2">
+<Attribute name="FNAME" id="464C6FF8-63B3-E95C-595E-557D1C0C35F6">
 <createdBy>user</createdBy>
-<createdTime>2025-03-28 20:26:39 UTC</createdTime>
-<commentInRDBMS><![CDATA[First Name of the Customer]]></commentInRDBMS>
-<ownerDesignName>Model</ownerDesignName>
-<engineerTo>
-<item key="E3F8EAA8-66CA-F54D-804E-AF7E2719E99E" value="true"/>
-</engineerTo>
-<useDomainConstraints>false</useDomainConstraints>
-<use>1</use>
-<logicalDatatype>LOGDT024</logicalDatatype>
-<dataTypeSize>30</dataTypeSize>
-<ownDataTypeParameters>30,,</ownDataTypeParameters>
-</Attribute>
-<Attribute name="LNAME" id="061B8874-9311-1171-9165-9FB1A92091B4">
-<createdBy>user</createdBy>
-<createdTime>2025-03-28 20:26:43 UTC</createdTime>
-<commentInRDBMS><![CDATA[Last Name of the Customer]]></commentInRDBMS>
+<createdTime>2025-03-28 21:07:38 UTC</createdTime>
+<commentInRDBMS><![CDATA[First Name of the Author]]></commentInRDBMS>
 <ownerDesignName>Model</ownerDesignName>
 <engineerTo>
 <item key="E3F8EAA8-66CA-F54D-804E-AF7E2719E99E" value="true"/>
@@ -56,24 +43,54 @@
 <dataTypeSize>30</dataTypeSize>
 <ownDataTypeParameters>30,,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="PHONE" id="65D8B038-2C5F-A041-2EFE-8F9B81E3E38B">
+<Attribute name="MNAME" id="862D46E4-1AB3-10F6-FCB1-AF23CD43C716">
 <createdBy>user</createdBy>
-<createdTime>2025-03-28 20:26:46 UTC</createdTime>
-<commentInRDBMS><![CDATA[Phone Number of the Customer]]></commentInRDBMS>
+<createdTime>2025-03-28 21:08:48 UTC</createdTime>
+<commentInRDBMS><![CDATA[Middle Initials of the Author]]></commentInRDBMS>
 <ownerDesignName>Model</ownerDesignName>
 <engineerTo>
 <item key="E3F8EAA8-66CA-F54D-804E-AF7E2719E99E" value="true"/>
 </engineerTo>
+<nullsAllowed>true</nullsAllowed>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>LOGDT024</logicalDatatype>
 <dataTypeSize>10</dataTypeSize>
 <ownDataTypeParameters>10,,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="EMAIL" id="E99B9C26-15F2-FEB3-18E7-D2A74A565E46">
+<Attribute name="LNAME" id="8D6D93ED-6863-63FA-67CD-248D88E9AD15">
 <createdBy>user</createdBy>
-<createdTime>2025-03-28 21:10:36 UTC</createdTime>
-<commentInRDBMS><![CDATA[Email of the customer]]></commentInRDBMS>
+<createdTime>2025-03-28 21:08:26 UTC</createdTime>
+<commentInRDBMS><![CDATA[Last Name of the Author]]></commentInRDBMS>
+<ownerDesignName>Model</ownerDesignName>
+<engineerTo>
+<item key="E3F8EAA8-66CA-F54D-804E-AF7E2719E99E" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>30</dataTypeSize>
+<ownDataTypeParameters>30,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="MAILING_ADDR" id="DB61A2C4-D55B-2912-43DF-FEB5692EAF2F">
+<createdBy>user</createdBy>
+<createdTime>2025-03-28 21:09:49 UTC</createdTime>
+<commentInRDBMS><![CDATA[Mailing Address of the Author]]></commentInRDBMS>
+<ownerDesignName>Model</ownerDesignName>
+<engineerTo>
+<item key="E3F8EAA8-66CA-F54D-804E-AF7E2719E99E" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>200</dataTypeSize>
+<ownDataTypeParameters>200,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="EMAIL" id="715A24A6-3698-229F-0C6B-AFB34ECA2420">
+<createdBy>user</createdBy>
+<createdTime>2025-03-28 21:10:09 UTC</createdTime>
+<commentInRDBMS><![CDATA[Email of the Author]]></commentInRDBMS>
 <ownerDesignName>Model</ownerDesignName>
 <engineerTo>
 <item key="E3F8EAA8-66CA-F54D-804E-AF7E2719E99E" value="true"/>
@@ -86,16 +103,16 @@
 </Attribute>
 </attributes>
 <identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
-<identifier id="430FFE3A-B44B-931E-7512-5749665D7833" name="YAT PK">
+<identifier id="8118AF47-2F97-46B7-0252-7F78AF517802" name="AYT_AUTHOR PK">
 <createdBy>user</createdBy>
-<createdTime>2025-03-28 20:26:56 UTC</createdTime>
+<createdTime>2025-03-28 21:07:44 UTC</createdTime>
 <ownerDesignName>Model</ownerDesignName>
 <engineerTo>
 <item key="E3F8EAA8-66CA-F54D-804E-AF7E2719E99E" value="true"/>
 </engineerTo>
 <pk>true</pk>
 <usedAttributes>
-<attributeRef>A8F5DA44-3777-5C75-AF0E-7DF75C524138</attributeRef>
+<attributeRef>019B72CA-0899-0EE8-7F54-BDC0D8838772</attributeRef>
 </usedAttributes>
 </identifier>
 </identifiers>

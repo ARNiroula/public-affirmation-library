@@ -1,7 +1,7 @@
 <?xml version = '1.0' encoding = 'UTF-8'?>
-<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="33EF0815-9F3E-C8BF-188F-550036A7FE29" name="AYT_ROOM">
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="5B206073-38A7-E076-15A7-1B398737CDA1" name="AYT_AUTHOR_SEMINAR">
 <createdBy>user</createdBy>
-<createdTime>2025-03-28 20:45:10 UTC</createdTime>
+<createdTime>2025-03-29 16:04:51 UTC</createdTime>
 <ownerDesignName>Model</ownerDesignName>
 <engineerTo>
 <item key="E3F8EAA8-66CA-F54D-804E-AF7E2719E99E" value="true"/>
@@ -15,24 +15,10 @@
 <minVolumes>0</minVolumes>
 <normalForm>Third</normalForm>
 <attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
-<Attribute name="ROOM_ID" id="5258136F-7830-3620-43F5-E5300709DF53">
+<Attribute name="INVITATION_ID" id="A78F149A-67E3-5DBD-92F3-222C6F9CBB41">
 <createdBy>user</createdBy>
-<createdTime>2025-03-28 20:45:17 UTC</createdTime>
-<commentInRDBMS><![CDATA[Unique Identifier of the Room. The ID shows which floor the room is on]]></commentInRDBMS>
-<ownerDesignName>Model</ownerDesignName>
-<engineerTo>
-<item key="E3F8EAA8-66CA-F54D-804E-AF7E2719E99E" value="true"/>
-</engineerTo>
-<useDomainConstraints>false</useDomainConstraints>
-<use>1</use>
-<logicalDatatype>LOGDT024</logicalDatatype>
-<dataTypeSize>4</dataTypeSize>
-<ownDataTypeParameters>4,,</ownDataTypeParameters>
-</Attribute>
-<Attribute name="CAPACITY" id="55B29270-0A42-E60C-3BDB-D5FAF34E6441">
-<createdBy>user</createdBy>
-<createdTime>2025-03-28 20:52:20 UTC</createdTime>
-<commentInRDBMS><![CDATA[Capacity of the Room. Max Room capacity assumed to be 9]]></commentInRDBMS>
+<createdTime>2025-03-29 16:05:04 UTC</createdTime>
+<commentInRDBMS><![CDATA[Invitation ID for the Seminar]]></commentInRDBMS>
 <ownerDesignName>Model</ownerDesignName>
 <engineerTo>
 <item key="E3F8EAA8-66CA-F54D-804E-AF7E2719E99E" value="true"/>
@@ -40,35 +26,51 @@
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>LOGDT019</logicalDatatype>
-<dataTypePrecision>1</dataTypePrecision>
-<ownDataTypeParameters>,1,</ownDataTypeParameters>
+<dataTypePrecision>10</dataTypePrecision>
+<ownDataTypeParameters>,10,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="DESC" id="7156728D-9F9B-87E7-A4DA-57D707B513AC">
+<Attribute name="AUTH_ID" id="1991ED60-9B73-0F8E-5D66-DADB5EB01C74">
 <createdBy>user</createdBy>
-<createdTime>2025-03-28 20:57:46 UTC</createdTime>
-<commentInRDBMS><![CDATA[Brief Description of the room]]></commentInRDBMS>
+<createdTime>2025-03-29 16:05:47 UTC</createdTime>
+<generatorID>983A0875-21FF-1731-F8C6-A6ADAE1A960E</generatorID>
 <ownerDesignName>Model</ownerDesignName>
 <engineerTo>
 <item key="E3F8EAA8-66CA-F54D-804E-AF7E2719E99E" value="true"/>
 </engineerTo>
+<referedAttribute>019B72CA-0899-0EE8-7F54-BDC0D8838772</referedAttribute>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
-<logicalDatatype>LOGDT024</logicalDatatype>
-<dataTypeSize>100</dataTypeSize>
-<ownDataTypeParameters>100,,</ownDataTypeParameters>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>5</dataTypePrecision>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="EVENT_ID" id="896A6D67-3C9C-011F-22A8-009F3DA94430">
+<createdBy>user</createdBy>
+<createdTime>2025-03-29 16:06:06 UTC</createdTime>
+<generatorID>40E09A93-DEE3-F1E6-2535-DC825F7B05D5</generatorID>
+<ownerDesignName>Model</ownerDesignName>
+<engineerTo>
+<item key="E3F8EAA8-66CA-F54D-804E-AF7E2719E99E" value="true"/>
+</engineerTo>
+<referedAttribute>EAB15C10-F104-D42E-E1C2-222631DD2265</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
 </attributes>
 <identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
-<identifier id="F46A56B2-AA60-DECF-471D-1E03CC8252D8" name="YAT_STUDY_ROOM PK">
+<identifier id="320DF397-BBDE-3C54-B206-69F7D8FAE237" name="AYT_AUTHOR_SEMINAR PK">
 <createdBy>user</createdBy>
-<createdTime>2025-03-28 20:45:34 UTC</createdTime>
+<createdTime>2025-03-29 16:05:09 UTC</createdTime>
 <ownerDesignName>Model</ownerDesignName>
 <engineerTo>
 <item key="E3F8EAA8-66CA-F54D-804E-AF7E2719E99E" value="true"/>
 </engineerTo>
 <pk>true</pk>
 <usedAttributes>
-<attributeRef>5258136F-7830-3620-43F5-E5300709DF53</attributeRef>
+<attributeRef>A78F149A-67E3-5DBD-92F3-222C6F9CBB41</attributeRef>
 </usedAttributes>
 </identifier>
 </identifiers>

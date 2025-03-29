@@ -1,0 +1,19 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="FK_SEMINAR_SPONSOR_1" directorySegmentName="seg_0" id="218746F1-A25F-17C5-0CDB-F30F56FFA76B">
+<createdBy>user</createdBy>
+<createdTime>2025-03-29 16:06:47 UTC</createdTime>
+<ownerDesignName>Model</ownerDesignName>
+<engineerTo>
+<item key="E3F8EAA8-66CA-F54D-804E-AF7E2719E99E" value="true"/>
+</engineerTo>
+<sourcePk>BABCF470-8095-2D82-D361-92168E5B8E5C</sourcePk>
+<identifying>false</identifying>
+<optionalSource>false</optionalSource>
+<optionalTarget>false</optionalTarget>
+<sourceCardinality>1</sourceCardinality>
+<sourceEntity>40A91971-8E47-E393-E5BA-4CBBB7752140</sourceEntity>
+<targetCardinalityString>*</targetCardinalityString>
+<targetEntity>73C7DB52-CD0D-4DDC-54B2-F2F4A12D43B3</targetEntity>
+<transferable>true</transferable>
+<deleteRule>NO ACTION</deleteRule>
+</Relation>

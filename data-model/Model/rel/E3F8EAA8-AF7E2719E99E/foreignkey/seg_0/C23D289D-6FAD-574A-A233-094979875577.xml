@@ -1,0 +1,17 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="C23D289D-6FAD-574A-A233-094979875577" containerWithKeyObject="77EC1696-395B-737A-B95B-A8BF67DD5FC9" localFKIndex="18F2FFC6-A312-071A-CA9A-4F10E56C9779" name="AYT_INVOICE_AYT_RENTAL_FK">
+<createdBy>user</createdBy>
+<createdTime>2025-03-29 16:09:51 UTC</createdTime>
+<generatorID>B937A007-65C4-AE42-FA3A-49CDC492221C</generatorID>
+<ownerDesignName>Model</ownerDesignName>
+<referredTableLongName>AYT_RENTAL</referredTableLongName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>3CB59B99-B759-8576-D458-AAA53E066A2F</referredTableID>
+<keyObject>B6A71DDB-AA43-8E96-45BB-30EFDE19766A</keyObject>
+<referredKeyID>B6A71DDB-AA43-8E96-45BB-30EFDE19766A</referredKeyID>
+<mandatory>true</mandatory>
+<refColNames>RENTAL_ID</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

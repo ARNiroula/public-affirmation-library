@@ -1,0 +1,79 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="94559F30-1E3B-791C-57DD-8A369A844D41" name="AYT_BOOK_COPY">
+<createdBy>user</createdBy>
+<createdTime>2025-03-29 16:09:51 UTC</createdTime>
+<generatorID>E2D25128-C01A-B223-B261-26CF7DFA265C</generatorID>
+<ownerDesignName>Model</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="COPY_ID" id="94435631-7783-9955-3432-D63C0C28E011">
+<createdBy>user</createdBy>
+<createdTime>2025-03-29 16:09:51 UTC</createdTime>
+<commentInRDBMS><![CDATA[Unique Identifier for Copy of the Book]]></commentInRDBMS>
+<generatorID>F76B542F-A80A-CD53-FAF6-85B7C5547C1E</generatorID>
+<ownerDesignName>Model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>8</dataTypePrecision>
+<ownDataTypeParameters>,8,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="STATUS" id="2AF214B1-DED2-5A74-F7C6-1F920B677960">
+<createdBy>user</createdBy>
+<createdTime>2025-03-29 16:09:51 UTC</createdTime>
+<commentInRDBMS><![CDATA[Is the copy of the book loaned or not]]></commentInRDBMS>
+<generatorID>BE5C19C8-5B6D-9F7F-081B-28D1B61C6FB2</generatorID>
+<ownerDesignName>Model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>1</dataTypeSize>
+<ownDataTypeParameters>1,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="AYT_BOOK_BOOK_ID" id="086EBE68-6E10-0534-1FAE-1E76C5E3DDE8">
+<createdBy>user</createdBy>
+<createdTime>2025-03-29 16:09:51 UTC</createdTime>
+<generatorID>14604151-2A64-CF79-D60C-6498AAC9D6C7</generatorID>
+<ownerDesignName>Model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>7</dataTypePrecision>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="4C1596FF-EC15-9B31-8BD3-DF3AAA14F45A" referredColumn="180A7175-DA0D-D4CC-C9C3-77F09D9C1A33"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="31536E45-BC52-0D41-E3CF-A850D525E2F1" name="AYT_BOOK_COPY_PK">
+<createdBy>user</createdBy>
+<createdTime>2025-03-29 16:09:51 UTC</createdTime>
+<generatorID>321F66A3-7E5C-4728-8AA0-F9EB4E09106C</generatorID>
+<ownerDesignName>Model</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="94435631-7783-9955-3432-D63C0C28E011"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="6D6687CC-0725-B77F-4023-63C1CB1CFC1A" name="AYT_BOOK_COPY_AYT_BOOK_FK">
+<createdBy>user</createdBy>
+<createdTime>2025-03-29 16:09:51 UTC</createdTime>
+<generatorID>2BE4C814-4913-0B8C-F620-64869A09C01C</generatorID>
+<ownerDesignName>Model</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="086EBE68-6E10-0534-1FAE-1E76C5E3DDE8"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

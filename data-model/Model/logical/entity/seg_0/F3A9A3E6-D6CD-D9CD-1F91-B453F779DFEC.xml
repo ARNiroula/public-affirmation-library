@@ -29,6 +29,32 @@
 <dataTypeSize>10</dataTypeSize>
 <ownDataTypeParameters>10,,</ownDataTypeParameters>
 </Attribute>
+<Attribute name="ID_TYPE" id="81AC47FF-CA32-1B7C-B208-D9EF49D51160">
+<createdBy>user</createdBy>
+<createdTime>2025-03-29 15:51:41 UTC</createdTime>
+<generatorID>7EDFEF9C-03CA-913F-561F-C303A69CFE5C</generatorID>
+<ownerDesignName>Model</ownerDesignName>
+<engineerTo>
+<item key="E3F8EAA8-66CA-F54D-804E-AF7E2719E99E" value="true"/>
+</engineerTo>
+<referedAttribute>048A67A1-FDF8-9109-E623-70D7F2561ED0</referedAttribute>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="CUST_ID" id="1D113153-076E-EB8C-3FC4-B56730E7B8C5">
+<createdBy>user</createdBy>
+<createdTime>2025-03-29 15:51:58 UTC</createdTime>
+<generatorID>A8722E6F-8CCE-4462-C6A5-55E650347AB2</generatorID>
+<ownerDesignName>Model</ownerDesignName>
+<engineerTo>
+<item key="E3F8EAA8-66CA-F54D-804E-AF7E2719E99E" value="true"/>
+</engineerTo>
+<referedAttribute>A8F5DA44-3777-5C75-AF0E-7DF75C524138</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
 </attributes>
 <identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
 <identifier id="21C7BE3C-6C29-6BDA-E585-15259FA7F0B3" name="YAT_CUST_ID PK">

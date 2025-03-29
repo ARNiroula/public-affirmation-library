@@ -1,0 +1,19 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="FK_TYPE_PAY_2" directorySegmentName="seg_0" id="AEDEE423-3381-E937-1813-A2E12C12FE21">
+<createdBy>user</createdBy>
+<createdTime>2025-03-29 16:03:40 UTC</createdTime>
+<ownerDesignName>Model</ownerDesignName>
+<engineerTo>
+<item key="E3F8EAA8-66CA-F54D-804E-AF7E2719E99E" value="true"/>
+</engineerTo>
+<sourcePk>E1354E75-3100-DC43-F01D-485C9ABFD376</sourcePk>
+<identifying>false</identifying>
+<optionalSource>false</optionalSource>
+<optionalTarget>false</optionalTarget>
+<sourceCardinality>1</sourceCardinality>
+<sourceEntity>512D24E5-DB9E-2B41-0897-13A30AA83019</sourceEntity>
+<targetCardinalityString>*</targetCardinalityString>
+<targetEntity>8316953F-FD42-2F9F-0EB3-A111C0058674</targetEntity>
+<transferable>true</transferable>
+<deleteRule>NO ACTION</deleteRule>
+</Relation>

@@ -1,0 +1,89 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="5A793023-63CC-F7F2-4341-F3936490E080" name="AYT_CUST_ID">
+<createdBy>user</createdBy>
+<createdTime>2025-03-29 16:09:51 UTC</createdTime>
+<generatorID>F3A9A3E6-D6CD-D9CD-1F91-B453F779DFEC</generatorID>
+<ownerDesignName>Model</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="ID_NUM" id="47F7E6D6-571E-CBBC-59BE-BA3D4070D7C9">
+<createdBy>user</createdBy>
+<createdTime>2025-03-29 16:09:51 UTC</createdTime>
+<commentInRDBMS><![CDATA[Identification Number of the Customer for a Particular Identification Type]]></commentInRDBMS>
+<generatorID>FAA0954A-BDB4-F8B5-9C69-43AC17380082</generatorID>
+<ownerDesignName>Model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>10</dataTypeSize>
+<ownDataTypeParameters>10,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="AYT_ID_ID_TYPE" id="23E67B6D-794F-AAA5-E4C9-7C2BC482F4AB">
+<createdBy>user</createdBy>
+<createdTime>2025-03-29 16:09:51 UTC</createdTime>
+<generatorID>81AC47FF-CA32-1B7C-B208-D9EF49D51160</generatorID>
+<ownerDesignName>Model</ownerDesignName>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="A8F2249B-4D61-66F7-E216-3097703A56B3" referredColumn="950E696D-509B-420E-F62C-6C2193AD8B09"/>
+</associations>
+</Column>
+<Column name="AYT_CUST_CUST_ID" id="018BCAE6-0BE7-20C1-08BA-0BF9D1825AC7">
+<createdBy>user</createdBy>
+<createdTime>2025-03-29 16:09:51 UTC</createdTime>
+<generatorID>1D113153-076E-EB8C-3FC4-B56730E7B8C5</generatorID>
+<ownerDesignName>Model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="FD53E4CE-A282-E67B-01C8-097AE38ECC3E" referredColumn="65897B49-388A-E3ED-149A-8A3DA40EA13A"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="81561B2B-D50D-EDBF-AFC8-3DE40289C5AE" name="AYT_CUST_ID_PK">
+<createdBy>user</createdBy>
+<createdTime>2025-03-29 16:09:51 UTC</createdTime>
+<generatorID>21C7BE3C-6C29-6BDA-E585-15259FA7F0B3</generatorID>
+<ownerDesignName>Model</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="47F7E6D6-571E-CBBC-59BE-BA3D4070D7C9"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="5466FAC9-DDD3-4F48-8D72-38D6AC51C9A5" name="AYT_CUST_ID_AYT_ID_FK">
+<createdBy>user</createdBy>
+<createdTime>2025-03-29 16:09:51 UTC</createdTime>
+<generatorID>7EDFEF9C-03CA-913F-561F-C303A69CFE5C</generatorID>
+<ownerDesignName>Model</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="23E67B6D-794F-AAA5-E4C9-7C2BC482F4AB"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="B62814C2-AA17-2578-5E26-375CFA6DFBC9" name="AYT_CUST_ID_AYT_CUST_FK">
+<createdBy>user</createdBy>
+<createdTime>2025-03-29 16:09:51 UTC</createdTime>
+<generatorID>A8722E6F-8CCE-4462-C6A5-55E650347AB2</generatorID>
+<ownerDesignName>Model</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="018BCAE6-0BE7-20C1-08BA-0BF9D1825AC7"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

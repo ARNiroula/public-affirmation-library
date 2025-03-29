@@ -1,0 +1,82 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="5763581C-21EF-22FE-0F1A-863317E785C9" name="AYT_SPONSOR_SEMINAR">
+<createdBy>user</createdBy>
+<createdTime>2025-03-29 16:09:51 UTC</createdTime>
+<generatorID>73C7DB52-CD0D-4DDC-54B2-F2F4A12D43B3</generatorID>
+<ownerDesignName>Model</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="AMOUNT" id="5C336AA9-1C6E-E206-7946-F67D0FB15FDA">
+<createdBy>user</createdBy>
+<createdTime>2025-03-29 16:09:51 UTC</createdTime>
+<commentInRDBMS><![CDATA[Amount Given by the sponsor for the seminar]]></commentInRDBMS>
+<generatorID>3BA9E395-228F-7CA1-5F80-F29FA64C7CF7</generatorID>
+<ownerDesignName>Model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT043</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<dataTypeScale>2</dataTypeScale>
+<ownDataTypeParameters>,10,2</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="AYT_SEMINAR_EVENT_ID" id="C3F3FEAC-D743-C6F1-5B22-8EB375917DD7">
+<createdBy>user</createdBy>
+<createdTime>2025-03-29 16:09:51 UTC</createdTime>
+<generatorID>D1030942-6814-0F70-8F72-11E9D4367B81</generatorID>
+<ownerDesignName>Model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="C41AC568-DFD1-5DA3-2B11-D860B457CA8D" referredColumn="9F2E4087-74D1-E920-642A-D249FD9799DD"/>
+</associations>
+</Column>
+<Column name="AYT_SPONSOR_SPONSOR_ID" id="1AB3F026-F756-DD58-28BB-08DA9F651795">
+<createdBy>user</createdBy>
+<createdTime>2025-03-29 16:09:51 UTC</createdTime>
+<generatorID>0816F37C-191F-A700-9BF4-3F57ADBED082</generatorID>
+<ownerDesignName>Model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>5</dataTypePrecision>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="14CF8764-A083-47B3-658B-4CB8BDEF1ECD" referredColumn="90015DF7-3D5A-3E42-3EC4-16033FB57BA1"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="E00E63F3-9822-B034-3A51-2B36DE9C04D4" name="AYT_SPONSOR_SEMINAR_AYT_SEMINAR_FK">
+<createdBy>user</createdBy>
+<createdTime>2025-03-29 16:09:51 UTC</createdTime>
+<generatorID>218746F1-A25F-17C5-0CDB-F30F56FFA76B</generatorID>
+<ownerDesignName>Model</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="C3F3FEAC-D743-C6F1-5B22-8EB375917DD7"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="0C2AAA28-950A-F526-F829-E094CC9488FD" name="AYT_SPONSOR_SEMINAR_AYT_SPONSOR_FK">
+<createdBy>user</createdBy>
+<createdTime>2025-03-29 16:09:51 UTC</createdTime>
+<generatorID>53C0D0BF-CBF2-D11F-D9C8-2F7A9481E351</generatorID>
+<ownerDesignName>Model</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="1AB3F026-F756-DD58-28BB-08DA9F651795"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

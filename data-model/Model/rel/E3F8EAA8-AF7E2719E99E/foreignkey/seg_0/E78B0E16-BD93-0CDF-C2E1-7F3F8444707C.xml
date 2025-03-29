@@ -1,0 +1,17 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="E78B0E16-BD93-0CDF-C2E1-7F3F8444707C" containerWithKeyObject="0BAE83CF-4B59-2D21-4A63-A5DE8FF678BA" localFKIndex="B166B9D3-B93A-84BF-4006-BE96EF09071F" name="AYT_CUST_ROOM_AYT_ROOM_FK">
+<createdBy>user</createdBy>
+<createdTime>2025-03-29 16:09:51 UTC</createdTime>
+<generatorID>65D60FDE-3BB1-C59E-D7D2-95256AED2CBA</generatorID>
+<ownerDesignName>Model</ownerDesignName>
+<referredTableLongName>AYT_ROOM</referredTableLongName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>BCD64BAF-05E3-834E-5B0F-E8A5EEBA12A1</referredTableID>
+<keyObject>B0DE5537-F730-2811-00E4-028713C6D419</keyObject>
+<referredKeyID>B0DE5537-F730-2811-00E4-028713C6D419</referredKeyID>
+<mandatory>true</mandatory>
+<refColNames>ROOM_ID</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

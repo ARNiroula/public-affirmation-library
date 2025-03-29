@@ -1,0 +1,67 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="6F5A5481-56DD-F549-8546-DC9C23B09F86" name="AYT_EXHIBITION">
+<createdBy>user</createdBy>
+<createdTime>2025-03-29 16:09:51 UTC</createdTime>
+<generatorID>ABCE8FB7-D5BF-4E1E-C9C4-A38E98A800F0</generatorID>
+<ownerDesignName>Model</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="EVENT_ID" id="6DB27BD0-E477-A920-0FEE-60D7124B2A0E">
+<createdBy>user</createdBy>
+<createdTime>2025-03-29 16:09:51 UTC</createdTime>
+<commentInRDBMS><![CDATA[Unique Identifier of the Event]]></commentInRDBMS>
+<generatorID>EAB15C10-F104-D42E-E1C2-222631DD2265</generatorID>
+<ownerDesignName>Model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="592B4B33-6D85-6E2D-F107-1538D3E9C4DD" referredColumn="AC7C339E-5612-1992-7A8B-080D1D5C2018"/>
+</associations>
+</Column>
+<Column name="EXPENSES" id="049D1275-1161-92CF-4D9B-2ABA6F79D089">
+<createdBy>user</createdBy>
+<createdTime>2025-03-29 16:09:51 UTC</createdTime>
+<commentInRDBMS><![CDATA[Total Expense spend in the Seminar]]></commentInRDBMS>
+<generatorID>16B94788-C375-2CA4-B661-CFEB54AC10C3</generatorID>
+<ownerDesignName>Model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT043</logicalDatatype>
+<dataTypePrecision>9</dataTypePrecision>
+<dataTypeScale>2</dataTypeScale>
+<ownDataTypeParameters>,9,2</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="3BD2D251-AA27-960D-73D1-F1120424B1AB" name="AYT_EXHIBITION_PK">
+<createdBy>user</createdBy>
+<createdTime>2025-03-29 16:09:51 UTC</createdTime>
+<generatorID>BABCF470-8095-2D82-D361-92168E5B8E5C</generatorID>
+<ownerDesignName>Model</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="6DB27BD0-E477-A920-0FEE-60D7124B2A0E"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="2AE3101D-F099-C112-BB01-BEE1E1671224" name="AYT_EXHIBITION_AYT_EVENT_FK">
+<createdBy>user</createdBy>
+<createdTime>2025-03-29 16:09:51 UTC</createdTime>
+<generatorID>DD614121-3E38-222D-B6F5-F73105CE79FC</generatorID>
+<ownerDesignName>Model</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="6DB27BD0-E477-A920-0FEE-60D7124B2A0E"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

@@ -84,6 +84,35 @@
 <dataTypePrecision>1</dataTypePrecision>
 <ownDataTypeParameters>,1,</ownDataTypeParameters>
 </Attribute>
+<Attribute name="CUST_ID" id="6CC7F4B4-AC41-3DB3-2439-5A70A6A60227">
+<createdBy>user</createdBy>
+<createdTime>2025-03-29 15:52:38 UTC</createdTime>
+<generatorID>279C9681-4DFB-E5D9-ED07-01838C001A0C</generatorID>
+<ownerDesignName>Model</ownerDesignName>
+<engineerTo>
+<item key="E3F8EAA8-66CA-F54D-804E-AF7E2719E99E" value="true"/>
+</engineerTo>
+<referedAttribute>A8F5DA44-3777-5C75-AF0E-7DF75C524138</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="ROOM_ID" id="95BDDF89-CC4B-5D39-5705-59855EE917B8">
+<createdBy>user</createdBy>
+<createdTime>2025-03-29 15:53:07 UTC</createdTime>
+<generatorID>65D60FDE-3BB1-C59E-D7D2-95256AED2CBA</generatorID>
+<ownerDesignName>Model</ownerDesignName>
+<engineerTo>
+<item key="E3F8EAA8-66CA-F54D-804E-AF7E2719E99E" value="true"/>
+</engineerTo>
+<referedAttribute>5258136F-7830-3620-43F5-E5300709DF53</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>4</dataTypeSize>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
 </attributes>
 <identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
 <identifier id="342483F3-C923-4289-866B-F4E0D33015A1" name="AYT_CUST_ROOM PK">

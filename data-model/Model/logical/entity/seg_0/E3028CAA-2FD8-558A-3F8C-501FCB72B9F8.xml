@@ -1,0 +1,118 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="E3028CAA-2FD8-558A-3F8C-501FCB72B9F8" name="AYT_EVENT">
+<createdBy>user</createdBy>
+<createdTime>2025-03-29 15:19:23 UTC</createdTime>
+<ownerDesignName>Model</ownerDesignName>
+<engineerTo>
+<item key="E3F8EAA8-66CA-F54D-804E-AF7E2719E99E" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<generateDiscrimColumn>true</generateDiscrimColumn>
+<discriminatorAttributeID>8C9D7E28-55A1-E9AB-7A01-60A4AE6ED894</discriminatorAttributeID>
+<completeSubtypes>true</completeSubtypes>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="EVENT_ID" id="EAB15C10-F104-D42E-E1C2-222631DD2265">
+<createdBy>user</createdBy>
+<createdTime>2025-03-29 15:19:32 UTC</createdTime>
+<commentInRDBMS><![CDATA[Unique Identifier of the Event]]></commentInRDBMS>
+<ownerDesignName>Model</ownerDesignName>
+<engineerTo>
+<item key="E3F8EAA8-66CA-F54D-804E-AF7E2719E99E" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<ownDataTypeParameters>,10,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="EVENT_NAME" id="C7BAF0E6-9DA0-CB4F-0078-7F0E44AF0018">
+<createdBy>user</createdBy>
+<createdTime>2025-03-29 15:20:51 UTC</createdTime>
+<commentInRDBMS><![CDATA[Name of the event]]></commentInRDBMS>
+<ownerDesignName>Model</ownerDesignName>
+<engineerTo>
+<item key="E3F8EAA8-66CA-F54D-804E-AF7E2719E99E" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100</dataTypeSize>
+<ownDataTypeParameters>100,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="START_DATE_TIME" id="16907ECA-094E-9A9D-20B1-5E6B12C40731">
+<createdBy>user</createdBy>
+<createdTime>2025-03-29 15:19:52 UTC</createdTime>
+<commentInRDBMS><![CDATA[Start Date Time of the Event]]></commentInRDBMS>
+<ownerDesignName>Model</ownerDesignName>
+<engineerTo>
+<item key="E3F8EAA8-66CA-F54D-804E-AF7E2719E99E" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT008</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="END_DATE_TIME" id="EFFA7A36-6F72-8045-5CDE-232536FE812F">
+<createdBy>user</createdBy>
+<createdTime>2025-03-29 15:20:11 UTC</createdTime>
+<commentInRDBMS><![CDATA[End Date time of the event]]></commentInRDBMS>
+<ownerDesignName>Model</ownerDesignName>
+<engineerTo>
+<item key="E3F8EAA8-66CA-F54D-804E-AF7E2719E99E" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT008</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="EVENT_TOPIC" id="866F106E-7282-A1E6-42AC-E98901F4F611">
+<createdBy>user</createdBy>
+<createdTime>2025-03-29 15:20:30 UTC</createdTime>
+<commentInRDBMS><![CDATA[Topic of the Event]]></commentInRDBMS>
+<ownerDesignName>Model</ownerDesignName>
+<engineerTo>
+<item key="E3F8EAA8-66CA-F54D-804E-AF7E2719E99E" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>30</dataTypeSize>
+<ownDataTypeParameters>30,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="EVENT_TYPE" id="8C9D7E28-55A1-E9AB-7A01-60A4AE6ED894">
+<createdBy>user</createdBy>
+<createdTime>2025-03-29 15:46:32 UTC</createdTime>
+<commentInRDBMS><![CDATA[General Discriminator of the event]]></commentInRDBMS>
+<ownerDesignName>Model</ownerDesignName>
+<engineerTo>
+<item key="E3F8EAA8-66CA-F54D-804E-AF7E2719E99E" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>1</dataTypeSize>
+<ownDataTypeParameters>1,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="BABCF470-8095-2D82-D361-92168E5B8E5C" name="AYT_EVENT PK">
+<createdBy>user</createdBy>
+<createdTime>2025-03-29 15:19:41 UTC</createdTime>
+<ownerDesignName>Model</ownerDesignName>
+<engineerTo>
+<item key="E3F8EAA8-66CA-F54D-804E-AF7E2719E99E" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>EAB15C10-F104-D42E-E1C2-222631DD2265</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

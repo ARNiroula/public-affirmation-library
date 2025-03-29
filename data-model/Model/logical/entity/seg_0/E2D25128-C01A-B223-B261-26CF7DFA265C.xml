@@ -1,7 +1,7 @@
 <?xml version = '1.0' encoding = 'UTF-8'?>
-<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="9ECF15CE-06BB-A616-33EB-123038C7852B" name="AYT_ID">
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="E2D25128-C01A-B223-B261-26CF7DFA265C" name="AYT_BOOK_COPY">
 <createdBy>user</createdBy>
-<createdTime>2025-03-28 20:40:58 UTC</createdTime>
+<createdTime>2025-03-29 13:52:04 UTC</createdTime>
 <ownerDesignName>Model</ownerDesignName>
 <engineerTo>
 <item key="E3F8EAA8-66CA-F54D-804E-AF7E2719E99E" value="true"/>
@@ -15,57 +15,61 @@
 <minVolumes>0</minVolumes>
 <normalForm>Third</normalForm>
 <attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
-<Attribute name="ID_TYPE" id="048A67A1-FDF8-9109-E623-70D7F2561ED0">
+<Attribute name="COPY_ID" id="F76B542F-A80A-CD53-FAF6-85B7C5547C1E">
 <createdBy>user</createdBy>
-<createdTime>2025-03-28 20:41:07 UTC</createdTime>
-<commentInRDBMS><![CDATA[Unique Identifier for the Identification Types]]></commentInRDBMS>
+<createdTime>2025-03-29 13:52:15 UTC</createdTime>
+<commentInRDBMS><![CDATA[Unique Identifier for Copy of the Book]]></commentInRDBMS>
 <ownerDesignName>Model</ownerDesignName>
 <engineerTo>
 <item key="E3F8EAA8-66CA-F54D-804E-AF7E2719E99E" value="true"/>
 </engineerTo>
-<use>0</use>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>8</dataTypePrecision>
+<ownDataTypeParameters>,8,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="STATUS" id="BE5C19C8-5B6D-9F7F-081B-28D1B61C6FB2">
+<createdBy>user</createdBy>
+<createdTime>2025-03-29 13:52:36 UTC</createdTime>
+<commentInRDBMS><![CDATA[Is the copy of the book loaned or not]]></commentInRDBMS>
+<ownerDesignName>Model</ownerDesignName>
+<engineerTo>
+<item key="E3F8EAA8-66CA-F54D-804E-AF7E2719E99E" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>1</dataTypeSize>
+<ownDataTypeParameters>1,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="BOOK_ID" id="14604151-2A64-CF79-D60C-6498AAC9D6C7">
+<createdBy>user</createdBy>
+<createdTime>2025-03-29 15:58:10 UTC</createdTime>
+<generatorID>2BE4C814-4913-0B8C-F620-64869A09C01C</generatorID>
+<ownerDesignName>Model</ownerDesignName>
+<engineerTo>
+<item key="E3F8EAA8-66CA-F54D-804E-AF7E2719E99E" value="true"/>
+</engineerTo>
+<referedAttribute>EC8FB9F6-240C-715D-29C4-290E097C20C3</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>7</dataTypePrecision>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
-</Attribute>
-<Attribute name="ID_NAME" id="4C24E819-7467-D323-F02C-4842748F763F">
-<createdBy>user</createdBy>
-<createdTime>2025-03-28 20:41:18 UTC</createdTime>
-<commentInRDBMS><![CDATA[Name of the Identification Types]]></commentInRDBMS>
-<ownerDesignName>Model</ownerDesignName>
-<engineerTo>
-<item key="E3F8EAA8-66CA-F54D-804E-AF7E2719E99E" value="true"/>
-</engineerTo>
-<useDomainConstraints>false</useDomainConstraints>
-<use>1</use>
-<logicalDatatype>LOGDT024</logicalDatatype>
-<dataTypeSize>30</dataTypeSize>
-<ownDataTypeParameters>30,,</ownDataTypeParameters>
-</Attribute>
-<Attribute name="DESC" id="73B63DB4-0684-8016-16A2-FC0CDB7C0068">
-<createdBy>user</createdBy>
-<createdTime>2025-03-28 20:41:58 UTC</createdTime>
-<commentInRDBMS><![CDATA[Description of the Identification Type]]></commentInRDBMS>
-<ownerDesignName>Model</ownerDesignName>
-<engineerTo>
-<item key="E3F8EAA8-66CA-F54D-804E-AF7E2719E99E" value="true"/>
-</engineerTo>
-<useDomainConstraints>false</useDomainConstraints>
-<use>1</use>
-<logicalDatatype>LOGDT024</logicalDatatype>
-<dataTypeSize>200</dataTypeSize>
-<ownDataTypeParameters>200,,</ownDataTypeParameters>
 </Attribute>
 </attributes>
 <identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
-<identifier id="89DA50D1-2290-7255-E6C8-2BCFD2BD24A7" name="YAT_ID PK">
+<identifier id="321F66A3-7E5C-4728-8AA0-F9EB4E09106C" name="AYT_BOOK_COPY PK">
 <createdBy>user</createdBy>
-<createdTime>2025-03-28 20:41:10 UTC</createdTime>
+<createdTime>2025-03-29 13:52:23 UTC</createdTime>
 <ownerDesignName>Model</ownerDesignName>
 <engineerTo>
 <item key="E3F8EAA8-66CA-F54D-804E-AF7E2719E99E" value="true"/>
 </engineerTo>
 <pk>true</pk>
 <usedAttributes>
-<attributeRef>048A67A1-FDF8-9109-E623-70D7F2561ED0</attributeRef>
+<attributeRef>F76B542F-A80A-CD53-FAF6-85B7C5547C1E</attributeRef>
 </usedAttributes>
 </identifier>
 </identifiers>
