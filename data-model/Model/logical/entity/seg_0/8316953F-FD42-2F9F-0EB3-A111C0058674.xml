@@ -18,7 +18,7 @@
 <Attribute name="INST_NUM" id="2459FD95-0889-AB55-ECF5-D68E51554126">
 <createdBy>user</createdBy>
 <createdTime>2025-03-29 14:33:56 UTC</createdTime>
-<commentInRDBMS><![CDATA[Instrumentation Number]]></commentInRDBMS>
+<commentInRDBMS><![CDATA[Instrumentation Number. If payment is done by cash, then INST_NUM will be 0.]]></commentInRDBMS>
 <ownerDesignName>Model</ownerDesignName>
 <engineerTo>
 <item key="E3F8EAA8-66CA-F54D-804E-AF7E2719E99E" value="true"/>
@@ -28,6 +28,21 @@
 <logicalDatatype>LOGDT019</logicalDatatype>
 <dataTypePrecision>10</dataTypePrecision>
 <ownDataTypeParameters>,10,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="CARD_NAME" id="BF8C68DA-42D5-62AB-E028-F4AD030B067C">
+<createdBy>arnir</createdBy>
+<createdTime>2025-03-29 18:45:11 UTC</createdTime>
+<commentInRDBMS><![CDATA[Name in the Card. Optional since people can pay using cash]]></commentInRDBMS>
+<ownerDesignName>Model</ownerDesignName>
+<engineerTo>
+<item key="E3F8EAA8-66CA-F54D-804E-AF7E2719E99E" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100</dataTypeSize>
+<ownDataTypeParameters>100,,</ownDataTypeParameters>
 </Attribute>
 <Attribute name="PAY_ID" id="F3D9713A-4204-2835-DE7A-4913E5B24754">
 <createdBy>user</createdBy>
@@ -60,15 +75,4 @@
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
 </attributes>
-<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
-<identifier id="E5D82963-F149-834B-3414-A60131BDD53B" name="AYT_TYPE_PAY PK">
-<createdBy>user</createdBy>
-<createdTime>2025-03-29 16:02:48 UTC</createdTime>
-<ownerDesignName>Model</ownerDesignName>
-<engineerTo>
-<item key="E3F8EAA8-66CA-F54D-804E-AF7E2719E99E" value="true"/>
-</engineerTo>
-<pk>true</pk>
-</identifier>
-</identifiers>
 </Entity>

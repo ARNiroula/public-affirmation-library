@@ -42,7 +42,7 @@
 <use>1</use>
 <logicalDatatype>LOGDT019</logicalDatatype>
 <dataTypePrecision>10</dataTypePrecision>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
+<ownDataTypeParameters>,10,</ownDataTypeParameters>
 </Attribute>
 <Attribute name="CUST_ID" id="F7E1F8B5-017A-6429-6F5F-AFD9366C8D6A">
 <createdBy>user</createdBy>
@@ -52,6 +52,7 @@
 <engineerTo>
 <item key="E3F8EAA8-66CA-F54D-804E-AF7E2719E99E" value="true"/>
 </engineerTo>
+<nullsAllowed>true</nullsAllowed>
 <referedAttribute>A8F5DA44-3777-5C75-AF0E-7DF75C524138</referedAttribute>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
