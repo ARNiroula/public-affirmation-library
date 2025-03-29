@@ -145,7 +145,10 @@ COMMENT ON COLUMN AYT_CUST.EMAIL IS 'Email of the customer'
 ;
 
 ALTER TABLE AYT_CUST 
-    ADD CONSTRAINT AYT_CUST_PK PRIMARY KEY ( CUST_ID ) ;
+    ADD CONSTRAINT AYT_CUST_PK SERIAL PRIMARY KEY ( CUST_ID ) ;
+
+ALTER TABLE AYT_CUST 
+ALTER COLUMN CUST_ID add generated always as identity;
 
 CREATE TABLE AYT_CUST_EXHIBITION 
     ( 
@@ -180,7 +183,7 @@ CREATE TABLE AYT_CUST_ROOM
      RES_ID     INTEGER  NOT NULL , 
      START_TIME TIMESTAMP (0)  NOT NULL , 
      END_TIME   TIMESTAMP (0)  NOT NULL , 
-     "DESC"     VARCHAR (100)  NOT NULL , 
+     DESCR     VARCHAR (100)  NOT NULL , 
      NUM_INDV   SMALLINT  NOT NULL , 
      CUST_ID    INTEGER , 
      ROOM_ID    VARCHAR (4) 
@@ -196,7 +199,7 @@ COMMENT ON COLUMN AYT_CUST_ROOM.START_TIME IS 'Start Time of the Reservation'
 COMMENT ON COLUMN AYT_CUST_ROOM.END_TIME IS 'End Time of the Reservation' 
 ;
 
-COMMENT ON COLUMN AYT_CUST_ROOM."DESC" IS 'Short Description of why the reservation is needed' 
+COMMENT ON COLUMN AYT_CUST_ROOM.DESCR IS 'Short Description of why the reservation is needed' 
 ;
 
 COMMENT ON COLUMN AYT_CUST_ROOM.NUM_INDV IS 'Expected number of Individuals that will be in the room during the reservation.' 
@@ -204,6 +207,8 @@ COMMENT ON COLUMN AYT_CUST_ROOM.NUM_INDV IS 'Expected number of Individuals that
 
 ALTER TABLE AYT_CUST_ROOM 
     ADD CONSTRAINT AYT_CUST_ROOM_PK PRIMARY KEY ( RES_ID ) ;
+ALTER TABLE AYT_CUST_ROOM 
+    ALTER COLUMN RES_ID add generated always as identity;
 
 CREATE TABLE AYT_EVENT 
     ( 
@@ -262,7 +267,7 @@ CREATE TABLE AYT_ID
     ( 
      ID_TYPE VARCHAR (10)  NOT NULL , 
      ID_NAME VARCHAR (30)  NOT NULL , 
-     "DESC"  VARCHAR (200)  NOT NULL 
+     DESCR  VARCHAR (200)  NOT NULL 
     ) 
 ;
 
@@ -272,7 +277,7 @@ COMMENT ON COLUMN AYT_ID.ID_TYPE IS 'Unique Identifier for the Identification Ty
 COMMENT ON COLUMN AYT_ID.ID_NAME IS 'Name of the Identification Types' 
 ;
 
-COMMENT ON COLUMN AYT_ID."DESC" IS 'Description of the Identification Type' 
+COMMENT ON COLUMN AYT_ID.DESCR IS 'Description of the Identification Type' 
 ;
 
 ALTER TABLE AYT_ID 
@@ -329,7 +334,7 @@ CREATE TABLE AYT_PAY_TYPE
     ( 
      TYPE_ID   SMALLINT  NOT NULL , 
      TYPE_NAME VARCHAR (20)  NOT NULL , 
-     "DESC"    VARCHAR (200) 
+     DESCR    VARCHAR (200) 
     ) 
 ;
 
@@ -339,7 +344,7 @@ COMMENT ON COLUMN AYT_PAY_TYPE.TYPE_ID IS 'Unique Identifier of the Payment Type
 COMMENT ON COLUMN AYT_PAY_TYPE.TYPE_NAME IS 'Name of the Payment Type. Is it credit card, debit card, etc.' 
 ;
 
-COMMENT ON COLUMN AYT_PAY_TYPE."DESC" IS 'Description of the Payment Type' 
+COMMENT ON COLUMN AYT_PAY_TYPE.DESCR IS 'Description of the Payment Type' 
 ;
 
 ALTER TABLE AYT_PAY_TYPE 
@@ -375,7 +380,7 @@ CREATE TABLE AYT_ROOM
     ( 
      ROOM_ID  VARCHAR (4)  NOT NULL , 
      CAPACITY SMALLINT  NOT NULL , 
-     "DESC"   VARCHAR (100)  NOT NULL 
+     DESCR   VARCHAR (100)  NOT NULL 
     ) 
 ;
 
@@ -385,7 +390,7 @@ COMMENT ON COLUMN AYT_ROOM.ROOM_ID IS 'Unique Identifier of the Room. The ID sho
 COMMENT ON COLUMN AYT_ROOM.CAPACITY IS 'Capacity of the Room. Max Room capacity assumed to be 9' 
 ;
 
-COMMENT ON COLUMN AYT_ROOM."DESC" IS 'Brief Description of the room' 
+COMMENT ON COLUMN AYT_ROOM.DESCR IS 'Brief Description of the room' 
 ;
 
 ALTER TABLE AYT_ROOM 
