@@ -13,6 +13,7 @@ begin
     if (new.NUM_INDV > cap) then
         raise exception 'The Number of Individuals exceed the room capacity';
     end if;
+    return new;
 end;
 $room_cap$ language plpgsql;
 
