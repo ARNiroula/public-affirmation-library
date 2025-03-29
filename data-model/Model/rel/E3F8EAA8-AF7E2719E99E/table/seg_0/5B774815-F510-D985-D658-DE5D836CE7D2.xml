@@ -1,0 +1,107 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="5B774815-F510-D985-D658-DE5D836CE7D2" name="AYT_TYPE_PAY">
+<createdBy>arnir</createdBy>
+<createdTime>2025-03-29 18:58:51 UTC</createdTime>
+<generatorID>8316953F-FD42-2F9F-0EB3-A111C0058674</generatorID>
+<ownerDesignName>Model</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="INST_NUM" id="9B884474-DDAA-29EA-072C-C5EA9FDD0034">
+<createdBy>arnir</createdBy>
+<createdTime>2025-03-29 18:58:51 UTC</createdTime>
+<commentInRDBMS><![CDATA[Instrumentation Number. If payment is done by cash, then INST_NUM will be 0.]]></commentInRDBMS>
+<generatorID>2459FD95-0889-AB55-ECF5-D68E51554126</generatorID>
+<ownerDesignName>Model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<ownDataTypeParameters>,10,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="CARD_NAME" id="6E646091-CD25-E981-5A20-9307DB2D92AC">
+<createdBy>arnir</createdBy>
+<createdTime>2025-03-29 18:58:51 UTC</createdTime>
+<commentInRDBMS><![CDATA[Name in the Card. Optional since people can pay using cash]]></commentInRDBMS>
+<generatorID>BF8C68DA-42D5-62AB-E028-F4AD030B067C</generatorID>
+<ownerDesignName>Model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100</dataTypeSize>
+<ownDataTypeParameters>100,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="PAY_ID" id="C2B177B4-81AE-E907-6DE3-0543EC021887">
+<createdBy>arnir</createdBy>
+<createdTime>2025-03-29 18:58:51 UTC</createdTime>
+<generatorID>F3D9713A-4204-2835-DE7A-4913E5B24754</generatorID>
+<ownerDesignName>Model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="0D82316F-007E-482C-95AC-88BFE70F592B" referredColumn="8105225F-3E46-DFD5-87CF-D992AED1BF85"/>
+</associations>
+</Column>
+<Column name="TYPE_ID" id="01BB9787-5475-4575-502A-5A097DB43B60">
+<createdBy>arnir</createdBy>
+<createdTime>2025-03-29 18:58:51 UTC</createdTime>
+<generatorID>C41149E0-5F27-C413-5B15-21F2494417A9</generatorID>
+<ownerDesignName>Model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>1</dataTypePrecision>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="8E21D11D-3D01-58B2-6B5B-7117FF5F167C" referredColumn="F7802079-90DB-F755-A3B9-C5CCDA7209E3"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="58B13D1A-7FE9-E246-0D60-2E8B0BE8925C" name="AYT_TYPE_PAY_PK">
+<createdBy>arnir</createdBy>
+<createdTime>2025-03-29 19:14:20 UTC</createdTime>
+<ownerDesignName>Model</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="C2B177B4-81AE-E907-6DE3-0543EC021887"/>
+<colUsage columnID="01BB9787-5475-4575-502A-5A097DB43B60"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="764ED4DC-044E-6A86-7B22-11E7249F62D0" name="AYT_TYPE_PAY_AYT_PAY_FK">
+<createdBy>arnir</createdBy>
+<createdTime>2025-03-29 18:58:51 UTC</createdTime>
+<generatorID>4673AAF6-2912-C95A-71C3-DD95D4499909</generatorID>
+<ownerDesignName>Model</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="C2B177B4-81AE-E907-6DE3-0543EC021887"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="5FF0DDC4-751A-E002-B5FA-5EABB01AB7EE" name="AYT_TYPE_PAY_AYT_PAY_TYPE_FK">
+<createdBy>arnir</createdBy>
+<createdTime>2025-03-29 18:58:51 UTC</createdTime>
+<generatorID>AEDEE423-3381-E937-1813-A2E12C12FE21</generatorID>
+<ownerDesignName>Model</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="01BB9787-5475-4575-502A-5A097DB43B60"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

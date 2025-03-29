@@ -1,0 +1,17 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="5D861D42-4F40-E514-C526-9BB7A32333D7" containerWithKeyObject="89334D4E-6EB7-D44B-0CF5-C3BD6EAF7DD2" localFKIndex="F2E07D83-EDF8-0753-1A2F-24865878AF88" name="AYT_INVOICE_AYT_PAY_FK">
+<createdBy>arnir</createdBy>
+<createdTime>2025-03-29 18:58:51 UTC</createdTime>
+<generatorID>596843C7-33F0-4C47-3F44-F37C52A51F56</generatorID>
+<ownerDesignName>Model</ownerDesignName>
+<referredTableLongName>AYT_PAY</referredTableLongName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>1A46D511-8248-99EB-5924-8C92FC7B4E8C</referredTableID>
+<keyObject>64ACC51C-3D8E-ACB2-1161-6FD52617079B</keyObject>
+<referredKeyID>64ACC51C-3D8E-ACB2-1161-6FD52617079B</referredKeyID>
+<mandatory>true</mandatory>
+<refColNames>PAY_ID</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

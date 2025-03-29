@@ -1,0 +1,66 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="26D45315-99C6-5379-B400-00F74A63CB19" name="AYT_BOOK_COPY">
+<createdBy>arnir</createdBy>
+<createdTime>2025-03-29 18:58:51 UTC</createdTime>
+<generatorID>E2D25128-C01A-B223-B261-26CF7DFA265C</generatorID>
+<ownerDesignName>Model</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="COPY_ID" id="CBD69B53-080D-B247-C1D0-FD1705571D14">
+<createdBy>arnir</createdBy>
+<createdTime>2025-03-29 18:58:51 UTC</createdTime>
+<commentInRDBMS><![CDATA[Unique Identifier for Copy of the Book]]></commentInRDBMS>
+<generatorID>F76B542F-A80A-CD53-FAF6-85B7C5547C1E</generatorID>
+<ownerDesignName>Model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>8</dataTypePrecision>
+<ownDataTypeParameters>,8,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="BOOK_ID" id="72730D26-06C7-76E7-6888-09F3F41EFB02">
+<createdBy>arnir</createdBy>
+<createdTime>2025-03-29 18:58:51 UTC</createdTime>
+<generatorID>14604151-2A64-CF79-D60C-6498AAC9D6C7</generatorID>
+<ownerDesignName>Model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>7</dataTypePrecision>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="A2D7F40E-F38F-379F-FEE6-455E795BE072" referredColumn="964C54AE-80D3-8F03-84FF-A2710A110BF8"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="030ABF71-CA1A-A32D-1C48-3718F658D7C3" name="AYT_BOOK_COPY_PK">
+<createdBy>arnir</createdBy>
+<createdTime>2025-03-29 18:58:51 UTC</createdTime>
+<generatorID>321F66A3-7E5C-4728-8AA0-F9EB4E09106C</generatorID>
+<ownerDesignName>Model</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="CBD69B53-080D-B247-C1D0-FD1705571D14"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="408279F6-4934-6559-3DC2-D984DDA5C820" name="AYT_BOOK_COPY_AYT_BOOK_FK">
+<createdBy>arnir</createdBy>
+<createdTime>2025-03-29 18:58:51 UTC</createdTime>
+<generatorID>2BE4C814-4913-0B8C-F620-64869A09C01C</generatorID>
+<ownerDesignName>Model</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="72730D26-06C7-76E7-6888-09F3F41EFB02"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

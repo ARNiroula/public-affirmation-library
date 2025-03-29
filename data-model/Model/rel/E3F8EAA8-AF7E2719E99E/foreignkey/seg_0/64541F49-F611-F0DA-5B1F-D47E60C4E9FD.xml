@@ -1,0 +1,17 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="64541F49-F611-F0DA-5B1F-D47E60C4E9FD" containerWithKeyObject="6268234D-DA4C-540F-9618-F9B2ACC20D90" localFKIndex="AB933F72-A4AD-D7FC-A71F-BCE83202EDAC" name="AYT_SP_SEM_AYT_SEM_FK">
+<createdBy>arnir</createdBy>
+<createdTime>2025-03-29 18:58:51 UTC</createdTime>
+<generatorID>218746F1-A25F-17C5-0CDB-F30F56FFA76B</generatorID>
+<ownerDesignName>Model</ownerDesignName>
+<referredTableLongName>AYT_SEMINAR</referredTableLongName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>CFC03726-89E8-181D-A9CD-970B2247D2B7</referredTableID>
+<keyObject>E61E1C52-B579-87F0-E471-7A4EB75AFCCD</keyObject>
+<referredKeyID>E61E1C52-B579-87F0-E471-7A4EB75AFCCD</referredKeyID>
+<mandatory>true</mandatory>
+<refColNames>EVENT_ID</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

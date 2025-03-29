@@ -1,0 +1,130 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="ACA1BFDE-CA54-F681-FB3A-B3A573DACAD0" name="AYT_RENTAL">
+<createdBy>arnir</createdBy>
+<createdTime>2025-03-29 18:58:51 UTC</createdTime>
+<generatorID>530B0E2B-7EDA-9910-92E5-ACA11AC55DF3</generatorID>
+<ownerDesignName>Model</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="RENTAL_ID" id="5366FFED-160E-44E8-81C3-92B944355CA0">
+<createdBy>arnir</createdBy>
+<createdTime>2025-03-29 18:58:51 UTC</createdTime>
+<commentInRDBMS><![CDATA[Unique Identifier for Rental]]></commentInRDBMS>
+<generatorID>BFD67C74-8B08-AEF1-8D08-D3D30ACDC966</generatorID>
+<ownerDesignName>Model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<ownDataTypeParameters>,10,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="BORROW_DATE" id="7E25C659-9046-125C-A7FA-EFAA7EFBEC4A">
+<createdBy>arnir</createdBy>
+<createdTime>2025-03-29 18:58:51 UTC</createdTime>
+<commentInRDBMS><![CDATA[Borrow Date of the Book Rental]]></commentInRDBMS>
+<generatorID>90D0F958-9FD0-298C-E5EA-5623249AD6D9</generatorID>
+<ownerDesignName>Model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="EXPECTED_DATE" id="31C4D25C-D634-F987-A9B6-723CDBC4481B">
+<createdBy>arnir</createdBy>
+<createdTime>2025-03-29 18:58:51 UTC</createdTime>
+<commentInRDBMS><![CDATA[Expected date the book is to be returned]]></commentInRDBMS>
+<generatorID>DDD407D1-75C3-C4FE-539B-A729E426C2E2</generatorID>
+<ownerDesignName>Model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="ACTUAL_DATE" id="065F4A53-1808-6BBF-185A-3A3AD99A6F79">
+<createdBy>arnir</createdBy>
+<createdTime>2025-03-29 18:58:51 UTC</createdTime>
+<commentInRDBMS><![CDATA[Actual Date when the book was returned]]></commentInRDBMS>
+<generatorID>C9F6B3FC-5492-6B2D-2272-CFD2B26087B9</generatorID>
+<ownerDesignName>Model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="CUST_ID" id="7B2618D0-0778-0C81-FFBD-1B0D45DF83DE">
+<createdBy>arnir</createdBy>
+<createdTime>2025-03-29 18:58:51 UTC</createdTime>
+<generatorID>2757D018-464A-8C5F-5476-EE5F4A31D07A</generatorID>
+<ownerDesignName>Model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="076E240A-9273-8D78-2D64-DA3A41510CE3" referredColumn="4DEAB359-7D22-055B-15B7-6FDB1D784A4F"/>
+</associations>
+</Column>
+<Column name="COPY_ID" id="9A4883C0-75EA-3BCE-F11E-278F8ACE881C">
+<createdBy>arnir</createdBy>
+<createdTime>2025-03-29 18:58:51 UTC</createdTime>
+<generatorID>8209DF33-1035-0D91-A3D6-DF1D88693B8A</generatorID>
+<ownerDesignName>Model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>8</dataTypePrecision>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="B94BCEA1-1C6D-12D0-1319-47F5512CCA50" referredColumn="CBD69B53-080D-B247-C1D0-FD1705571D14"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="9505FDAB-8C23-3F48-4596-A034C43852C5" name="AYT_RENTAL_PK">
+<createdBy>arnir</createdBy>
+<createdTime>2025-03-29 18:58:51 UTC</createdTime>
+<generatorID>D1B9AE43-CF0E-27BB-15B3-EE76C7D619B2</generatorID>
+<ownerDesignName>Model</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="5366FFED-160E-44E8-81C3-92B944355CA0"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="B6FAA4CB-EC2B-3E46-79DA-6780A4F54115" name="AYT_RENTAL_AYT_BOOK_COPY_FK">
+<createdBy>arnir</createdBy>
+<createdTime>2025-03-29 18:58:51 UTC</createdTime>
+<generatorID>B1799FC8-7AD0-754A-37E0-D0837E054ADA</generatorID>
+<ownerDesignName>Model</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="9A4883C0-75EA-3BCE-F11E-278F8ACE881C"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="67547901-EF44-CBD2-E340-21C948C78962" name="AYT_RENTAL_AYT_CUST_FK">
+<createdBy>arnir</createdBy>
+<createdTime>2025-03-29 18:58:51 UTC</createdTime>
+<generatorID>DFFCCB95-0709-E851-79CC-432095E6330C</generatorID>
+<ownerDesignName>Model</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="7B2618D0-0778-0C81-FFBD-1B0D45DF83DE"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>
