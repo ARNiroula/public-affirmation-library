@@ -1,4 +1,3 @@
-
 -- Checking if the number of Individuals exceed the room capacity or not
 create or replace function room_cap() returns trigger as $room_cap$
 declare
@@ -21,3 +20,5 @@ create or replace trigger check_room_cap
 before insert or update on AYT_CUST_ROOM
     for each row execute procedure room_cap();
 
+
+-- Constraint to check if the student
