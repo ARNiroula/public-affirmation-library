@@ -9,7 +9,7 @@
 <referredTableID>50A596AF-FB8F-D136-9FC4-BF3C96897CF7</referredTableID>
 <keyObject>E1A8A17A-6271-7B79-F7DA-C2DE4F9305E8</keyObject>
 <referredKeyID>E1A8A17A-6271-7B79-F7DA-C2DE4F9305E8</referredKeyID>
-<mandatory>false</mandatory>
+<mandatory>true</mandatory>
 <refColNames>CUST_ID</refColNames>
 <transferable>true</transferable>
 <rely>false</rely>

@@ -63,22 +63,6 @@
 <colAssociation fkAssociation="0F889C1B-D5E9-9D30-AE94-25FB523A3B7D" referredColumn="5366FFED-160E-44E8-81C3-92B944355CA0"/>
 </associations>
 </Column>
-<Column name="PAY_ID" id="7D471D62-3C9A-10FC-18C4-213AEE7911D8">
-<createdBy>arnir</createdBy>
-<createdTime>2025-03-29 18:58:51 UTC</createdTime>
-<generatorID>039AB90E-AFC5-289E-C87F-D0434B63471E</generatorID>
-<ownerDesignName>Model</ownerDesignName>
-<useDomainConstraints>false</useDomainConstraints>
-<use>1</use>
-<logicalDatatype>LOGDT019</logicalDatatype>
-<dataTypePrecision>10</dataTypePrecision>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
-<previousColumn>false</previousColumn>
-<autoIncrementCycle>false</autoIncrementCycle>
-<associations>
-<colAssociation fkAssociation="5D861D42-4F40-E514-C526-9BB7A32333D7" referredColumn="8105225F-3E46-DFD5-87CF-D992AED1BF85"/>
-</associations>
-</Column>
 </columns>
 <indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
 <ind_PK_UK id="31DE1C95-7458-328B-BBD3-0E0992C7D8E8" name="AYT_INVOICE_PK">
@@ -102,17 +86,6 @@
 <relationGeneratorID>B937A007-65C4-AE42-FA3A-49CDC492221C</relationGeneratorID>
 <indexColumnUsage>
 <colUsage columnID="465244FD-D838-ACA5-0272-AA69EAC129CF"/>
-</indexColumnUsage>
-</ind_PK_UK>
-<ind_PK_UK id="F2E07D83-EDF8-0753-1A2F-24865878AF88" name="AYT_INVOICE_AYT_PAY_FK">
-<createdBy>arnir</createdBy>
-<createdTime>2025-03-29 18:58:51 UTC</createdTime>
-<generatorID>596843C7-33F0-4C47-3F44-F37C52A51F56</generatorID>
-<ownerDesignName>Model</ownerDesignName>
-<indexState>Foreign Key</indexState>
-<isSurrogateKey>false</isSurrogateKey>
-<indexColumnUsage>
-<colUsage columnID="7D471D62-3C9A-10FC-18C4-213AEE7911D8"/>
 </indexColumnUsage>
 </ind_PK_UK>
 <ind_PK_UK id="C96F7049-C654-86E9-FFD0-C4D04198BBBA" name="AYT_INVOICE_AYT_RENTAL_FK">
