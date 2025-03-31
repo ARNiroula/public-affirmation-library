@@ -43,7 +43,7 @@
 <dataTypeSize>20</dataTypeSize>
 <ownDataTypeParameters>20,,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="DESC" id="795E2406-0F27-E86F-2478-6AF6B1B7E03F">
+<Attribute name="DESCR" id="795E2406-0F27-E86F-2478-6AF6B1B7E03F">
 <createdBy>user</createdBy>
 <createdTime>2025-03-29 14:33:23 UTC</createdTime>
 <commentInRDBMS><![CDATA[Description of the Payment Type]]></commentInRDBMS>

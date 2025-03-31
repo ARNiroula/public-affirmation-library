@@ -34,7 +34,7 @@
 <ownDataTypeParameters>30,,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
-<Column name="DESC" id="8275FC8A-7F02-4299-2509-E77CA5DA21AC">
+<Column name="DESCR" id="8275FC8A-7F02-4299-2509-E77CA5DA21AC">
 <createdBy>arnir</createdBy>
 <createdTime>2025-03-29 18:58:51 UTC</createdTime>
 <commentInRDBMS><![CDATA[Description of the Identification Type]]></commentInRDBMS>

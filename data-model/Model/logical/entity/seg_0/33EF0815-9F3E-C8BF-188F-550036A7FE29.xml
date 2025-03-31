@@ -43,7 +43,7 @@
 <dataTypePrecision>1</dataTypePrecision>
 <ownDataTypeParameters>,1,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="DESC" id="7156728D-9F9B-87E7-A4DA-57D707B513AC">
+<Attribute name="DESCR" id="7156728D-9F9B-87E7-A4DA-57D707B513AC">
 <createdBy>user</createdBy>
 <createdTime>2025-03-28 20:57:46 UTC</createdTime>
 <commentInRDBMS><![CDATA[Brief Description of the room]]></commentInRDBMS>

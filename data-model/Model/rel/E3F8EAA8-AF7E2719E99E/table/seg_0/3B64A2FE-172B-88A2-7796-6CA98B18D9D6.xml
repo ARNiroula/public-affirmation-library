@@ -46,7 +46,7 @@
 <ownDataTypeParameters>,0,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
-<Column name="DESC" id="FB5B7034-AC29-38FC-8A3C-6EBFB9497869">
+<Column name="DESCR" id="FB5B7034-AC29-38FC-8A3C-6EBFB9497869">
 <createdBy>arnir</createdBy>
 <createdTime>2025-03-29 18:58:51 UTC</createdTime>
 <commentInRDBMS><![CDATA[Short Description of why the reservation is needed]]></commentInRDBMS>
