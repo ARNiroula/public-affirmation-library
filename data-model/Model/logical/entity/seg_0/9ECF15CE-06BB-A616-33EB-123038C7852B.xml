@@ -43,7 +43,7 @@
 <dataTypeSize>30</dataTypeSize>
 <ownDataTypeParameters>30,,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="DESC" id="73B63DB4-0684-8016-16A2-FC0CDB7C0068">
+<Attribute name="DESCR" id="73B63DB4-0684-8016-16A2-FC0CDB7C0068">
 <createdBy>user</createdBy>
 <createdTime>2025-03-28 20:41:58 UTC</createdTime>
 <commentInRDBMS><![CDATA[Description of the Identification Type]]></commentInRDBMS>

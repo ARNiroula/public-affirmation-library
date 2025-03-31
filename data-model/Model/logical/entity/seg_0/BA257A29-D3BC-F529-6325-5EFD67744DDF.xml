@@ -56,7 +56,7 @@
 <dataTypePrecision>0</dataTypePrecision>
 <ownDataTypeParameters>,0,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="DESC" id="E5949E04-B2E9-1E19-32E2-E3F3A6522EB8">
+<Attribute name="DESCR" id="E5949E04-B2E9-1E19-32E2-E3F3A6522EB8">
 <createdBy>user</createdBy>
 <createdTime>2025-03-28 21:03:10 UTC</createdTime>
 <commentInRDBMS><![CDATA[Short Description of why the reservation is needed]]></commentInRDBMS>
