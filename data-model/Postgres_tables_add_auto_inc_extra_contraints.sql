@@ -14,14 +14,11 @@ ALTER TABLE AYT_RENTAL
 ALTER TABLE AYT_BOOK_COPY 
     ALTER COLUMN COPY_ID add generated always as identity;
 
-ALTER TABLE AYT_BOOK_COPY 
-    ALTER COLUMN COPY_ID add generated always as identity;
-
 ALTER TABLE AYT_BOOK
     ALTER COLUMN BOOK_ID add generated always as identity;
 
 ALTER TABLE AYT_CUST_EXHIBITION
-    ALTER COLUMN RES_ID add generated always as identity;
+    ALTER COLUMN REG_ID add generated always as identity;
 
 ALTER TABLE AYT_AUTHOR_SEMINAR
     ALTER COLUMN INVITATION_ID add generated always as identity;
