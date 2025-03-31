@@ -20,6 +20,9 @@ create or replace trigger check_room_cap
 before insert or update on AYT_CUST_ROOM
     for each row execute function room_cap();
 
+-- Trigger to check if room is already booked or not
+-- create or replace function check_room_book() returns trigger $check_room_book$
+-- $check_room_book$ language plpgsql;
 
 -- Create the invoice for Rental when the actual_date is updated
 create or replace function invoice_generator() returns trigger as $invoice_generator$
@@ -43,3 +46,5 @@ $invoice_generator$ language plpgsql;
 create or replace trigger generate_invoice
 after update of actual_date on AYT_RENTAL
     for each row execute function invoice_generator();
+
+
