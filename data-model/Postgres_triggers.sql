@@ -18,7 +18,28 @@ $room_cap$ language plpgsql;
 
 create or replace trigger check_room_cap
 before insert or update on AYT_CUST_ROOM
-    for each row execute procedure room_cap();
+    for each row execute function room_cap();
 
 
--- Constraint to check if the student
+-- Create the invoice for Rental when the actual_date is updated
+create or replace function invoice_generator() returns trigger as $invoice_generator$
+    declare
+        amt decimal(6, 2);
+    begin
+        -- Calculate the Amount
+        if new.actual_date > old.expected_date then
+            amt = ((old.expected_date - old.borrow_date) * 0.2 + (new.actual_date - old.expected_date) * 0.4);
+        else
+            amt = (old.expected_date - old.borrow_date) * 0.2;
+        end if;
+
+        -- Create an Invoice Record
+        insert into ayt_invoice (invoice_date, total_amount, rental_id)
+            values(CURRENT_DATE, amt, new.rental_id);
+        return NEW;
+    end;
+$invoice_generator$ language plpgsql;
+
+create or replace trigger generate_invoice
+after update of actual_date on AYT_RENTAL
+    for each row execute function invoice_generator();
