@@ -47,6 +47,20 @@
 <ownDataTypeParameters>,6,2</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
+<Column name="INVOICE_ID" id="2E3A6744-9ADD-C2D9-F742-B0A07CE5038A">
+<createdBy>user</createdBy>
+<createdTime>2025-03-30 23:45:55 UTC</createdTime>
+<ownerDesignName>Model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<ownDataTypeParameters>,10,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="E0A00570-C1D4-DA70-C837-4D188DAB9AA1" referredColumn="3A2D57B7-7089-DEFF-0D71-1089DC2BC386"/>
+</associations>
+</Column>
 </columns>
 <indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
 <ind_PK_UK id="64ACC51C-3D8E-ACB2-1161-6FD52617079B" name="AYT_PAY_PK">
@@ -59,6 +73,16 @@
 <isSurrogateKey>false</isSurrogateKey>
 <indexColumnUsage>
 <colUsage columnID="8105225F-3E46-DFD5-87CF-D992AED1BF85"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="6969A1C5-4D2A-DD6A-000D-95C2AB6673F3" name="AYT_PAY_AYT_INVOICE_FK">
+<createdBy>user</createdBy>
+<createdTime>2025-03-30 23:45:55 UTC</createdTime>
+<ownerDesignName>Model</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="2E3A6744-9ADD-C2D9-F742-B0A07CE5038A"/>
 </indexColumnUsage>
 </ind_PK_UK>
 </indexes>

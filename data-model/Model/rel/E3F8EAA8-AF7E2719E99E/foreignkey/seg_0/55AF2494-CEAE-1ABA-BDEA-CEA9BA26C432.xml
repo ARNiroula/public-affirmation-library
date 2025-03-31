@@ -9,7 +9,7 @@
 <referredTableID>1B109850-A575-A6F4-C316-D8E69F1ADED1</referredTableID>
 <keyObject>9D8A8D96-229A-071D-E828-95CE3DECAE25</keyObject>
 <referredKeyID>9D8A8D96-229A-071D-E828-95CE3DECAE25</referredKeyID>
-<mandatory>false</mandatory>
+<mandatory>true</mandatory>
 <refColNames>ROOM_ID</refColNames>
 <transferable>true</transferable>
 <rely>false</rely>
