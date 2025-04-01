@@ -53,3 +53,7 @@ alter table AYT_RENTAL
 alter table AYT_EVENT
     add constraint check_datetime_event check(start_date_time < end_date_time);
 
+
+-- Alter ayt_type_pay to have default value of 0
+alter table ayt_type_pay
+    alter column inst_num set default 0;
