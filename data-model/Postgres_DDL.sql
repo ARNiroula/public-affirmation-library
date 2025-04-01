@@ -706,13 +706,15 @@ BEGIN
     FROM AYT_EVENT A 
     WHERE A.EVENT_ID = NEW.EVENT_ID; 
     IF (d IS NULL OR d <> 'S') THEN 
-        raise exception '%s', 'FK AYT_SEMINAR_AYT_EVENT_FK in Table AYT_SEMINAR violates Arc constraint on Table AYT_EVENT - discriminator column EVENT_TYPE doesn''t have value ''S''' using errcode = -20223; 
+        raise exception 'FK AYT_SEMINAR_AYT_EVENT_FK in Table AYT_SEMINAR violates Arc constraint on Table AYT_EVENT - discriminator column EVENT_TYPE doesn''t have value ''S''';
     END IF; 
-    EXCEPTION 
-    WHEN NO_DATA_FOUND THEN 
-        NULL; 
-    WHEN OTHERS THEN 
-        RAISE; 
+    return new;
+ --    EXCEPTION 
+	-- raise notice 'asdklfjasl';
+ --    WHEN NO_DATA_FOUND THEN 
+ --        return NULL; 
+ --    WHEN OTHERS THEN 
+ --        RAISE; 
 END; 
 
 $$ LANGUAGE plpgsql;
@@ -731,13 +733,14 @@ BEGIN
     FROM AYT_EVENT A 
     WHERE A.EVENT_ID = NEW.EVENT_ID; 
     IF (d IS NULL OR d <> 'E') THEN 
-        raise exception '%s', 'FK AYT_EXHIBITION_AYT_EVENT_FK in Table AYT_EXHIBITION violates Arc constraint on Table AYT_EVENT - discriminator column EVENT_TYPE doesn''t have value ''E''' using errcode = -20223; 
+        raise exception 'FK AYT_EXHIBITION_AYT_EVENT_FK in Table AYT_EXHIBITION violates Arc constraint on Table AYT_EVENT - discriminator column EVENT_TYPE doesn''t have value ''E'''; 
     END IF; 
-    EXCEPTION 
-    WHEN NO_DATA_FOUND THEN 
-        NULL; 
-    WHEN OTHERS THEN 
-        RAISE; 
+    return new;
+    -- EXCEPTION 
+    -- WHEN NO_DATA_FOUND THEN 
+    --     return NULL; 
+    -- WHEN OTHERS THEN 
+    --     RAISE; 
 END; 
 
 $$ LANGUAGE plpgsql;
@@ -747,6 +750,7 @@ BEFORE INSERT OR UPDATE OF EVENT_ID
 ON AYT_EXHIBITION 
 FOR EACH ROW
 EXECUTE FUNCTION ARC_FKArc_3_AYT_EXHIBITION_func();
+
 
 
 
