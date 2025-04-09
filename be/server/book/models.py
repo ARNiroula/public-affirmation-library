@@ -1,3 +1,26 @@
 from django.db import models
 
-# Create your models here.
+class Book(models.Model):
+    book_id = models.IntegerField(primary_key=True)
+    isbn = models.CharField(max_length=13)
+    name = models.CharField(max_length=200)
+    topic = models.CharField(max_length=50)
+    pub_date = models.DateTimeField()
+
+    class Meta:
+        db_table = 'AYT_BOOK'
+
+    def __str__(self):
+        return self.name
+
+"""
+CREATE TABLE AYT_BOOK 
+    ( 
+     BOOK_ID  INT  NOT NULL , 
+     ISBN     VARCHAR (13)  NOT NULL , 
+     NAME     VARCHAR (200)  NOT NULL , 
+     TOPIC    VARCHAR (50)  NOT NULL , 
+     PUB_DATE TIMESTAMP(0)  NOT NULL 
+    ) 
+;
+"""
