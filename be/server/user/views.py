@@ -1,4 +1,4 @@
-from rest_framework import permissions
+from rest_framework import permissions, viewsets
 from rest_framework.response import Response
 from rest_framework.generics import CreateAPIView, RetrieveAPIView
 from django.contrib.auth import get_user_model
@@ -14,10 +14,16 @@ class CreateCustomerView(CreateAPIView):
     serializer_class = CustomerRegisterSerializer
 
 
-class CreateStaffView(AdminPermissionMixin, CreateAPIView):
+class StaffViewSet(AdminPermissionMixin, viewsets.ModelViewSet):
     model = get_user_model()
     queryset = model.objects.all()
     serializer_class = StaffRegisterSerializer
+
+
+# class CreateStaffView(AdminPermissionMixin, CreateAPIView):
+#     model = get_user_model()
+#     queryset = model.objects.all()
+#     serializer_class = StaffRegisterSerializer
 
 
 class CustomerProfileView(CustomerPermissionMixin, RetrieveAPIView):
