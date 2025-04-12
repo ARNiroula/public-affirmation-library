@@ -30,6 +30,15 @@ class IsCustomer(BasePermission):
         return request.user.is_authenticated
 
 
+class IsNotAuthenticated(BasePermission):
+    """
+    Check if there is authentication in the header or not
+    """
+
+    def has_permission(self, request, view):  # pyright: ignore
+        return not request.user.is_authenticated
+
+
 class CustomerPermissionMixin:
     permission_classes = [IsCustomer]
 
