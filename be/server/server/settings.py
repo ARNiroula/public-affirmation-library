@@ -24,6 +24,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 load_dotenv()
 
 
+DEBUG = bool(os.environ.get("DEBUG"))
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
 
@@ -54,8 +55,12 @@ INSTALLED_APPS = [
     # Rest Framework
     "rest_framework",
     "rest_framework.authtoken",
+    "rest_framework_simplejwt",
+    "rest_framework_simplejwt.token_blacklist",
     # drf-spectacular
     "drf_spectacular",
+    # Cors Middleware
+    "corsheaders",
     # Project Apps
     "user",
     "book",
@@ -63,6 +68,10 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
+    # Django Cors Headers
+    "corsheaders.middleware.CorsMiddleware",
+    "django.middleware.common.CommonMiddleware",
+    # Default Middleware
     "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
@@ -80,8 +89,9 @@ REST_FRAMEWORK = {
         "rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly"
     ],
     "DEFAULT_AUTHENTICATION_CLASSES": [
-        "rest_framework.authentication.TokenAuthentication",
-        "rest_framework_simplejwt.authentication.JWTStatelessUserAuthentication",
+        # "rest_framework.authentication.TokenAuthentication",
+        # "rest_framework_simplejwt.authentication.JWTStatelessUserAuthentication",
+        "user.authentication.CookieJWTAuthentication",  # Cookie Based JWT Authentication
     ],
     "DEFAULT_SCHEMA_CLASS": "drf_spectacular.openapi.AutoSchema",
 }
@@ -125,12 +135,22 @@ SIMPLE_JWT = {
 }
 
 
+# CORS Configuration
+if DEBUG:
+    CORS_ALLOW_ALL_ORIGINS = True
+else:
+    # Fill it up
+    # CORS_ALLOWED_ORIGINS = []
+    pass
+
+
 # DRF-Spectacular Settings
 SPECTACULAR_SETTINGS = {
     "TITLE": "Public Library Database Webapplication",
     "DESCRIPTION": "Django Powered PostgresSQl Database Application for Public Library.",
     "VERSION": "1.0.0",
     "SERVE_INCLUDE_SCHEMA": False,
+    # 'SCHEMA_PATH_PREFIX': r'/api/v[0-9]',
     # OTHER SETTINGS
 }
 
