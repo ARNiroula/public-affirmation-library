@@ -1,7 +1,7 @@
 from rest_framework import serializers
 from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
 from rest_framework.exceptions import ValidationError
-from django.contrib.auth import get_user_model
+from django.contrib.auth import authenticate, get_user_model
 
 
 # Custom JWT Token serializers
@@ -46,6 +46,17 @@ class UserRegisterSerializer(serializers.ModelSerializer):
         if "password" in validated_data:
             instance.set_password(validated_data["password"])
         return super().update(instance, validated_data)
+
+
+class UserLoginSerializer(serializers.Serializer):
+    username = serializers.CharField(required=True)
+    password = serializers.CharField(write_only=True)
+
+    def validate(self, attrs):
+        user = authenticate(**attrs)
+        if user and user.is_active:
+            return user
+        raise serializers.ValidationError("Incorrect Credentials")
 
 
 class CustomerRegisterSerializer(UserRegisterSerializer):

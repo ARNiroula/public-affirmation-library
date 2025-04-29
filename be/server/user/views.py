@@ -2,12 +2,17 @@ from django.contrib.auth import get_user_model
 from django.http import Http404
 from rest_framework import viewsets, status
 from rest_framework.generics import CreateAPIView
-from rest_framework.views import APIView, Response
+from rest_framework.views import APIView, Request, Response
+from rest_framework_simplejwt.tokens import RefreshToken
+from rest_framework_simplejwt.views import TokenRefreshView
+from rest_framework_simplejwt.exceptions import InvalidToken
+from drf_spectacular.utils import extend_schema
 
 from .serializers import (
     CustomerRegisterSerializer,
     StaffRegisterSerializer,
     UserProfileSerializer,
+    UserLoginSerializer,
 )
 from .permissions import (
     AdminPermissionMixin,
@@ -17,18 +22,127 @@ from .permissions import (
 
 
 # Create your views here.
+@extend_schema(tags=["user"])
 class CreateCustomerView(CreateAPIView):
     model = get_user_model()
     permission_classes = [IsNotAuthenticated]
     serializer_class = CustomerRegisterSerializer
 
 
+@extend_schema(tags=["user"])
 class StaffViewSet(AdminPermissionMixin, viewsets.ModelViewSet):
     model = get_user_model()
     queryset = model.objects.all()
     serializer_class = StaffRegisterSerializer
 
 
+@extend_schema(tags=["user"])
+class LoginView(APIView):
+    permission_classes = [IsNotAuthenticated]
+
+    @extend_schema(
+        request=UserLoginSerializer,
+    )
+    def post(self, request):
+        serializer = UserLoginSerializer(data=request.data)
+
+        if not serializer.is_valid():
+            response = Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+            return response
+
+        user = serializer.validated_data
+        refresh_token = RefreshToken.for_user(user)  # pyright: ignore
+        access_token = str(refresh_token.access_token)
+        response = Response(
+            {
+                "user": UserProfileSerializer(user).data,
+                "status": status.HTTP_200_OK,
+            }
+        )
+        response.set_cookie(
+            key="access_token",
+            value=access_token,
+            httponly=True,
+            secure=True,
+            samesite="None",
+        )
+        response.set_cookie(
+            key="refresh_token",
+            value=str(refresh_token),
+            httponly=True,
+            secure=True,
+            samesite="None",
+        )
+
+        return response
+
+
+@extend_schema(tags=["user"])
+class LogoutView(CustomerPermissionMixin, APIView):
+    def post(self, request: Request):
+        refresh_token = request.COOKIES.get("refresh_token")
+        if refresh_token:
+            try:
+                refresh = RefreshToken(refresh_token)
+                refresh.blacklist()
+            except Exception as e:
+                return Response(
+                    {"error": f"Error invalidating token: {str(e)}"},
+                    status=status.HTTP_400_BAD_REQUEST,
+                )
+
+        response = Response({"message": "Logged Out!"}, status=status.HTTP_200_OK)
+        response.delete_cookie(key="access_token")
+        response.delete_cookie(key="refresh_token")
+        return response
+
+
+@extend_schema(tags=["user"])
+class CookieTokenRefreshView(TokenRefreshView):
+    def post(self, request):
+        refresh_token = request.COOKIES.get("refresh_token")
+
+        if not refresh_token:
+            return Response(
+                {"error": "Refresh Token Not Provided"},
+                status=status.HTTP_401_UNAUTHORIZED,
+            )
+        try:
+            refresh = RefreshToken(refresh_token)
+            access_token = str(refresh.access_token)
+            response = Response(
+                {"message": "Access Token Refreshed Successfully"},
+                status=status.HTTP_200_OK,
+            )
+            response.set_cookie(
+                key="access_token",
+                value=access_token,
+                httponly=True,
+                secure=True,
+                samesite="None",
+            )
+            response.set_cookie(
+                key="refresh_token",
+                value=str(refresh_token),
+                httponly=True,
+                secure=True,
+                samesite="None",
+            )
+
+            return response
+        except InvalidToken:
+            return Response(
+                {"error": "Invalid Refresh Token"},
+                status=status.HTTP_401_UNAUTHORIZED,
+            )
+        except Exception as e:
+            return Response(
+                {"error": f"Token Creation Unsuccessful {str(e)}"},
+                status=status.HTTP_401_UNAUTHORIZED,
+            )
+
+
+@extend_schema(tags=["user"])
 class UserProfileView(
     CustomerPermissionMixin,
     APIView,
