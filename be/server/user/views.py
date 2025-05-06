@@ -2,6 +2,7 @@ from django.contrib.auth import get_user_model
 from django.http import Http404
 from rest_framework import viewsets, status
 from rest_framework.generics import CreateAPIView
+from rest_framework.permissions import IsAuthenticated
 from rest_framework.views import APIView, Request, Response
 from rest_framework_simplejwt.tokens import RefreshToken
 from rest_framework_simplejwt.views import TokenRefreshView
@@ -13,6 +14,9 @@ from .serializers import (
     StaffRegisterSerializer,
     UserProfileSerializer,
     UserLoginSerializer,
+    UserLoginResponseSerializer,
+    UserLogoutResponseSerializer,
+    UserStatusResponseSerializer,
 )
 from .permissions import (
     AdminPermissionMixin,
@@ -42,6 +46,7 @@ class LoginView(APIView):
 
     @extend_schema(
         request=UserLoginSerializer,
+        responses={200: UserLoginResponseSerializer},
     )
     def post(self, request):
         serializer = UserLoginSerializer(data=request.data)
@@ -56,8 +61,8 @@ class LoginView(APIView):
         response = Response(
             {
                 "user": UserProfileSerializer(user).data,
-                "status": status.HTTP_200_OK,
-            }
+            },
+            status=status.HTTP_200_OK,
         )
         response.set_cookie(
             key="access_token",
@@ -77,7 +82,11 @@ class LoginView(APIView):
         return response
 
 
-@extend_schema(tags=["user"])
+@extend_schema(
+    tags=["user"],
+    request=None,
+    responses={status.HTTP_200_OK: UserLogoutResponseSerializer},
+)
 class LogoutView(CustomerPermissionMixin, APIView):
     def post(self, request: Request):
         refresh_token = request.COOKIES.get("refresh_token")
@@ -177,3 +186,13 @@ class UserProfileView(
 
         serializer.save()
         return Response(serializer.data, status=status.HTTP_200_OK)
+
+
+@extend_schema(
+    tags=["user"], responses={status.HTTP_200_OK: UserStatusResponseSerializer}
+)
+class UserStatusView(APIView):
+    permission_classes = [IsAuthenticated]
+
+    def get(self, request):
+        return Response({"authenticated": True})
