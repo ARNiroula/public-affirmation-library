@@ -3,12 +3,13 @@
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 
-
 import { loginUser } from '@/app/utils/auth';
+import FormError from '@/components/formerror';
 
 const LoginPage: React.FC = () => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
+    const [error, setError] = useState('');
     const router = useRouter();
 
     const handleLogin = async (event: React.FormEvent) => {
@@ -22,7 +23,8 @@ const LoginPage: React.FC = () => {
             router.push("/home")
         }
         catch (e) {
-            alert(`Login Failed => ${e}`)
+            setError(`Login User Failed => ${e}`);
+            // alert(`Login Failed => ${e}`)
         }
         console.log('Logging in with:', { username, password });
         // Add your login logic here, such as calling an API
@@ -71,6 +73,7 @@ const LoginPage: React.FC = () => {
         <div style={styles}>
             <h1>Login</h1>
             <form onSubmit={handleLogin} style={formStyles}>
+                <FormError message={error} />
                 <div style={inputGroupStyles}>
                     <label htmlFor="username">Username:</label>
                     <input
