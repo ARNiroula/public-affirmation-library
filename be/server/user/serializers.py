@@ -89,3 +89,15 @@ class UserProfileSerializer(serializers.ModelSerializer):
         if "password" in validated_data:
             instance.set_password(validated_data["password"])
         return super().update(instance, validated_data)
+
+
+class UserLoginResponseSerializer(serializers.Serializer):
+    user = UserProfileSerializer()
+
+
+class UserLogoutResponseSerializer(serializers.Serializer):
+    message = serializers.CharField()
+
+
+class UserStatusResponseSerializer(serializers.Serializer):
+    authenticated = serializers.BooleanField()
