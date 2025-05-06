@@ -153,6 +153,12 @@ CORS_ALLOW_METHODS = [
 ]
 
 
+# CSRF Configuration
+CSRF_COOKIE_HTTPONLY = False  # Must be false so JS can read it
+CSRF_COOKIE_SAMESITE = "Lax"  # Or 'None' with Secure=True
+CSRF_TRUSTED_ORIGINS = ["http://localhost:3000"]  # Add your frontend origin
+
+
 # DRF-Spectacular Settings
 SPECTACULAR_SETTINGS = {
     "TITLE": "Public Library Database Webapplication",
