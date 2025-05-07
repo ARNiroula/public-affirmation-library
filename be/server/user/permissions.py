@@ -39,6 +39,16 @@ class IsNotAuthenticated(BasePermission):
         return not request.user.is_authenticated
 
 
+class IsOwnerOrStaff(BasePermission):
+    """
+    Check if the resource is associated with the owner or the staff
+    e.g. Booking, Rental, etc.
+    """
+
+    def has_object_permission(self, request, view, obj):
+        return obj.user == request.user
+
+
 class CustomerPermissionMixin:
     permission_classes = [IsCustomer]
 
