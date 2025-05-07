@@ -1,10 +1,11 @@
 from django.db import models
+from invoice.models import Invoice
 
 class Pay(models.Model):
     pay_id = models.AutoField(primary_key=True)
     date_time = models.DateTimeField()
     amount = models.DecimalField(max_digits=6, decimal_places=2)
-    invoice_id = models.BigIntegerField()
+    invoice = models.ForeignKey(Invoice, on_delete=models.CASCADE)
 
     class Meta:
         db_table = 'AYT_PAY'

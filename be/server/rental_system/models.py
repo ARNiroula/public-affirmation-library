@@ -1,12 +1,15 @@
 from django.db import models
 
+from user.models import User
+from book.models import BookCopy
+
 class Rental(models.Model):
     rental_id = models.AutoField(primary_key=True)
     borrow_date = models.DateField()
     expected_date = models.DateField()
     actual_date = models.DateField(null=True, blank=True)
-    cust_id = models.IntegerField()
-    copy_id = models.BigIntegerField()
+    cust = models.ForeignKey(User, on_delete=models.CASCADE, related_name='rentals')
+    copy = models.ForeignKey(BookCopy, on_delete=models.CASCADE, related_name='rentals')
 
     class Meta:
         db_table = 'AYT_RENTAL'
