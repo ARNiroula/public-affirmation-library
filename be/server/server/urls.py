@@ -45,7 +45,7 @@ api_patterns = [
     ),
     # User Routes
     path("user/", include("user.urls")),
-    path("user/", include("room.urls")),
+    path("", include("room.urls")),
 ]
 
 

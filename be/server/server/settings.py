@@ -61,6 +61,8 @@ INSTALLED_APPS = [
     "drf_spectacular",
     # Cors Middleware
     "corsheaders",
+    # object storage
+    "storages",
     # Project Apps
     "user",
     "book",
@@ -96,6 +98,26 @@ REST_FRAMEWORK = {
     ],
     "DEFAULT_SCHEMA_CLASS": "drf_spectacular.openapi.AutoSchema",
 }
+
+# S3 Config Specification
+# STATIC_URL = "/static/"
+# STATICFILES_LOCATION = "static"
+# STATICFILES_STORAGE = "blogs.storage.StaticS3Boto3Storage"
+#
+# MEDIA_URL = "/media/"
+DEFAULT_FILE_STORAGE = "storages.backends.s3boto3.S3Boto3Storage"
+
+AWS_ACCESS_KEY_ID = os.getenv("AWS_ACCESS_KEY_ID")
+AWS_SECRET_ACCESS_KEY = os.getenv("AWS_SECRET_ACCESS_KEY")
+AWS_STORAGE_BUCKET_NAME = os.getenv("AWS_STORAGE_BUCKET_NAME")
+
+AWS_S3_ENDPOINT_URL = os.getenv("AWS_S3_URL")
+MINIO_ACCESS_URL = os.getenv("MINIO_ACCESS_URL")
+
+AWS_S3_FILE_OVERWRITE = False
+AWS_DEFAULT_ACL = None
+AWS_S3_VERIFY = False  # Set to True in production with a valid cert
+
 
 # JWT Setup
 ACCESS_TOKEN_LIFETIME = int(os.environ.get("ACCESS_TOKEN_LIFETIME", 5))
