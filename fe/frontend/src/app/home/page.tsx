@@ -1,10 +1,17 @@
+'use client';
 import React from 'react';
-import Header from '@/components/header';
+import { useRouter } from 'next/navigation';
 
 const HomePage: React.FC = () => {
+
+    const router = useRouter();
+    const goToRoomPage = () => {
+        router.push('/room'); // Update with the actual path of your Room page
+    };
+
+
     return (
         <div style={styles.container}>
-            <Header />
             <main style={styles.main}>
                 <section style={styles.section}>
                     <h2>Our Services</h2>
@@ -19,7 +26,7 @@ const HomePage: React.FC = () => {
                     <div style={styles.buttonGroup}>
                         <button style={styles.button}>Browse Books</button>
                         <button style={styles.button}>Upcoming Events</button>
-                        <button style={styles.button}>Reserve a Room</button>
+                        <button style={styles.button} onClick={goToRoomPage}>Reserve a Room</button>
                     </div>
                 </section>
             </main>
