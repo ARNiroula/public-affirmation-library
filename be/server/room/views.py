@@ -84,6 +84,19 @@ class BookingViewSet(viewsets.ModelViewSet):
         return ctx
 
     def get_queryset(self):
+        if self.action == "list":
+            room_id = self.request.query_params.get("room_id")
+            start_date = self.request.query_params.get("start_date")
+            end_date = self.request.query_params.get("end_date")
+            # Filter by room and the selected date range
+            if room_id:
+                queryset = Booking.objects.filter(room_id=room_id)  # pyright: ignore
+                if start_date and end_date:
+                    queryset = queryset.filter(
+                        start_datetime__gte=start_date, end_datetime__lte=end_date
+                    )
+                return queryset
+
         return Booking.objects.filter(user=self.request.user)  # pyright: ignore
 
     def get_permissions(self):

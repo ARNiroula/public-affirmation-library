@@ -32,7 +32,10 @@ class BookingSerializer(serializers.ModelSerializer):
 
         try:
             instance.full_clean()
-        except ValidationError as e:
-            raise ValidationError(str(e))
-
+        except (Exception, ValidationError) as e:
+            raise serializers.ValidationError(
+                {
+                    "message": e.messages  # pyright: ignore
+                }
+            )
         return super().validate(attrs)
