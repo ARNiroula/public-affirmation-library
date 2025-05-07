@@ -1,7 +1,11 @@
 from django.db import models
 
+from pay.models import Pay
+from pay_type import PayTypeManager
+
 class PayType(models.Model):
-    type_id = models.IntegerField(primary_key=True)
+    type_id = models.ForeignKey(PayTypeManager, on_delete=models.CASCADE, null=True, blank=True)
+    pay_id = models.ForeignKey(Pay, on_delete=models.CASCADE, null=True, blank=True)
     type_name = models.CharField(max_length=20)
     descr = models.CharField(max_length=200, null=True, blank=True)
 
