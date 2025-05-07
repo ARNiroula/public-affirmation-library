@@ -82,3 +82,21 @@ export const logoutUser = async () => {
         throw new Error(`Logout Failed => ${e}`)
     }
 }
+
+
+export const refreshUser = async () => {
+
+    try {
+        const url_path = `${process.env.NEXT_PUBLIC_API_URL}/api/user/refresh/`;
+        const response = await axios.post(
+            url_path,
+            {},
+            { withCredentials: true },
+        );
+
+        return response.data;
+    }
+    catch (e) {
+        throw new Error(`Refreshing Token Failed Failed => ${e}`)
+    }
+}
