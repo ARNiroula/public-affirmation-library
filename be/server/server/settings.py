@@ -68,6 +68,9 @@ INSTALLED_APPS = [
     "book",
     "author",
     "room",
+    "seminar",
+    "exhibition",
+    "event",
 ]
 
 MIDDLEWARE = [
