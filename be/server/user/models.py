@@ -1,8 +1,6 @@
 from django.contrib.auth.models import AbstractUser, BaseUserManager
 from django.db import models
 
-
-
 # Created a CustomeUserManager to add the default role of admin
 # for Super User
 class CustomUserManager(BaseUserManager):
