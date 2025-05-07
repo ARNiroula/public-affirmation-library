@@ -15,9 +15,7 @@ interface Room {
     image_url: string;
 }
 
-
 const fetcher = (url: string) => api.get(url).then(res => res.data)
-
 
 export default function RoomsPage() {
     const { loading } = useAuthRedirect();
@@ -43,11 +41,21 @@ export default function RoomsPage() {
                         alt={`Room ${room.room_id}`}
                         className="w-full h-48 object-cover transform group-hover:scale-105 transition-transform duration-300"
                     />
+                    <div className="p-4">
+                        <p className="text-lg font-semibold">Room {room.room_id}</p> {/* Room ID Caption */}
+                        <button
+                            onClick={() => router.push(`/room/${room.room_id}/booking-form`)}
+                            className="mt-2 bg-blue-500 hover:bg-blue-600 text-white py-1 px-3 rounded"
+                        >
+                            Book Now
+                        </button>
+                    </div>
+
                     <div className="absolute inset-0 bg-black bg-opacity-60 text-white p-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end">
-                        <p className="text-sm">{room.descr}</p>
+                        <p className="text-sm">Description: {room.descr}</p>
                         <p className="text-sm">Capacity: {room.capacity}</p>
                         <button
-                            onClick={() => router.push(`/booking/${room.room_id}`)}
+                            onClick={() => router.push(`/room/${room.room_id}/booking-form`)}
                             className="mt-2 bg-blue-500 hover:bg-blue-600 text-white py-1 px-3 rounded"
                         >
                             Book Now
@@ -58,40 +66,3 @@ export default function RoomsPage() {
         </div>
     );
 }
-
-
-
-// export default function RoomsPage() {
-//     const [rooms, setRooms] = useState<Room[]>([]);
-//     const router = useRouter();
-//
-//     useEffect(() => {
-//         const fetchRooms = async () => {
-//             try {
-//                 const response = await api.get<Room[]>('rooms/'); // endpoint relative to baseURL
-//                 setRooms(response.data);
-//             } catch (error) {
-//                 console.error('Error fetching rooms:', error);
-//             }
-//         };
-//
-//         fetchRooms();
-//     }, []);
-//
-//     return (
-//         <div className={styles.grid}>
-//             {rooms.map(room => (
-//                 <div key={room.room_id} className={styles.card}>
-//                     <Image src={room.image_url} alt={`Room ${room.room_id}`} className={styles.image} />
-//                     <div className={styles.overlay}>
-//                         <p>{room.descr}</p>
-//                         <p>Capacity: {room.capacity}</p>
-//                         <button onClick={() => router.push(`/booking/${room.room_id}`)}>Book Now</button>
-//                     </div>
-//                 </div>
-//             ))}
-//         </div>
-//     );
-// }
-//
-
