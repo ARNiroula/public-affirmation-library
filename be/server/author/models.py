@@ -18,6 +18,9 @@ class Author(models.Model):
     def __str__(self):
         return f"{self.fname} {self.lname}"
 
+class AuthorBookRelationship(models.Model):
+    author = models.ForeignKey(Author, on_delete=models.CASCADE)
+    book = models.ForeignKey('Book', on_delete=models.CASCADE)
 
 """
 CREATE TABLE AYT_AUTHOR 
