@@ -21,6 +21,7 @@ class Room(models.Model):
     room_id = models.CharField(max_length=4, primary_key=True)
     capacity = models.PositiveIntegerField(default=1)  # pyright: ignore
     descr = models.CharField(max_length=100)
+    image_url = models.URLField(blank=True, null=True)
 
     class Meta:
         db_table = "AYT_ROOM"
