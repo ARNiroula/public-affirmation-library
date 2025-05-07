@@ -1,5 +1,6 @@
 from django.db import models
 
+
 class Book(models.Model):
     book_id = models.IntegerField(primary_key=True)
     isbn = models.CharField(max_length=13)
@@ -8,19 +9,17 @@ class Book(models.Model):
     pub_date = models.DateTimeField()
 
     class Meta:
-        db_table = 'AYT_BOOK'
+        db_table = "AYT_BOOK"
 
-    def __str__(self):
-        return self.name
 
 """
-CREATE TABLE AYT_BOOK 
-    ( 
-     BOOK_ID  INT  NOT NULL , 
-     ISBN     VARCHAR (13)  NOT NULL , 
-     NAME     VARCHAR (200)  NOT NULL , 
-     TOPIC    VARCHAR (50)  NOT NULL , 
-     PUB_DATE TIMESTAMP(0)  NOT NULL 
-    ) 
+CREATE TABLE AYT_BOOK
+    (
+     BOOK_ID  INT  NOT NULL ,
+     ISBN     VARCHAR (13)  NOT NULL ,
+     NAME     VARCHAR (200)  NOT NULL ,
+     TOPIC    VARCHAR (50)  NOT NULL ,
+     PUB_DATE TIMESTAMP(0)  NOT NULL
+    )
 ;
 """
