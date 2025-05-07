@@ -1,5 +1,7 @@
 from django.db import models
+
 from invoice.models import Invoice
+from pay_type.models import PayType
 
 class Pay(models.Model):
     pay_id = models.AutoField(primary_key=True)
@@ -12,6 +14,16 @@ class Pay(models.Model):
 
     def __str__(self):
         return f"Payment {self.pay_id} - Amount: ${self.amount}"
+
+class TypePayRelationship(models.Model):
+    pay = models.ForeignKey(Pay, on_delete=models.CASCADE, related_name='type_pay_relationships')
+    pay_type = models.ForeignKey(PayType, on_delete=models.CASCADE, related_name='type_pay_relationships')
+
+    class Meta:
+        db_table = 'AYT_TYPE_PAY_RELATIONSHIP'
+
+    def __str__(self):
+        return f"Pay {self.pay.pay_id} - Type {self.pay_type.type_id}"
 
 """
 CREATE TABLE AYT_PAY 
