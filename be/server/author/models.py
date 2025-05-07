@@ -22,12 +22,12 @@ class Author(models.Model):
 
 class AuthorBookRelationship(models.Model):
     author = models.ForeignKey(Author, on_delete=models.CASCADE)
-    book = models.ForeignKey('Book', on_delete=models.CASCADE)
+    book = models.ForeignKey(Book, on_delete=models.CASCADE)
 
 class AuthorSeminarRelationship(models.Model):
     invitation_id = models.CharField(max_length=10, primary_key=True)
     author = models.ForeignKey(Author, on_delete=models.CASCADE)
-    seminar = models.ForeignKey('Seminar', on_delete=models.CASCADE)
+    seminar = models.ForeignKey(Seminar, on_delete=models.CASCADE)
 
 """
 CREATE TABLE AYT_AUTHOR 
