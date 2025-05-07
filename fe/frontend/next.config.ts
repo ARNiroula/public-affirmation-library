@@ -3,6 +3,7 @@ import type { NextConfig } from "next";
 const nextConfig: NextConfig = {
     /* config options here */
     images: {
+        domains: [`${process.env.NEXT_PUBLIC_OBJ_STORE}`],
         remotePatterns: [new URL(`${process.env.NEXT_PUBLIC_OBJ_STORE}/**`)],
     },
     async headers() {

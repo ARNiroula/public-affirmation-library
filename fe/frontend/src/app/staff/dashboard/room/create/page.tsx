@@ -99,7 +99,7 @@ const RoomUploader: React.FC = () => {
                             onChange={handleFileChange}
                             ref={fileInputRef}
                             className="hidden"
-                            accept=".pdf,.doc,.docx,.jpg,.png"
+                            accept=".pdf,.doc,.docx,.jpg,.png,.jpeg"
                         />
                         <button
                             type="button"
