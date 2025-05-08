@@ -1,5 +1,6 @@
 from django.db import models
 
+
 class Event(models.Model):
     event_id = models.IntegerField(primary_key=True)
     event_name = models.CharField(max_length=100)
@@ -9,10 +10,11 @@ class Event(models.Model):
     event_type = models.CharField(max_length=1)
 
     class Meta:
-        db_table = 'AYT_EVENT'
+        db_table = "AYT_EVENT"
 
     def __str__(self):
         return self.event_name
+
 
 """
 CREATE TABLE AYT_EVENT 
@@ -26,3 +28,4 @@ CREATE TABLE AYT_EVENT
     ) 
 ;
 """
+
