@@ -6,7 +6,6 @@ function getCSRFToken(): string | null {
 }
 
 
-
 export type RegisterUserParams = {
     username: string;
     email: string;

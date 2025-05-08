@@ -6,9 +6,12 @@ const HomePage: React.FC = () => {
 
     const router = useRouter();
     const goToRoomPage = () => {
-        router.push('/room'); // Update with the actual path of your Room page
+        router.push('/room');
     };
 
+    const goToBookPage = () => {
+        router.push('/book');
+    };
 
     return (
         <div style={styles.container}>
@@ -24,7 +27,7 @@ const HomePage: React.FC = () => {
                 <section style={styles.section}>
                     <h2>Explore PAL</h2>
                     <div style={styles.buttonGroup}>
-                        <button style={styles.button}>Browse Books</button>
+                        <button style={styles.button} onClick={goToBookPage}>Browse Books</button>
                         <button style={styles.button}>Upcoming Events</button>
                         <button style={styles.button} onClick={goToRoomPage}>Reserve a Room</button>
                     </div>
