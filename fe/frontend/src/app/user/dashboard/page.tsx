@@ -2,6 +2,35 @@
 import React from 'react';
 import { useRouter } from 'next/navigation';
 
+/* run:
+    npm install @mui/material @emotion/react @emotion/styled 
+    npm install @mui/icons-material
+*/
+
+import Card from '@/components/Card';
+import CardContent from '@/components/CardContent';
+import CardMedia from '@/components/CardMedia';
+import Typography from '@/components/Typography';
+import CardActionArea from '@/components/CardActionArea';
+
+// Get the div element by its ID
+const myDiv = document.getElementById('browseRooms');
+
+if (myDiv) {
+  const button = document.createElement('button');
+
+  button.textContent = 'Click me';
+
+  button.addEventListener('click', () => {
+    alert('Button clicked!');
+  });
+
+  myDiv.appendChild(button);
+} else {
+  console.error('Div element with ID "browseRooms" not found.');
+}
+
+
 const DashboardPage: React.FC = () => {
     const router = useRouter();
     const goToRoomPage = () => {
@@ -9,30 +38,39 @@ const DashboardPage: React.FC = () => {
     };
 
     return (
-        <div style={styles.container}>
-            <main style={styles.main}>
-                <section style={styles.section}>
-                    <h2>Welcome to Your Dashboard</h2>
-                    <p>Here you can manage your profile, view your activity, and more.</p>
-                </section>
-                <section style={styles.section}>
-                    <h2>Your Activities</h2>
-                    <ul>
-                        <li>Current Bookings</li>
-                        <li>Current Book Rentals</li>
-                        <li>Browse Available Rooms</li>
-                        <li>Browse Books</li>
-                    </ul>
-                </section>
-                <section style={styles.section}>
-                    <button style={styles.button} onClick={goToRoomPage}>Reserve a Room</button>
-                </section>
-            </main>
-            <footer style={styles.footer}>
-                <p>&copy; 2025 Public Affirmation Library. All rights reserved.</p>
-            </footer>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '20px', padding: '20px'}}>
+            <div style={{ display: 'flex', justifyContent: 'space-around', gap: '20px'}}>
+                <Card key={1} sx={{ minWidth: 400, maxWidth: 500 }} /*onClick={ gotToRoomPage }*/>
+                    <CardActionArea>
+                        <CardContent>
+                            <Typography gutterBottom variant='h5' component='div'>
+                                Your Rooms
+                            </Typography>
+                            <Typography variant='body2' color='text.secondary'>
+                                List
+                            </Typography>
+                        </CardContent>
+                    </CardActionArea>
+                </Card>
+                <Card key={2} sx={{ minWidth: 400, maxWidth: 500 }} /*onClick={ gotToBooksPage }*/>
+                    <CardActionArea>
+                        <CardContent>
+                            <Typography gutterBottom variant='h5' component='div'>
+                                Your Books
+                            </Typography>
+                            <Typography variant='body2' color='text.secondary'>
+                                List
+                            </Typography>
+                        </CardContent>
+                    </CardActionArea>
+                </Card>
+            </div>
+            <div style={{ display: 'flex', justifyContent: 'space-around', gap: '20px'}}>
+                <div id='browseRooms'></div>
+                <div id='browseBooks'></div>
+            </div>
         </div>
-    );
+    ); 
 }
 
 const styles: Record<string, React.CSSProperties> = {

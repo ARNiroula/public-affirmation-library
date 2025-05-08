@@ -1,16 +1,35 @@
 from django.db import models
-
+from django.db.models import Q, F
+from utils.enums import EventTopic
 
 class Event(models.Model):
     event_id = models.IntegerField(primary_key=True)
-    event_name = models.CharField(max_length=100)
+    event_name = models.CharField(max_length=100, db_index=True)
     start_date_time = models.DateTimeField()
     end_date_time = models.DateTimeField()
+
     event_topic = models.CharField(max_length=30)
+    topic_bitmap = models.BigIntegerField(default=0)
+
     event_type = models.CharField(max_length=1)
 
     class Meta:
         db_table = "AYT_EVENT"
+        constraints = [
+            models.CheckConstraint(
+                name = "check_datetime_order",
+                check = Q(end_date_time__gt=F("start_date_time")),
+            ),
+        ]
+
+    def set_topics(self, topic_codes):
+        self.event_topics_bitmap = sum(1 << EventTopic.bit_position(code) for code in topic_codes)
+
+    def get_topics(self):
+        return [topic for topic in EventTopic if self.event_topics_bitmap & (1 << EventTopic.bit_position(topic.value))]
+
+    def has_topic(self, code):
+        return bool(self.event_topics_bitmap & (1 << EventTopic.bit_position(code)))
 
     def __str__(self):
         return self.event_name
