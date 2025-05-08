@@ -2,11 +2,13 @@ from django.db import models
 
 
 class Book(models.Model):
-    book_id = models.IntegerField(primary_key=True)
+    book_id = models.AutoField(primary_key=True)
     isbn = models.CharField(max_length=13)
     name = models.CharField(max_length=200)
     topic = models.CharField(max_length=50)
+    summary = models.CharField(max_length=50, default="Lorem Ipsum")
     pub_date = models.DateTimeField()
+    cover_url = models.URLField(null=True, blank=True)
 
     class Meta:
         db_table = "AYT_BOOK"
