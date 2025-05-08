@@ -15,7 +15,9 @@ from utils.storage import minio_client
 
 class BookAdminForm(forms.ModelForm):
     image_file = forms.FileField(required=False, label="Upload Image")
-    pub_date = forms.DateField(widget=forms.TextInput(attrs={"type": "text"}))
+    pub_date = forms.DateField(
+        widget=forms.TextInput(attrs={"type": "text"}), required=False
+    )
 
     number_of_copies = forms.IntegerField(
         required=False, min_value=0, initial=0, label="Number of Copies"
@@ -70,18 +72,17 @@ class BookAdminForm(forms.ModelForm):
             file_url = f"{minio_client.meta.endpoint_url}/{settings.AWS_STORAGE_BUCKET_NAME}/{filename}"
             instance.cover_url = file_url
 
+        instance.save()
         # Handle Book Copies
         desired_count = self.cleaned_data.get("number_of_copies", 0)
         current_copies_qs = instance.copies.all()
         current_count = current_copies_qs.count()
 
         if desired_count > current_count:
-            instance.save()
             BookCopy.objects.bulk_create(  # pyright: ignore
                 [BookCopy(book=instance) for _ in range(desired_count - current_count)]
             )
         elif desired_count < current_count:
-            instance.save()
             excess_needed = current_count - desired_count
             removable_copies = current_copies_qs.filter(status="available")[
                 :excess_needed
