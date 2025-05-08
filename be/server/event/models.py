@@ -1,9 +1,9 @@
 from django.db import models
-
+from django.db.models import Q, F
 
 class Event(models.Model):
     event_id = models.IntegerField(primary_key=True)
-    event_name = models.CharField(max_length=100)
+    event_name = models.CharField(max_length=100, db_index=True)
     start_date_time = models.DateTimeField()
     end_date_time = models.DateTimeField()
     event_topic = models.CharField(max_length=30)
@@ -11,6 +11,12 @@ class Event(models.Model):
 
     class Meta:
         db_table = "AYT_EVENT"
+        constraints = [
+            models.CheckConstraint(
+                name = "check_datetime_order",
+                check = Q(end_datetime__gt=F("start_date_time")),
+            ),
+        ]
 
     def __str__(self):
         return self.event_name
