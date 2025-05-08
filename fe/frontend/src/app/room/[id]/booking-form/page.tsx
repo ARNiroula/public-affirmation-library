@@ -45,7 +45,7 @@ const BookingForm = () => {
             router.push(`/room`); // Redirect after booking is successful
         } catch (err) {
             if (err instanceof AxiosError) {
-                const errMsg = err.response.data.message
+                const errMsg = err.response?.data.message
                 setError(`Error booking the room: ${errMsg}`);
             }
         } finally {
