@@ -2,7 +2,7 @@ from django.db import models
 from django.db.models import CheckConstraint, Q, F
 
 from user.models import User
-from book.models import BookCopy
+from book_copy.models import BookCopy
 
 
 class Rental(models.Model):
