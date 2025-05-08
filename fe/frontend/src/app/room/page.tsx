@@ -43,23 +43,19 @@ export default function RoomsPage() {
                     />
                     <div className="p-4">
                         <p className="text-lg font-semibold">Room {room.room_id}</p> {/* Room ID Caption */}
-                        <button
-                            onClick={() => router.push(`/room/${room.room_id}/booking-form`)}
-                            className="mt-2 bg-blue-500 hover:bg-blue-600 text-white py-1 px-3 rounded"
-                        >
-                            Book Now
-                        </button>
                     </div>
 
-                    <div className="absolute inset-0 bg-black bg-opacity-60 text-white p-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end">
-                        <p className="text-sm">Description: {room.descr}</p>
-                        <p className="text-sm">Capacity: {room.capacity}</p>
-                        <button
-                            onClick={() => router.push(`/room/${room.room_id}/booking-form`)}
-                            className="mt-2 bg-blue-500 hover:bg-blue-600 text-white py-1 px-3 rounded"
-                        >
-                            Book Now
-                        </button>
+                    <div className="absolute inset-0 bg-black/40 group-hover:bg-black/60 text-white p-4 transition-all duration-300 flex items-center justify-center text-center">
+                        <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            <p className="text-sm">Description: {room.descr}</p>
+                            <p className="text-sm">Capacity: {room.capacity}</p>
+                            <button
+                                onClick={() => router.push(`/room/${room.room_id}/booking-form`)}
+                                className="mt-2 bg-blue-500 hover:bg-blue-600 text-white py-1 px-3 rounded"
+                            >
+                                Add to Cart
+                            </button>
+                        </div>
                     </div>
                 </div>
             ))}
