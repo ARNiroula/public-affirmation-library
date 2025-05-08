@@ -4,9 +4,12 @@ from .models import Book
 
 
 class BookSerializer(serializers.ModelSerializer):
+    available_copies = serializers.SerializerMethodField()
+    topic_display = serializers.CharField(source="get_topic_display", read_only=True)
+
     class Meta:
         model = Book
         fields = "__all__"
-        # extra_kwargs = {
-        #     "image_url": {"write_only": True},
-        # }
+
+    def get_available_copies(self, obj):
+        return obj.copies.filter(status="available").count()
