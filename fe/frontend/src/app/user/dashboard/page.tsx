@@ -44,7 +44,7 @@ const DashboardPage: React.FC = () => {
                     <CardActionArea>
                         <CardContent>
                             <Typography gutterBottom variant='h5' component='div'>
-                                Current Bookings
+                                Your Rooms
                             </Typography>
                             <Typography variant='body2' color='text.secondary'>
                                 List

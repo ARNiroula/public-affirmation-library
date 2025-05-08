@@ -4,20 +4,37 @@ from utils.enums import Topic
 
 
 class Book(models.Model):
-    book_id = models.AutoField(primary_key=True)
-    isbn = models.CharField(max_length=13)
-    name = models.CharField(max_length=200)
-    topic = models.CharField(
-        max_length=50,
-        choices=Topic,
-        default=Topic.FICTION,
-    )
+    book_id = models.AutoField(primary_key=True, unique=True)
+    isbn = models.CharField(max_length=13, unique=True)
+    name = models.CharField(max_length=200, db_index=True)
+    
+    topic_bitmap = models.BigIntegerField(default=0)
+
+    # topic = models.CharField(
+    #     max_length=50,
+    #     choices=Topic,
+    #     default=Topic.FICTION,
+    # )
+
     summary = models.CharField(max_length=50, default="Lorem Ipsum")
     pub_date = models.DateField(null=True, blank=True)
     cover_url = models.URLField(null=True, blank=True)
 
     class Meta:
         db_table = "AYT_BOOK"
+    
+    def set_topics(self, topic_codes):
+        bitmask = 0
+        for code in topic_codes:
+            bitmask |= 1 << Topic.bit_position(code)
+        self.topic_bitmap = bitmask
+    
+    def get_topics(self):
+        return [topic for topic in Topic if self.topic_bitmap & (1 << Topic.bit_position(topic.value))]
+    
+    def has_topic(self, code):
+        return bool(self.topic_bitmap & (1 << Topic.bit_position(code)))   
+
 
 
 """
