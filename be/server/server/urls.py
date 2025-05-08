@@ -44,6 +44,7 @@ api_patterns = [
     path("user/", include("user.urls")),
     path("", include("room.urls")),
     path("", include("book.urls")),
+    path("", include("rental_system.urls")),
 ]
 
 
