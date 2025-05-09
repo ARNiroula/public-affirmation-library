@@ -1,6 +1,6 @@
 from django.db import models
 
-from book.models import Book
+# from book.models import Book
 from seminar.models import Seminar
 
 
@@ -24,7 +24,11 @@ class Author(models.Model):
 
 class AuthorBookRelationship(models.Model):
     author = models.ForeignKey(Author, on_delete=models.CASCADE)
-    book = models.ForeignKey(Book, on_delete=models.CASCADE)
+    book = models.ForeignKey("book.Book", on_delete=models.CASCADE)
+    role = models.CharField(max_length=100, null=True, blank=True)
+
+    class Meta:
+        unique_together = ("author", "book")
 
 
 class AuthorSeminarRelationship(models.Model):
