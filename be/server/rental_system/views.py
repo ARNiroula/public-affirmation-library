@@ -1,6 +1,7 @@
 import datetime
 
 from django.db import transaction
+from django.contrib.auth import get_user_model
 from rest_framework import status
 from rest_framework.views import APIView, Response
 from drf_spectacular.utils import extend_schema
@@ -16,6 +17,9 @@ from .serializers import RentalRequestSerializer, RentalResponseSerializer
 
 def rent_book(user_id, book_ids):
     with transaction.atomic():
+        user = get_user_model().objects.get(pk=user_id)
+        if not user:
+            raise ValueError("User Not Found!")
         rentals = []
         # Get the available Copy ID from book
         # set the available copy status as on loan
@@ -28,6 +32,7 @@ def rent_book(user_id, book_ids):
             )
             if not book_copy:
                 return ValueError(f"No available copies for book id {book_id}")
+            book_copy.status = "on_loan"
             book_copy.save()
 
             # create rental
@@ -36,13 +41,15 @@ def rent_book(user_id, book_ids):
                 borrow_date=today,
                 expected_date=today + datetime.timedelta(days=30),
                 copy=book_copy,
-                cust=user_id,
+                cust=user,
             )
             rentals.append(rental)
             return rentals
 
 
 class RentalView(APIView, permissions.CustomerPermissionMixin):
+    queryset = Rental.objects.all()
+
     @extend_schema(
         tags=["rental"],
         request=RentalRequestSerializer,
@@ -59,7 +66,7 @@ class RentalView(APIView, permissions.CustomerPermissionMixin):
         try:
             rentals = rent_book(user_id, book_ids)
             serializer = RentalResponseSerializer({"rentals": rentals})
-            return Response(serializer.date, status=status.HTTP_201_CREATED)
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
 
         except Exception as e:
             return Response(data=str(e), status=status.HTTP_400_BAD_REQUEST)

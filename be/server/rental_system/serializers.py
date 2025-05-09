@@ -16,4 +16,4 @@ class RentalRequestSerializer(serializers.Serializer):
 
 
 class RentalResponseSerializer(serializers.Serializer):
-    rental = RentalSerializer(many=True)
+    rentals = RentalSerializer(many=True)
