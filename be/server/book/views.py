@@ -27,3 +27,7 @@ class BookViewSet(viewsets.ReadOnlyModelViewSet):
     serializer_class = BookSerializer
     permission_classes = [IsAuthenticated]
     # pagination_class = BookResultsPagination
+
+
+# @extend_schema(tags=["book"])
+# class

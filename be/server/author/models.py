@@ -19,7 +19,12 @@ class Author(models.Model):
         db_table = "AYT_AUTHOR"
 
     def __str__(self):
-        return f"{self.fname} {self.lname}"
+        name = self.fname
+        if self.mname is not None:
+            name += f" {self.mname}"
+        if self.lname is not None:
+            name += f" {self.lname}"
+        return f"{name}"
 
 
 class AuthorBookRelationship(models.Model):

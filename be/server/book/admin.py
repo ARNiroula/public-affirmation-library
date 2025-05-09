@@ -106,7 +106,12 @@ class BookAdminForm(forms.ModelForm):
 @admin.register(Book)
 class BookAdmin(admin.ModelAdmin):
     form = BookAdminForm
-    readonly_fields = ["cover_url", "image_preview", "total_copies"]
+    readonly_fields = [
+        "cover_url",
+        "image_preview",
+        "total_copies",
+        "author_names",
+    ]
     fields = [
         "isbn",
         "name",
@@ -118,7 +123,12 @@ class BookAdmin(admin.ModelAdmin):
         "image_preview",
         "number_of_copies",
         "total_copies",
+        "author_names",
     ]
+
+    def get_queryset(self, request):
+        qs = super().get_queryset(request)
+        return qs.prefetch_related("author", "copies")
 
     def image_preview(self, obj):
         if obj.cover_url:
@@ -133,3 +143,9 @@ class BookAdmin(admin.ModelAdmin):
         return obj.copies.count()
 
     total_copies.short_description = "Total Copies"  # pyright: ignore
+
+    def author_names(self, obj):
+        name = []
+        for author in obj.author.all():
+            name.append(str(author))
+        return name
