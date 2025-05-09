@@ -1,5 +1,6 @@
 import datetime
 
+from django import forms
 from django.contrib import admin
 from django.db import transaction
 from django.db.models import Q, F
@@ -9,6 +10,13 @@ from django.utils.translation import gettext_lazy as _
 from .models import Rental
 from book_copy.models import BookCopy
 from invoice.models import Invoice
+
+
+class RentalModelForm(forms.ModelForm):
+    class Meta:
+        model = Rental
+        # fields = "__all__"
+        exclude = ("actual_date",)
 
 
 # Register your models here.
@@ -25,20 +33,34 @@ class IsLateFilter(admin.SimpleListFilter):
 
     def queryset(self, request, queryset):
         # This filters the queryset based on the selected filter
-        if self.value() is not None:
-            is_late = self.value() == "True"
-            today = datetime.date.today()
-            if is_late:
-                return queryset.filter(
-                    Q(actual_date__isnull=False, actual_date__gt=F("expected_date"))
-                    | Q(expected_date__lt=today)
-                )  # Consider the item late if today is after the expected date
-            else:
-                return queryset.filter(
-                    Q(actual_date__isnull=False, actual_date__gte=F("expected_date"))
-                    | Q(expected_date__gte=today)
-                )  # On time if today is before or same as the expected date
-        return queryset
+        today = datetime.date.today()
+        if self.value() == "True":
+            return queryset.filter(
+                Q(actual_date__isnull=False, actual_date__gt=F("expected_date"))
+                | Q(expected_date__lt=today)
+            )
+        if self.value() == "False":
+            return queryset.filter(
+                Q(actual_date__isnull=False, actual_date__lte=F("expected_date"))
+                | Q(expected_date__gte=today)
+            )  # On time if today is before or same as the expected date
+
+        # if self.value() is not None:
+        #     is_late = self.value() == "True"
+        #     if is_late:
+        #         print("SDKFJSD")
+        #         return queryset.filter(
+        #             Q(actual_date__isnull=False, actual_date__gt=F("expected_date"))
+        #             | Q(expected_date__lt=today)
+        #         )  # Consider the item late if today is after the expected date
+        #     else:
+        #         print("WEROIWEJR")
+        #         return queryset.filter(
+        #             Q(actual_date__isnull=False, actual_date__lte=F("expected_date"))
+        #             | Q(expected_date__gte=today)
+        #         )  # On time if today is before or same as the expected date
+        # return queryset
+        #
 
 
 @admin.register(Rental)
@@ -83,6 +105,8 @@ class RentalAdmin(admin.ModelAdmin):
     # Custom is late lookup
     def is_late(self, obj):
         if not obj.actual_date:
+            if not obj.expected_date:
+                return
             return "Late" if obj.expected_date < datetime.date.today() else "On Time"
         return "Late" if obj.expected_date < obj.actual_date else "On Time"
 
@@ -108,7 +132,6 @@ class RentalAdmin(admin.ModelAdmin):
 
     def calculate_invoice_amount(self, rental):
         inital_diff = float((rental.expected_date - rental.actual_date).days)
-        print(inital_diff)
         if rental.actual_date > rental.expected_date:
             return (inital_diff * 0.2) + (
                 float((rental.actual_date - rental.expected_date).days) * 0.4
