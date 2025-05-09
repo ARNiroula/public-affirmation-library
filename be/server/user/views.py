@@ -42,7 +42,9 @@ class StaffViewSet(AdminPermissionMixin, viewsets.ModelViewSet):
 
 @extend_schema(tags=["user"])
 class LoginView(APIView):
-    permission_classes = [IsNotAuthenticated]
+    # permission_classes = [IsNotAuthenticated]
+    authentication_classes = []
+    permission_classes = []
 
     @extend_schema(
         request=UserLoginSerializer,
