@@ -28,11 +28,21 @@ export default function RootLayout({
     return (
         <html lang="en">
             <body
-                className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-            >
-                <Header />
-                <Toaster position="bottom-center" />
-                {children}
+                className={`
+                    ${geistSans.variable} ${geistMono.variable} antialiased
+                    bg-fixed bg-center bg-no-repeat bg-cover
+                    min-h-screen
+                    `}
+                style={{
+                    backgroundImage: "url('/global_background.jpg')",
+                }}>
+                <div className="absolute inset-0 bg-gradient-to-b from-black/60 to-transparent z-0" />
+                {/* Content */}
+                <div className="relative z-10">
+                    <Header />
+                    <Toaster position="bottom-center" />
+                    {children}
+                </div>
             </body>
         </html>
     );

@@ -8,6 +8,7 @@ import api from '@/custom_lib/axios';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css'; // import the CSS for the datepicker
 import { AxiosError } from 'axios';
+import toast from "react-hot-toast";
 // import { addDays } from 'date-fns'; // Helps to prevent past dates in the calendar
 
 
@@ -18,7 +19,7 @@ const BookingForm = () => {
     const [description, setDescription] = useState('');
     const [startDate, setStartDate] = useState<Date | null>(null);
     const [endDate, setEndDate] = useState<Date | null>(null);
-    const [error, setError] = useState('');
+    // const [error, setError] = useState('');
     const [isSubmitting, setIsSubmitting] = useState(false);
 
     const router = useRouter();
@@ -29,7 +30,8 @@ const BookingForm = () => {
         setIsSubmitting(true);
 
         if (!startDate || !endDate || startDate >= endDate) {
-            setError('Please select valid start and end dates.');
+            toast.error('Please select valid start and end dates.');
+            // setError('Please select valid start and end dates.');
             setIsSubmitting(false);
             return;
         }
@@ -42,11 +44,13 @@ const BookingForm = () => {
                 start_datetime: startDate.toISOString(),
                 end_datetime: endDate.toISOString(),
             });
+            toast.success(`Room ${roomId} Booking SuccessFul!`);
             router.push(`/room`); // Redirect after booking is successful
         } catch (err) {
             if (err instanceof AxiosError) {
                 const errMsg = err.response?.data.message
-                setError(`Error booking the room: ${errMsg}`);
+                toast.error(`Error booking the room: ${errMsg}`);
+                // setError(`Error booking the room: ${errMsg}`);
             }
         } finally {
             setIsSubmitting(false);
@@ -54,10 +58,10 @@ const BookingForm = () => {
     };
 
     return (
-        <div className="p-6">
+        <div className="p-6 bg-black/60 backdrop-blur-sm text-white rounded-lg shadow-xl">
             <h2 className="text-2xl mb-4">Booking Form for Room {roomId}</h2>
 
-            {error && <div className="text-red-500">{error}</div>}
+            {/* {error && <div className="text-red-500">{error}</div>} */}
 
             <form onSubmit={handleSubmit} className="space-y-4">
                 <div>

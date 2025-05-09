@@ -48,7 +48,9 @@ export default function BooksPage() {
                 {books?.map(book => {
                     const inCart = cart.some(b => b.book_id === book.book_id);
                     return (
-                        <div key={book.book_id} className="relative overflow-hidden rounded-lg shadow-md group">
+                        <div key={book.book_id}
+                            className="relative overflow-hidden brightness-110 rounded-lg shadow-xl group bg-black/90 backdrop-blur-sm transition-transform transform hover:scale-105 hover:shadow-2xl border border-white/30 hover:ring-2 hover:ring-green-300"
+                        >
                             <Image
                                 src={book.cover_url || "/default.jpg"}
                                 width={600}

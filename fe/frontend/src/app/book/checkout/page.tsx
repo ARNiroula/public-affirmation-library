@@ -26,7 +26,7 @@ export default function CheckoutPage() {
     }
 
     return (
-        <div className="max-w-4xl mx-auto px-4 py-8">
+        <div className="p-6 bg-black/60 backdrop-blur-sm text-white rounded-lg shadow-xl">
             <h1 className="text-2xl font-bold mb-6">Your Cart</h1>
 
             {cart.length === 0 ? (

@@ -32,7 +32,7 @@ export default function RoomsPage() {
             {rooms?.map(room => (
                 <div
                     key={room.room_id}
-                    className="relative overflow-hidden rounded-lg shadow-md group"
+                    className="relative overflow-hidden brightness-110 rounded-lg shadow-xl group bg-black/90 backdrop-blur-sm transition-transform transform hover:scale-105 hover:shadow-2xl border border-white/30 hover:ring-2 hover:ring-green-300"
                 >
                     <Image
                         src={room.image_url || "/default.jpg"}
@@ -53,7 +53,7 @@ export default function RoomsPage() {
                                 onClick={() => router.push(`/room/${room.room_id}/booking-form`)}
                                 className="mt-2 bg-blue-500 hover:bg-blue-600 text-white py-1 px-3 rounded"
                             >
-                                Add to Cart
+                                Reserve Room
                             </button>
                         </div>
                     </div>
