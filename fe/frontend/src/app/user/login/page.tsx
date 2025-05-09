@@ -15,19 +15,14 @@ const LoginPage: React.FC = () => {
     const handleLogin = async (event: React.FormEvent) => {
         event.preventDefault();
         if (username === "" || password === "") {
-            return
+            return;
         }
-        // TODO => Handle the Event in the frontend side
         try {
-            await loginUser(username, password)
-            router.push("/home")
-        }
-        catch (e) {
+            await loginUser(username, password);
+            router.push("/home");
+        } catch (e) {
             setError(`Login User Failed => ${e}`);
-            // alert(`Login Failed => ${e}`)
         }
-        console.log('Logging in with:', { username, password });
-        // Add your login logic here, such as calling an API
     };
 
     const styles: React.CSSProperties = {
@@ -37,6 +32,27 @@ const LoginPage: React.FC = () => {
         justifyContent: 'center',
         minHeight: '100vh',
         backgroundColor: '#4b006e',
+    };
+
+    const headerStyles: React.CSSProperties = {
+        width: '100%',
+        padding: '10px 20px',
+        backgroundColor: '#007BFF',
+        color: 'white',
+        display: 'flex',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+    };
+
+    const navStyles: React.CSSProperties = {
+        display: 'flex',
+        gap: '20px',
+    };
+
+    const linkStyles: React.CSSProperties = {
+        color: 'white',
+        textDecoration: 'none',
+        fontWeight: 'bold',
     };
 
     const formStyles: React.CSSProperties = {
@@ -71,11 +87,15 @@ const LoginPage: React.FC = () => {
 
     return (
         <div style={styles}>
-            <h1>Login</h1>
+            {/* Single Header with title and navigation links */}
+           
+
+            {/* Login Form */}
             <form onSubmit={handleLogin} style={formStyles}>
+                <h1 style={{ textAlign: 'center', color: 'white' }}>Login</h1>
                 <FormError message={error} />
                 <div style={inputGroupStyles}>
-                    <label htmlFor="username">Username:</label>
+                    <label htmlFor="username" style={{ color: 'white' }}>Username:</label>
                     <input
                         type="text"
                         id="username"
@@ -85,7 +105,7 @@ const LoginPage: React.FC = () => {
                     />
                 </div>
                 <div style={inputGroupStyles}>
-                    <label htmlFor="password">Password:</label>
+                    <label htmlFor="password" style={{ color: 'white' }}>Password:</label>
                     <input
                         type="password"
                         id="password"
