@@ -5,7 +5,7 @@ from seminar.models import Seminar
 
 
 class Author(models.Model):
-    auth_id = models.IntegerField(primary_key=True)
+    auth_id = models.AutoField(primary_key=True)
     fname = models.CharField(max_length=30)
     mname = models.CharField(max_length=10, blank=True, null=True)
     lname = models.CharField(max_length=30, blank=True, null=True)
