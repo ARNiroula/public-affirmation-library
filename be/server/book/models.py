@@ -24,6 +24,9 @@ class Book(models.Model):
         Author, through=AuthorBookRelationship, related_name="book"
     )
 
+    def __str__(self):
+        return f"{self.name}\n[ISBN {self.isbn}]"
+
     class Meta:
         db_table = "AYT_BOOK"
 
