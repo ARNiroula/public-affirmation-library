@@ -73,6 +73,7 @@ INSTALLED_APPS = [
     "exhibition",
     "event",
     "rental_system",
+    "invoice",
 ]
 
 MIDDLEWARE = [
