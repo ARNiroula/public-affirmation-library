@@ -16,5 +16,8 @@ class BookCopy(models.Model):
         max_length=20, choices=STATUS_CHOICES, default="available"
     )
 
+    class Meta:
+        db_table = "AYT_BOOK_COPY"
+
     def __str__(self):
         return f"Copy ID: {self.copy_id} [{self.book.name}]"
