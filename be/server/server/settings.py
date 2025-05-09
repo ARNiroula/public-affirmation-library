@@ -76,6 +76,7 @@ INSTALLED_APPS = [
     "event",
     "rental_system",
     "invoice",
+    "sponser",
 ]
 
 MIDDLEWARE = [
@@ -90,7 +91,31 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
+    # Debugger MIDDLEWARE
+    "debug_toolbar.middleware.DebugToolbarMiddleware",
 ]
+
+# Debugger IP
+INTERNAL_IPS = [
+    "127.0.0.1",
+    "localhost",
+]
+
+LOGGING = {
+    "version": 1,
+    "handlers": {
+        "console": {
+            "class": "logging.StreamHandler",
+        },
+    },
+    "loggers": {
+        "django.db.backends": {
+            "level": "DEBUG",
+            "handlers": ["console"],
+        },
+    },
+}
+
 
 # Rest Framework Config
 REST_FRAMEWORK = {
@@ -183,6 +208,18 @@ CORS_ALLOW_METHODS = [
     "OPTIONS",
 ]
 
+# SESSION_ENGINE = "django.contrib.sessions.backends.db"
+# # Redis Cache
+# CACHES = {
+#     "default": {
+#         "BACKEND": "django_redis.cache.RedisCache",
+#         "LOCATION": "redis://127.0.0.1:6379/1",
+#         "OPTIONS": {
+#             "CLIENT_CLASS": "django_redis.client.DefaultClient",
+#         },
+#     }
+# }
+#
 
 # CSRF Configuration
 CSRF_COOKIE_HTTPONLY = False  # Must be false so JS can read it
