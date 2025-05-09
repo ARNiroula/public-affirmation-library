@@ -27,7 +27,7 @@ from drf_spectacular.views import (
     SpectacularRedocView,
     SpectacularSwaggerView,
 )
-
+from debug_toolbar.toolbar import debug_toolbar_urls
 
 api_patterns = [
     # OpenAPI Routes
@@ -51,4 +51,4 @@ api_patterns = [
 urlpatterns = [
     path("admin/", admin.site.urls),
     path("api/", include(api_patterns)),
-]
+] + debug_toolbar_urls()

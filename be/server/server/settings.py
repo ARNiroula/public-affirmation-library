@@ -63,6 +63,8 @@ INSTALLED_APPS = [
     "corsheaders",
     # object storage
     "storages",
+    # Debugger
+    "debug_toolbar",
     # Project Apps
     "user",
     "book",
