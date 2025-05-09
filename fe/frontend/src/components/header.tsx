@@ -10,6 +10,7 @@ const Header = () => {
     const [isLoggedIn, setIsLoggedIn] = useState(false);
     const [menuOpen, setMenuOpen] = useState(false);
     const router = useRouter();
+
     useEffect(() => {
         const checkUserStatus = async () => {
             try {
@@ -17,55 +18,59 @@ const Header = () => {
                 const response = await axios.get(
                     url_path,
                     { withCredentials: true },
-                )
+                );
 
                 setIsLoggedIn(response.data.authenticated);
             }
             catch (err) {
                 setIsLoggedIn(false);
             }
-        }
+        };
 
         checkUserStatus();
-
     }, []);
-
 
     const handleLogout = async () => {
         setMenuOpen(false);
         try {
             await logoutUser();
             setIsLoggedIn(false);
-            router.push("/home")
+            router.push("/home");
         }
         catch (error) {
             console.log(error);
         }
-    }
+    };
 
     const handleLogin = () => {
-        // Redirect to login page or show login modal
         setMenuOpen(false);
-        router.push("/user/login")
+        router.push("/user/login");
     };
 
     const handleRegister = () => {
-        // Redirect to login page or show login modal
         setMenuOpen(false);
-        router.push("/user/register")
+        router.push("/user/register");
     };
 
     return (
         <header style={styles.header}>
-            <div className="flex justify-between items-center px-6">
-                <div className="text-left">
+            <div style={styles.container}>
+                {/* Title */}
+                <div style={styles.titleContainer}>
                     <Link href="/home">
-                        <h1 className="text-2xl font-bold">Public Affirmation Library</h1>
+                        <h1 style={styles.title}>Public Affirmation Library</h1>
                     </Link>
                 </div>
 
-                <div className="relative inline-block text-left">
-                    {/* Hamburger icon and menu toggle */}
+                {/* Centered Navigation Links */}
+                <nav style={styles.nav}>
+                    <Link href="/rooms" style={styles.link}>Rooms</Link>
+                    <Link href="/booking" style={styles.link}>Booking</Link>
+                    <Link href="/profile" style={styles.link}>Profile</Link>
+                </nav>
+
+                {/* Hamburger Menu */}
+                <div className="relative inline-block text-left" style={styles.menuContainer}>
                     <div
                         className="cursor-pointer p-2 bg-white rounded shadow-md inline-block"
                         onClick={() => setMenuOpen(prev => !prev)}
@@ -106,91 +111,45 @@ const Header = () => {
             </div>
         </header>
     );
-
-
-    // return (
-    //     <header style={styles.header}>
-    //         <h1>Welcome to PAL (Public Affirmation Library)</h1>
-    //         <p>
-    //             Empowering our community with access to diversified resources, affordable rentals, free study room reservations, and educational events.
-    //         </p>
-    //         {isLoggedIn ? (
-    //             <button
-    //                 onClick={handleLogout}
-    //                 className='bg-red-600 text-white py-2 px-6 rounded-lg hover:bg-red-500 focus:outline-none transition duration-200'
-    //             >
-    //                 Logout
-    //             </button>
-    //         ) : (
-    //             <div style={{ display: 'flex space-x-7' }}>
-    //                 <button
-    //                     onClick={handleLogin}
-    //                     className='bg-green-600 text-white py-2 px-6 rounded-lg hover:bg-green-500 focus:outline-none transition duration-200'
-    //                 >
-    //                     Login
-    //                 </button>
-    //                 <button
-    //                     onClick={handleRegister}
-    //                     className='bg-purple-700 text-white py-2 px-6 rounded-lg hover:bg-purple-600 focus:outline-none transition duration-200'
-    //                 >
-    //                     Register
-    //                 </button>
-    //
-    //             </div>
-    //
-    //         )}
-    //     </header>
-    // );
 };
 
-
 const styles: Record<string, React.CSSProperties> = {
-    container: {
-        fontFamily: 'Arial, sans-serif',
-        lineHeight: '1.6',
-        color: '#333',
-        display: 'flex',
-        flexDirection: 'column',
-        minHeight: '100vh',
-    },
     header: {
         backgroundColor: '#007BFF',
         color: '#fff',
-        padding: '20px',
-        textAlign: 'center',
-    },
-    main: {
-        flex: 1,
-        padding: '20px',
-    },
-    section: {
-        marginBottom: '20px',
-        padding: '10px',
-        border: '1px solid #ddd',
-        borderRadius: '5px',
-        backgroundColor: '#f9f9f9',
-    },
-    buttonGroup: {
-        display: 'flex',
-        justifyContent: 'space-evenly',
-        marginTop: '10px',
-    },
-    button: {
         padding: '10px 20px',
-        backgroundColor: '#007BFF',
-        color: '#fff',
-        border: 'none',
-        borderRadius: '5px',
-        cursor: 'pointer',
+        position: 'relative',
+    },
+    container: {
+        display: 'flex',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+    },
+    titleContainer: {
+        flex: 1,
+        textAlign: 'left',
+    },
+    title: {
+        fontWeight: 'bold',
+        fontSize: '24px',
+        margin: 0,
+    },
+    nav: {
+        flex: 1,
+        display: 'flex',
+        justifyContent: 'center',
+        gap: '200px', // Increased gap to add more space between links
+    },
+    link: {
+        color: 'white',
+        textDecoration: 'none',
+        fontWeight: 'bold',
         fontSize: '16px',
     },
-    footer: {
-        textAlign: 'center',
-        padding: '10px',
-        backgroundColor: '#f1f1f1',
+    menuContainer: {
+        flex: 1,
+        textAlign: 'right',
     },
 };
-
-
 
 export default Header;
