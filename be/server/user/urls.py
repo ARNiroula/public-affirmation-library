@@ -1,9 +1,10 @@
-from django.urls import include, path
-from rest_framework.routers import DefaultRouter
+# from django.urls import include
+from django.urls import path
+# from rest_framework.routers import DefaultRouter
 
 from .views import (
     CreateCustomerView,
-    StaffViewSet,
+    # StaffViewSet,
     UserProfileView,
     LogoutView,
     LoginView,
@@ -12,8 +13,8 @@ from .views import (
 )
 
 
-router = DefaultRouter()
-router.register(r"staff", StaffViewSet, basename="staff")
+# router = DefaultRouter()
+# router.register(r"staff", StaffViewSet, basename="staff")
 
 urlpatterns = [
     # User Routes
@@ -25,5 +26,5 @@ urlpatterns = [
     path(
         "refresh/", CookieTokenRefreshView.as_view(), name="Refresh Token from Cookie"
     ),
-    path("", include(router.urls)),
+    # path("", include(router.urls)),
 ]
