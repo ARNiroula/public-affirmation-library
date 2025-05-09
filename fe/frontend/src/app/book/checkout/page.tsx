@@ -14,14 +14,14 @@ export default function CheckoutPage() {
         try {
             const bookIds = cart.map(book => book.book_id);
             await api.post(
-                "/rental",
+                "/rent/",
                 { book_ids: bookIds }
             )
             toast.success("Checkout successful!");
             clearCart();
         } catch (err) {
             console.error("Checkout error:", err);
-            toast.error("Checkout failed. Please try again.");
+            toast.error(`Error: ${err}`);
         }
     }
 
@@ -50,6 +50,7 @@ export default function CheckoutPage() {
                                     <h2 className="font-semibold text-black">{book.name}</h2>
                                     <p className="text-sm text-black">Topic: {book.topic_display}</p>
                                     <p className="text-sm text-black">ISBN: {book.isbn}</p>
+                                    <p className="text-sm text-black">Book Id: {book.book_id}</p>
                                 </div>
                                 <button
                                     onClick={() => {
