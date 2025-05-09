@@ -15,7 +15,6 @@ class BookSerializer(serializers.ModelSerializer):
         exclude = (
             "author",
             "topic_bitmap",
-            "topic",
         )
 
     def get_available_copies(self, obj):
