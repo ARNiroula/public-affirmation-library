@@ -26,27 +26,8 @@ services:
     depends_on:
       - minio
 
-
-    # entrypoint: >
-    #   /bin/sh -c "
-    #   /usr/bin/mc alias set local http://minio:9000 minio minio123;
-      #   until (/usr/bin/mc config host add myminio http://minio:9000 minio minio123) do echo '...waiting...' && sleep 1; done;
-    #   "
-    # /usr/bin/mc config host rm expo;
-    # /usr/bin/mc config host add --quiet --api s3v4 local http://minio:9000 minio minio123;
-
-    # entrypoint: ["/bin/sh", "-c"]
-    # command: >
-    #   "./minio_config/configure-minio.sh"
-    # depends_on:
-    #   - minio
-
-      # /bin/sh -c "
-      # /usr/bin/mc config host rm expo;
-      # /usr/bin/mc config host add --quiet --api s3v4 local http://minio:9000 minio minio123;
-      # /usr/bin/mc alias set localminio http://minio:9000 minio minio123;
-      # /usr/bin/mc rb --force library;
-      # /usr/bin/mc mb --quiet library;
-      # /usr/bin/mc policy set public localminio/library/room;
-      # /usr/bin/mc policy set download localminio/library/room;
-      # "
+  redis:
+    image: "redis:alpine"
+    container_name: redis
+    ports:
+      - 6379:6379
