@@ -22,60 +22,6 @@ class RoomViewSet(viewsets.ReadOnlyModelViewSet):
     permission_classes = [IsAuthenticated]
     # parser_classes = [MultiPartParser, FormParser]
 
-    # def get_permissions(self):
-    #     if self.action in ["list", "retrieve"]:
-    #         permission_classes = [IsAuthenticated]
-    #     else:
-    #         permission_classes = [permissions.IsStaff]
-    #
-    #     return [permission() for permission in permission_classes]
-
-    # def create(self, request, *args, **kwargs):
-    #     try:
-    #         # uploaded_file = request.FILES.get("file")
-    #         uploaded_file = request.data.get("file")
-    #
-    #         if not uploaded_file:
-    #             return Response(
-    #                 {"error": "No file provided"}, status=status.HTTP_400_BAD_REQUEST
-    #             )
-    #         file_ext = uploaded_file.name.split(".")[-1].lower()
-    #         allowed_ext = ["jpg", "jpeg", "png", "gif", "webp"]
-    #         if file_ext not in allowed_ext:
-    #             return Response({"error": "Unsupported file type"}, status=400)
-    #
-    #         # path = default_storage.save(f"room/{uploaded_file.name}", uploaded_file)
-    #         # file_url = default_storage.url(path)
-    #         file_url = f"public/room/{uploaded_file}"
-    #         try:
-    #             minio_client.upload_fileobj(
-    #                 Fileobj=uploaded_file,
-    #                 Bucket=settings.AWS_STORAGE_BUCKET_NAME,
-    #                 Key=file_url,
-    #                 ExtraArgs={"ContentType": uploaded_file.content_type},
-    #             )
-    #         except Exception as e:
-    #             return Response({"error": str(e)}, status=500)
-    #
-    #         # Create the Room
-    #         room = Room.objects.create(  # pyright: ignore
-    #             room_id=request.data.get("room_id"),
-    #             capacity=request.data.get("capacity"),
-    #             descr=request.data.get("descr"),
-    #             image_url=f"{settings.MINIO_ACCESS_URL}/{settings.AWS_STORAGE_BUCKET_NAME}/{file_url}",
-    #         )
-    #
-    #         serializer = self.get_serializer(room)
-    #         return Response(serializer.data, status=status.HTTP_201_CREATED)
-    #
-    #     except Exception as e:
-    #         print(str(e))
-    #         return Response(
-    #             "Could not create the room!", status=status.HTTP_400_BAD_REQUEST
-    #         )
-    #     # return super().create(request, *args, **kwargs)
-    #
-
 
 @extend_schema(tags=["booking"])
 class BookingViewSet(viewsets.ModelViewSet):
@@ -103,8 +49,10 @@ class BookingViewSet(viewsets.ModelViewSet):
         return Booking.objects.filter(user=self.request.user)  # pyright: ignore
 
     def get_permissions(self):
-        if self.action == ("create", "list"):
+        if self.action in ("create", "list"):
             permission_classes = [IsAuthenticated]
+        elif self.action in ("all_bookings"):
+            permission_classes = [permissions.IsStaff]
         else:
             permission_classes = [permissions.IsOwnerOrStaff]
 
