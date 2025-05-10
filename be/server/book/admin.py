@@ -7,10 +7,15 @@ from django.utils.html import format_html
 from django.contrib import admin, messages
 
 from .models import Book
+from author.models import AuthorBookRelationship
 from book_copy.models import BookCopy
 from utils.storage import minio_client
 
+
 # Register your models here.
+class AuthorBookInLine(admin.TabularInline):
+    model = AuthorBookRelationship
+    extra = 1
 
 
 class BookAdminForm(forms.ModelForm):
@@ -40,7 +45,9 @@ class BookAdminForm(forms.ModelForm):
             "summary",
             "pub_date",
             "cover_url",
+            "author",
         ]
+        # fields = "__all__"
 
     class Media:
         css = {"all": ["https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css"]}
@@ -50,7 +57,6 @@ class BookAdminForm(forms.ModelForm):
         ]
 
     def save(self, commit=True):
-        print(commit)
         instance = super().save(commit=False)
 
         image = self.files.get("image_file")
@@ -110,7 +116,6 @@ class BookAdmin(admin.ModelAdmin):
         "cover_url",
         "image_preview",
         "total_copies",
-        "author_names",
     ]
     fields = [
         "isbn",
@@ -123,8 +128,10 @@ class BookAdmin(admin.ModelAdmin):
         "image_preview",
         "number_of_copies",
         "total_copies",
-        "author_names",
     ]
+
+    inlines = [AuthorBookInLine]
+    filter_tags = ("author",)
 
     def get_queryset(self, request):
         qs = super().get_queryset(request)
@@ -143,9 +150,3 @@ class BookAdmin(admin.ModelAdmin):
         return obj.copies.count()
 
     total_copies.short_description = "Total Copies"  # pyright: ignore
-
-    def author_names(self, obj):
-        name = []
-        for author in obj.author.all():
-            name.append(str(author))
-        return name
