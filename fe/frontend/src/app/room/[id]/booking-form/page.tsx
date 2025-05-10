@@ -29,6 +29,9 @@ const BookingForm = () => {
         if (!roomId) return;
         setIsSubmitting(true);
 
+        if (description === "") {
+            toast.error('Please Enter Description');
+        }
         if (!startDate || !endDate || startDate >= endDate) {
             toast.error('Please select valid start and end dates.');
             // setError('Please select valid start and end dates.');
@@ -49,6 +52,7 @@ const BookingForm = () => {
         } catch (err) {
             if (err instanceof AxiosError) {
                 const errMsg = err.response?.data.message
+                console.log(errMsg.response);
                 toast.error(`Error booking the room: ${errMsg}`);
                 // setError(`Error booking the room: ${errMsg}`);
             }
@@ -73,6 +77,7 @@ const BookingForm = () => {
                         min="1"
                         max="20"
                         className="w-full p-2 border rounded-md"
+                        required
                     />
                 </div>
 
@@ -83,6 +88,7 @@ const BookingForm = () => {
                         onChange={(e) => setDescription(e.target.value)}
                         className="w-full p-2 border rounded-md"
                         rows={4}
+                        required
                     />
                 </div>
 
@@ -96,6 +102,7 @@ const BookingForm = () => {
                         dateFormat="Pp" // Example of format: May 7th, 2025 4:00 PM
                         className="w-full p-2 border rounded-md"
                         placeholderText="Select start date"
+                        required
                     />
                 </div>
 
@@ -109,6 +116,7 @@ const BookingForm = () => {
                         dateFormat="Pp" // Example of format: May 7th, 2025 4:00 PM
                         className="w-full p-2 border rounded-md"
                         placeholderText="Select end date"
+                        required
                     />
                 </div>
 

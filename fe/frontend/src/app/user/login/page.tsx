@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
+import toast from "react-hot-toast";
 
 import { loginUser } from '@/app/utils/auth';
 import FormError from '@/components/formerror';
@@ -9,7 +10,7 @@ import FormError from '@/components/formerror';
 const LoginPage: React.FC = () => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
-    const [error, setError] = useState('');
+    // const [error, setError] = useState('');
     const router = useRouter();
 
     const handleLogin = async (event: React.FormEvent) => {
@@ -21,7 +22,8 @@ const LoginPage: React.FC = () => {
             await loginUser(username, password);
             router.push("/home");
         } catch (e) {
-            setError(`Login User Failed => ${e}`);
+            // setError(`Login User Failed => ${e}`);
+            toast.error(`Login Failed: Incorrect username or password`);
         }
     };
 
@@ -88,12 +90,12 @@ const LoginPage: React.FC = () => {
     return (
         <div style={styles}>
             {/* Single Header with title and navigation links */}
-           
+
 
             {/* Login Form */}
             <form onSubmit={handleLogin} style={formStyles}>
                 <h1 style={{ textAlign: 'center', color: 'white' }}>Login</h1>
-                <FormError message={error} />
+                {/* <FormError message={error} /> */}
                 <div style={inputGroupStyles}>
                     <label htmlFor="username" style={{ color: 'white' }}>Username:</label>
                     <input
