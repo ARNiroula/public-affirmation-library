@@ -1,17 +1,17 @@
 import datetime
+import json
 
 from django.db import transaction
 from django.contrib.auth import get_user_model
 from rest_framework import status
+from rest_framework.permissions import IsAuthenticated
 from rest_framework.views import APIView, Response
 from drf_spectacular.utils import extend_schema
 
-from user import permissions
 from .models import Rental
-
-# from book.models import Book
 from book_copy.models import BookCopy
 from .serializers import RentalRequestSerializer, RentalResponseSerializer
+from utils.redis import redis_client
 # Create your views here.
 
 
@@ -47,7 +47,8 @@ def rent_book(user_id, book_ids):
             return rentals
 
 
-class RentalView(APIView, permissions.CustomerPermissionMixin):
+class RentalView(APIView):
+    permission_classes = [IsAuthenticated]
     queryset = Rental.objects.all()
 
     @extend_schema(
@@ -68,5 +69,37 @@ class RentalView(APIView, permissions.CustomerPermissionMixin):
             serializer = RentalResponseSerializer({"rentals": rentals})
             return Response(serializer.data, status=status.HTTP_201_CREATED)
 
+        except Exception as e:
+            print(str(e))
+            return Response(data=str(e), status=status.HTTP_400_BAD_REQUEST)
+
+
+class RentalCache(APIView):
+    permission_classes = [IsAuthenticated]
+    queryset = Rental.objects.all()
+
+    @extend_schema(tags=["rental"], responses={status.HTTP_201_CREATED: None})
+    def post(self, request):
+        user_id = self.request.user.id
+        cart = request.data.get("books")
+
+        if len(cart) < 1:
+            redis_client.set(user_id, json.dumps({}))
+            return Response(status=status.HTTP_204_NO_CONTENT)
+
+        try:
+            redis_client.set(user_id, json.dumps(cart))
+            return Response(status=status.HTTP_201_CREATED)
+        except Exception as e:
+            return Response(data=str(e), status=status.HTTP_400_BAD_REQUEST)
+
+    @extend_schema(tags=["rental"])
+    def get(self, request):
+        user_id = self.request.user.id
+        try:
+            data = redis_client.get(user_id)
+            if data is None or data == "":
+                return Response([], status=status.HTTP_200_OK)
+            return Response(json.loads(data), status=status.HTTP_200_OK)
         except Exception as e:
             return Response(data=str(e), status=status.HTTP_400_BAD_REQUEST)
