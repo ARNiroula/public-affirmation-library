@@ -76,30 +76,44 @@ class RentalView(APIView):
 
 class RentalCache(APIView):
     permission_classes = [IsAuthenticated]
-    queryset = Rental.objects.all()
 
     @extend_schema(tags=["rental"], responses={status.HTTP_201_CREATED: None})
     def post(self, request):
-        user_id = self.request.user.id
+        user_id = request.user.id
+        key = f"user:{user_id}:cart"
         cart = request.data.get("books")
 
-        if len(cart) < 1:
-            redis_client.set(user_id, json.dumps({}))
-            return Response(status=status.HTTP_204_NO_CONTENT)
+        if not isinstance(cart, list):
+            return Response(
+                {"error": "Invalid cart format"}, status=status.HTTP_400_BAD_REQUEST
+            )
 
         try:
-            redis_client.set(user_id, json.dumps(cart))
-            return Response(status=status.HTTP_201_CREATED)
+            redis_client.setex(key, 60 * 60 * 24, json.dumps(cart))  # 24 hours
+            return Response(
+                status=status.HTTP_201_CREATED if cart else status.HTTP_204_NO_CONTENT
+            )
         except Exception as e:
-            return Response(data=str(e), status=status.HTTP_400_BAD_REQUEST)
+            # Optional logging
+            print.error(f"Redis set error for user {user_id}: {e}")
+            return Response(
+                data="Internal server error",
+                status=status.HTTP_500_INTERNAL_SERVER_ERROR,
+            )
 
     @extend_schema(tags=["rental"])
     def get(self, request):
-        user_id = self.request.user.id
+        user_id = request.user.id
+        key = f"user:{user_id}:cart"
+
         try:
-            data = redis_client.get(user_id)
-            if data is None or data == "":
+            data = redis_client.get(key)
+            if not data:
                 return Response([], status=status.HTTP_200_OK)
             return Response(json.loads(data), status=status.HTTP_200_OK)
         except Exception as e:
-            return Response(data=str(e), status=status.HTTP_400_BAD_REQUEST)
+            print.error(f"Redis get error for user {user_id}: {e}")
+            return Response(
+                data="Internal server error",
+                status=status.HTTP_500_INTERNAL_SERVER_ERROR,
+            )
