@@ -45,6 +45,8 @@ class UserRegisterSerializer(serializers.ModelSerializer):
 
         if "password" in validated_data:
             instance.set_password(validated_data["password"])
+            instance.save()
+            return instance
         return super().update(instance, validated_data)
 
 
@@ -75,8 +77,18 @@ class StaffRegisterSerializer(UserRegisterSerializer):
 class UserProfileSerializer(serializers.ModelSerializer):
     class Meta:
         model = get_user_model()
-        fields = ("username", "first_name", "last_name", "email", "role", "date_joined")
-        read_only_fields = ["date_joined", "email", "role"]
+        fields = (
+            "username",
+            "first_name",
+            "last_name",
+            "email",
+            "date_joined",
+            "password",
+        )
+        read_only_fields = ["date_joined", "email"]
+        extra_kwargs = {
+            "password": {"write_only": True},
+        }
 
     def create(self, validated_data):
         raise ValidationError("Create Operation isn't allowed!")
@@ -88,6 +100,9 @@ class UserProfileSerializer(serializers.ModelSerializer):
 
         if "password" in validated_data:
             instance.set_password(validated_data["password"])
+            instance.save()
+            return instance
+
         return super().update(instance, validated_data)
 
 
@@ -101,3 +116,13 @@ class UserLogoutResponseSerializer(serializers.Serializer):
 
 class UserStatusResponseSerializer(serializers.Serializer):
     authenticated = serializers.BooleanField()
+
+
+class UserPwdForgotSerializer(serializers.Serializer):
+    email = serializers.EmailField()
+
+
+class UserPwdResetSerializer(serializers.Serializer):
+    email = serializers.EmailField()
+    otp_code = serializers.CharField()
+    new_pwd = serializers.CharField()

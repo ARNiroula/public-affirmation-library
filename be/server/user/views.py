@@ -1,5 +1,7 @@
 from django.contrib.auth import get_user_model
 from django.http import Http404
+from django.core.mail import send_mail
+from django.conf import settings
 from rest_framework import viewsets, status
 from rest_framework.generics import CreateAPIView
 from rest_framework.permissions import IsAuthenticated, AllowAny
@@ -16,13 +18,17 @@ from .serializers import (
     UserLoginSerializer,
     UserLoginResponseSerializer,
     UserLogoutResponseSerializer,
+    UserPwdForgotSerializer,
     UserStatusResponseSerializer,
+    UserPwdResetSerializer,
 )
 from .permissions import (
     AdminPermissionMixin,
     CustomerPermissionMixin,
     IsNotAuthenticated,
 )
+from utils.redis import redis_client
+from utils.otp import create_otp
 
 
 # Create your views here.
@@ -90,10 +96,12 @@ class LoginView(APIView):
     responses={status.HTTP_200_OK: UserLogoutResponseSerializer},
 )
 class LogoutView(APIView):
-    permission_classes = [AllowAny]
+    authentication_classes = []
+    permission_classes = []
 
     def post(self, request: Request):
         refresh_token = request.COOKIES.get("refresh_token")
+        response = Response({"message": "Logged Out!"}, status=status.HTTP_200_OK)
         if refresh_token:
             try:
                 refresh = RefreshToken(refresh_token)
@@ -104,9 +112,13 @@ class LogoutView(APIView):
                     status=status.HTTP_400_BAD_REQUEST,
                 )
 
-            response = Response({"message": "Logged Out!"}, status=status.HTTP_200_OK)
             response.delete_cookie(key="access_token")
             response.delete_cookie(key="refresh_token")
+            if request.COOKIES.get("csrftoken"):
+                response.delete_cookie(key="csrftoken")
+            if request.COOKIES.get("sessionid"):
+                response.delete_cookie(key="sessionid")
+
         return response
 
 
@@ -181,6 +193,7 @@ class UserProfileView(
         if len(request.data) == 0:
             return Response("No Update Data", status=status.HTTP_304_NOT_MODIFIED)
 
+        # if request.data.get
         user = self.get_object()
 
         serializer = self.serializer_class(user, data=request.data, partial=True)
@@ -200,3 +213,96 @@ class UserStatusView(APIView):
 
     def get(self, request):
         return Response({"authenticated": True})
+
+
+@extend_schema(
+    tags=["user"],
+    responses={status.HTTP_200_OK: dict},
+)
+class ForgotPassword(APIView):
+    """
+    Route for User Forgot Password Sending
+    """
+
+    permission_classes = [AllowAny]
+    authentication_classes = []
+    serializer_class = UserPwdForgotSerializer
+
+    def post(self, request: Request):
+        otp_code = create_otp()
+        email = request.data.get("email")  # pyright: ignore
+
+        if not get_user_model().objects.filter(email=email).exists():
+            return Response(
+                {"message": "Invalid Email sent"},
+                status=status.HTTP_400_BAD_REQUEST,
+            )
+
+        redis_client.setex(
+            f"email:{email}",
+            60 * 10,
+            str(otp_code),
+        )  # It will expire in 10 minutes
+
+        send_mail(
+            subject="PAL Library OTP Code",
+            message=f"The OTP code is {otp_code}. It will expire in 10 minutes",
+            from_email=settings.EMAIL_HOST_USER,
+            recipient_list=[email],
+            fail_silently=False,
+        )
+        return Response({"message": "Email Sent!"}, status=status.HTTP_200_OK)
+
+
+@extend_schema(
+    tags=["user"],
+    responses={status.HTTP_200_OK: dict},
+)
+class ResetPassword(APIView):
+    """
+    Route for User Forgot Password Sending
+    """
+
+    permission_classes = [AllowAny]
+    authentication_classes = []
+    serializer_class = UserPwdResetSerializer
+
+    def patch(self, request: Request):
+        check_otp_code = request.data.get("otp_code")  # pyright: ignore
+        email = request.data.get("email")  # pyright: ignore
+
+        try:
+            user = get_user_model().objects.get(email=email)
+        except Exception:
+            return Response(
+                {"message": "Invalid Email sent"},
+                status=status.HTTP_400_BAD_REQUEST,
+            )
+
+        if user.role != "customer":
+            return Response(
+                {"message": "Invalid Email sent"},
+                status=status.HTTP_400_BAD_REQUEST,
+            )
+
+        key = f"email:{email}"
+        otp_code = redis_client.get(key)
+        if otp_code != check_otp_code:
+            return Response(
+                {"message": "Invalid Code"},
+                status=status.HTTP_401_UNAUTHORIZED,
+            )
+
+        new_pwd = request.data.get("new_pwd")  # pyright: ignore
+
+        serializer = UserProfileSerializer(
+            user,
+            data={"password": new_pwd},
+            partial=True,
+        )
+        if not serializer.is_valid():
+            return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+        serializer.save()
+        redis_client.delete(key)
+        return Response(data={"message": "Password Updated"}, status=status.HTTP_200_OK)
