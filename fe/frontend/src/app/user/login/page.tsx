@@ -3,15 +3,17 @@
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import toast from "react-hot-toast";
+import Link from 'next/link';
 
+import { useAuth } from '@/context/AuthContext';
 import { loginUser } from '@/app/utils/auth';
-import FormError from '@/components/formerror';
 
 const LoginPage: React.FC = () => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     // const [error, setError] = useState('');
     const router = useRouter();
+    const { setIsLoggedIn } = useAuth();
 
     const handleLogin = async (event: React.FormEvent) => {
         event.preventDefault();
@@ -20,9 +22,12 @@ const LoginPage: React.FC = () => {
         }
         try {
             await loginUser(username, password);
+            setIsLoggedIn(true);  // Set the login state to true immediately
+            toast.success(`Welcome: ${username}`)
             router.push("/home");
         } catch (e) {
             // setError(`Login User Failed => ${e}`);
+            console.log(e);
             toast.error(`Login Failed: Incorrect username or password`);
         }
     };
@@ -33,34 +38,13 @@ const LoginPage: React.FC = () => {
         alignItems: 'center',
         justifyContent: 'center',
         minHeight: '100vh',
-        backgroundColor: '#4b006e',
-    };
-
-    const headerStyles: React.CSSProperties = {
-        width: '100%',
-        padding: '10px 20px',
-        backgroundColor: '#007BFF',
-        color: 'white',
-        display: 'flex',
-        justifyContent: 'space-between',
-        alignItems: 'center',
-    };
-
-    const navStyles: React.CSSProperties = {
-        display: 'flex',
-        gap: '20px',
-    };
-
-    const linkStyles: React.CSSProperties = {
-        color: 'white',
-        textDecoration: 'none',
-        fontWeight: 'bold',
+        // backgroundColor: '#4b006e',
     };
 
     const formStyles: React.CSSProperties = {
         width: '300px',
         padding: '20px',
-        backgroundColor: '#000',
+        backgroundColor: '#0F172A',
         borderRadius: '5px',
         boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
     };
@@ -118,6 +102,29 @@ const LoginPage: React.FC = () => {
                 </div>
                 <button type="submit" style={buttonStyles}>Login</button>
             </form>
+
+            {/* Forgot Password Link */}
+            <div style={{
+                width: '300px',
+                padding: '20px',
+                backgroundColor: '#0F172A',
+                borderRadius: '5px',
+                boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
+            }}>
+                <Link
+                    href="/user/forgot-reset"
+                    style={{
+                        color: '#007BFF',
+                        textDecoration: 'none',
+                        fontSize: '14px',
+                        display: 'block',
+                        textAlign: 'center',
+                    }}
+                >
+                    Forgot Password?
+                </Link>
+            </div>
+
         </div>
     );
 };

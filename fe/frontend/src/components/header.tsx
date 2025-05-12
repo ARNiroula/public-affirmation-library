@@ -1,50 +1,34 @@
 'use client';
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { useRouter } from 'next/navigation';
-import axios from 'axios';
 import Link from 'next/link';
+import toast from "react-hot-toast";
 
+import { useAuth } from '@/context/AuthContext';
 import { logoutUser } from '@/app/utils/auth';
 
 const Header = () => {
-    const [isLoggedIn, setIsLoggedIn] = useState(false);
+    const { isLoggedIn, setIsLoggedIn } = useAuth();
     const [menuOpen, setMenuOpen] = useState(false);
     const router = useRouter();
 
-    useEffect(() => {
-        const checkUserStatus = async () => {
-            try {
-                const url_path = `${process.env.NEXT_PUBLIC_API_URL}/api/user/status`;
-                const response = await axios.get(
-                    url_path,
-                    { withCredentials: true },
-                );
-
-                setIsLoggedIn(response.data.authenticated);
-            }
-            catch (err) {
-                setIsLoggedIn(false);
-            }
-        };
-
-        checkUserStatus();
-    }, []);
+    // Update `isLoggedIn` state after login
+    const handleLogin = () => {
+        setMenuOpen(false);
+        router.push("/user/login");
+    };
 
     const handleLogout = async () => {
         setMenuOpen(false);
         try {
             await logoutUser();
-            setIsLoggedIn(false);
+            setIsLoggedIn(false);  // Immediately update the login state to reflect logout
+            toast.success("Logged Out!!")
+            router.refresh()
             router.push("/home");
-        }
-        catch (error) {
+        } catch (error) {
             console.log(error);
         }
-    };
-
-    const handleLogin = () => {
-        setMenuOpen(false);
-        router.push("/user/login");
     };
 
     const handleRegister = () => {
@@ -64,8 +48,8 @@ const Header = () => {
 
                 {/* Centered Navigation Links */}
                 <nav style={styles.nav}>
-                    <Link href="/rooms" style={styles.link}>Rooms</Link>
-                    <Link href="/booking" style={styles.link}>Booking</Link>
+                    <Link href="/room" style={styles.link}>Rooms</Link>
+                    <Link href="/events" style={styles.link}>Events</Link>
                     <Link href="/profile" style={styles.link}>Profile</Link>
                 </nav>
 
@@ -153,3 +137,4 @@ const styles: Record<string, React.CSSProperties> = {
 };
 
 export default Header;
+
