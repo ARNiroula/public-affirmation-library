@@ -95,7 +95,7 @@ class RentalCache(APIView):
             )
         except Exception as e:
             # Optional logging
-            print.error(f"Redis set error for user {user_id}: {e}")
+            print(f"Redis set error for user {user_id}: {e}")
             return Response(
                 data="Internal server error",
                 status=status.HTTP_500_INTERNAL_SERVER_ERROR,
@@ -112,7 +112,7 @@ class RentalCache(APIView):
                 return Response([], status=status.HTTP_200_OK)
             return Response(json.loads(data), status=status.HTTP_200_OK)
         except Exception as e:
-            print.error(f"Redis get error for user {user_id}: {e}")
+            print(f"Redis get error for user {user_id}: {e}")
             return Response(
                 data="Internal server error",
                 status=status.HTTP_500_INTERNAL_SERVER_ERROR,
