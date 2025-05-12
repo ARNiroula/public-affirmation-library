@@ -92,30 +92,42 @@ MIDDLEWARE = [
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
     # Debugger MIDDLEWARE
-    "debug_toolbar.middleware.DebugToolbarMiddleware",
+    # "debug_toolbar.middleware.DebugToolbarMiddleware",
 ]
 
 # Debugger IP
-INTERNAL_IPS = [
-    "127.0.0.1",
-    "localhost",
-]
+# INTERNAL_IPS = [
+#     "127.0.0.1",
+#     "localhost",
+# ]
+#
+# LOGGING = {
+#     "version": 1,
+#     "handlers": {
+#         "console": {
+#             "class": "logging.StreamHandler",
+#         },
+#     },
+#     "loggers": {
+#         "django.db.backends": {
+#             "level": "DEBUG",
+#             "handlers": ["console"],
+#         },
+#     },
+# }
+#
 
-LOGGING = {
-    "version": 1,
-    "handlers": {
-        "console": {
-            "class": "logging.StreamHandler",
-        },
-    },
-    "loggers": {
-        "django.db.backends": {
-            "level": "DEBUG",
-            "handlers": ["console"],
-        },
-    },
-}
+# Email Settings
+EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
+EMAIL_HOST = "smtp.gmail.com"  # Replace with your SMTP host
+EMAIL_HOST_USER = os.environ.get("EMAIL_USER")  # Your email address
+EMAIL_HOST_PASSWORD = os.environ.get("EMAIL_PWD")  # Your email password
+EMAIL_PORT = 587  # SMTP port
+EMAIL_USE_SSL = False  # Use SSL for secure connection
+EMAIL_USE_TLS = True
 
+# Extra Credentials
+OTP_CRED = os.environ.get("OTP_CRED")
 
 # Rest Framework Config
 REST_FRAMEWORK = {
