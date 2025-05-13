@@ -25,6 +25,7 @@ class ExhibitionAdmin(admin.ModelAdmin):
     readonly_fields = [
         "image_preview",
         "total_signed",
+        "image_url",
     ]
     list_filter = (
         "start_date_time",
