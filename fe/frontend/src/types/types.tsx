@@ -19,3 +19,12 @@ export interface Book {
     cover_url: string;
 }
 
+export interface Event {
+    event_id: number;
+    total_registered: number;
+    event_name: string;
+    start_date_time: string;
+    end_date_time: string;
+    image_url: string;
+    event_topic: string;
+}
