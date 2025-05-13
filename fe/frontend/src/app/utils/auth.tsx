@@ -1,4 +1,5 @@
 import axios from "axios"
+import api from "@/custom_lib/axios";
 
 function getCSRFToken(): string | null {
     const matches = document.cookie.match(/csrftoken=([^;]+)/);
@@ -99,3 +100,15 @@ export const refreshUser = async () => {
         throw new Error(`Refreshing Token Failed Failed => ${e}`)
     }
 }
+
+
+export async function getUserProfile() {
+    const res = await api.get('/user/profile');
+    return res.data;
+}
+
+export async function updateUserProfile(data: any) {
+    const res = await api.patch('/user/profile', data);
+    return res.data;
+}
+

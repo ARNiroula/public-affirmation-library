@@ -18,6 +18,11 @@ const Header = () => {
         router.push("/user/login");
     };
 
+    const handleProfie = () => {
+        setMenuOpen(false);
+        router.push("/user/profile");
+    };
+
     const handleLogout = async () => {
         setMenuOpen(false);
         try {
@@ -48,9 +53,9 @@ const Header = () => {
 
                 {/* Centered Navigation Links */}
                 <nav style={styles.nav}>
+                    <Link href="/book" style={styles.link}>Books</Link>
                     <Link href="/room" style={styles.link}>Rooms</Link>
                     <Link href="/events" style={styles.link}>Events</Link>
-                    <Link href="/profile" style={styles.link}>Profile</Link>
                 </nav>
 
                 {/* Hamburger Menu */}
@@ -67,12 +72,20 @@ const Header = () => {
                     {menuOpen && (
                         <div className="absolute right-0 mt-2 w-40 bg-white border rounded shadow-lg z-10">
                             {isLoggedIn ? (
-                                <button
-                                    onClick={handleLogout}
-                                    className="block w-full text-left px-4 py-2 text-red-600 hover:bg-gray-100"
-                                >
-                                    Logout
-                                </button>
+                                <>
+                                    <button
+                                        onClick={handleProfie}
+                                        className="block w-full text-left px-4 py-2 text-slate-600 hover:bg-gray-100"
+                                    >
+                                        Profile
+                                    </button>
+                                    <button
+                                        onClick={handleLogout}
+                                        className="block w-full text-left px-4 py-2 text-red-600 hover:bg-gray-100"
+                                    >
+                                        Logout
+                                    </button>
+                                </>
                             ) : (
                                 <>
                                     <button
