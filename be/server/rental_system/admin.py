@@ -36,31 +36,14 @@ class IsLateFilter(admin.SimpleListFilter):
         today = datetime.date.today()
         if self.value() == "True":
             return queryset.filter(
-                Q(actual_date__isnull=False, actual_date__gt=F("expected_date"))
+                Q(actual_date__isnull=False, expected_date__lt=F("actual_date"))
                 | Q(expected_date__lt=today)
             )
         if self.value() == "False":
             return queryset.filter(
-                Q(actual_date__isnull=False, actual_date__lte=F("expected_date"))
+                Q(actual_date__isnull=False, expected_date__gte=F("expected_date"))
                 | Q(expected_date__gte=today)
             )  # On time if today is before or same as the expected date
-
-        # if self.value() is not None:
-        #     is_late = self.value() == "True"
-        #     if is_late:
-        #         print("SDKFJSD")
-        #         return queryset.filter(
-        #             Q(actual_date__isnull=False, actual_date__gt=F("expected_date"))
-        #             | Q(expected_date__lt=today)
-        #         )  # Consider the item late if today is after the expected date
-        #     else:
-        #         print("WEROIWEJR")
-        #         return queryset.filter(
-        #             Q(actual_date__isnull=False, actual_date__lte=F("expected_date"))
-        #             | Q(expected_date__gte=today)
-        #         )  # On time if today is before or same as the expected date
-        # return queryset
-        #
 
 
 @admin.register(Rental)
