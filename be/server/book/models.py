@@ -13,9 +13,10 @@ class Book(models.Model):
         max_length=50,
         choices=Topic,
         default=Topic.FICTION,
+        db_index=True,
     )
 
-    topic_bitmap = models.BigIntegerField(default=0)
+    topic_bitmap = models.BigIntegerField(default=0)  # pyright: ignore
 
     summary = models.CharField(max_length=50, default="Lorem Ipsum")
     pub_date = models.DateField(null=True, blank=True)

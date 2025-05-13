@@ -116,6 +116,7 @@ class BookAdmin(admin.ModelAdmin):
         "cover_url",
         "image_preview",
         "total_copies",
+        "authors",
     ]
     fields = [
         "isbn",
@@ -129,13 +130,34 @@ class BookAdmin(admin.ModelAdmin):
         "number_of_copies",
         "total_copies",
     ]
+    list_display = (
+        "name",
+        "isbn",
+        "topic",
+        "pub_date",
+        "authors",
+    )
 
     inlines = [AuthorBookInLine]
-    filter_tags = ("author",)
+    search_fields = (
+        "author__fname",
+        "author__mname",
+        "author__lname",
+        "isbn",
+    )
+    list_filter = (
+        "pub_date",
+        "topic",
+    )
 
     def get_queryset(self, request):
         qs = super().get_queryset(request)
         return qs.prefetch_related("author", "copies")
+
+    def authors(self, obj):
+        return ", ".join([str(a) for a in obj.author.all()])
+
+    authors.short_description = "Authors"  # pyright: ignore
 
     def image_preview(self, obj):
         if obj.cover_url:
