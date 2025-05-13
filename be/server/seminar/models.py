@@ -2,15 +2,21 @@ from django.db import models
 
 from event.models import Event
 
-class Seminar(models.Model):
-    event = models.ForeignKey(Event, on_delete=models.CASCADE, related_name='seminars')
+
+class Seminar(Event):
     keynote_speaker = models.CharField(max_length=100)
     seminar_type = models.CharField(max_length=50)
+    sponser = models.ManyToManyField(
+        "sponser.Sponser",
+        through="sponser.SponserSeminarRelationship",
+        related_name="seminar",
+    )
 
-    class Meta:
+    class Meta:  # pyright: ignore
         db_table = "AYT_SEMINAR"
 
     def __str__(self):
-        return self.seminar_name
+        return str(self.event_name)
+
 
 # Create your models here.
