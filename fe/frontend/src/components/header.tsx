@@ -55,7 +55,7 @@ const Header = () => {
                 <nav style={styles.nav}>
                     <Link href="/book" style={styles.link}>Books</Link>
                     <Link href="/room" style={styles.link}>Rooms</Link>
-                    <Link href="/events" style={styles.link}>Events</Link>
+                    <Link href="/event" style={styles.link}>Events</Link>
                 </nav>
 
                 {/* Hamburger Menu */}
