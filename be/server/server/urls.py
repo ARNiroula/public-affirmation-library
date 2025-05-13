@@ -27,7 +27,7 @@ from drf_spectacular.views import (
     SpectacularRedocView,
     SpectacularSwaggerView,
 )
-from debug_toolbar.toolbar import debug_toolbar_urls
+# from debug_toolbar.toolbar import debug_toolbar_urls
 
 api_patterns = [
     # OpenAPI Routes
@@ -45,10 +45,12 @@ api_patterns = [
     path("", include("room.urls")),
     path("", include("book.urls")),
     path("", include("rental_system.urls")),
+    path("", include("exhibition.urls")),
 ]
 
 
 urlpatterns = [
     path("admin/", admin.site.urls),
     path("api/", include(api_patterns)),
-] + debug_toolbar_urls()
+]
+# + debug_toolbar_urls()
