@@ -23,9 +23,11 @@ class Topic(models.TextChoices):
     COMICS = "COM", "Comics"
     CHILDREN = "CHD", "Children"
 
+    @classmethod
     def bit_position(cls, code: str) -> int:
         topic_codes = [t.value for t in cls]
         return topic_codes.index(code)
+
 
 class EventTopic(models.TextChoices):
     LITERATURE = "LIT", "Literature & Author Talks"
