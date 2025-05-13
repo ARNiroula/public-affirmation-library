@@ -13,11 +13,11 @@ export default function BookModal({ book, onClose }: { book: Book; onClose: () =
         }
         document.addEventListener('mousedown', handleClickOutside);
         return () => document.removeEventListener('mousedown', handleClickOutside);
-    }, [ref]);
+    }, [ref, onClose]);
 
     return (
         <div className="fixed inset-0 bg-#D2B48C backdrop-blur-sm flex items-center justify-center z-50">
-            <div ref={ref} className="bg-purple-900 bg-opacity-1 p-6 rounded-lg shadow-xl w-96 relative">
+            <div ref={ref} className="bg-slate-700 bg-opacity-1 p-6 rounded-lg shadow-xl w-96 relative">
                 <button onClick={onClose} className="absolute top-2 right-3 text-2xl font-bold text-gray-500 hover:text-black">&times;</button>
                 <h2 className="text-xl font-bold mb-2">{book.name}</h2>
                 <Image
