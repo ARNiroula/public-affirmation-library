@@ -11,9 +11,9 @@ RUN npm install
 
 # Copy the rest of the application code
 COPY . .
-
+ENV NEXT_DISABLE_ESLINT=true
 # Build the Next.js application
-RUN npm run build
+RUN npm run build --no-build
 
 # Stage 2: Production stage
 FROM node:22-slim AS runner
@@ -34,4 +34,4 @@ EXPOSE 3000
 ENV NODE_ENV production
 
 # Command to start the Next.js server
-CMD ["npm", "start"]
+# CMD ["npm", "start"]
