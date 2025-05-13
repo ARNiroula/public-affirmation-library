@@ -1,11 +1,12 @@
+'use client';
 import Card from '@/components/Card';
 import CardContent from '@/components/CardContent';
-import CardMedia from '@/components/CardMedia';
+// import CardMedia from '@/components/CardMedia';
 import Typography from '@/components/Typography';
 import CardActionArea from '@/components/CardActionArea';
 import { useRouter } from 'next/router';
 import React, { useEffect, useState } from 'react';
-import axios from 'axios';
+import api from '@/custom_lib/axios'
 
 const DashboardPage: React.FC = () => {
     const router = useRouter();
@@ -16,27 +17,27 @@ const DashboardPage: React.FC = () => {
 
     useEffect(() => {
         // Fetch data for books rented
-        axios.get('/api/user/books')
+        api.get(`/user/books`)
             .then(response => setBooks(response.data))
             .catch(error => console.error(error));
 
         // Fetch data for events
-        axios.get('/api/user/events')
+        api.get(`/user/events`)
             .then(response => setEvents(response.data))
             .catch(error => console.error(error));
 
         // Fetch data for rooms booked
-        axios.get('/api/user/rooms')
+        api.get(`/user/rooms`)
             .then(response => setRooms(response.data))
             .catch(error => console.error(error));
     }, []);
 
     const goToRoomsPage = () => {
-        router.push('/rooms');
+        router.push('/room');
     };
 
     const goToBooksPage = () => {
-        router.push('/books');
+        router.push('/book');
     };
 
     return (
