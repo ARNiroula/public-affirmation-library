@@ -25,7 +25,7 @@ export default function BooksPage() {
     if (isLoading) return <div className="text-center mt-10">Loading...</div>;
     if (error) return <div className="text-center mt-10 text-red-500">Failed to load books.</div>;
 
-    const isInCart = (bookId: number) => cart.some(b => b.book_id === bookId);
+    // const isInCart = (bookId: number) => cart.some(b => b.book_id === bookId);
 
     return (
         <div className="relative p-6">
